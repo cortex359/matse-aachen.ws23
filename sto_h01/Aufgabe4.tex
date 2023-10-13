@@ -3,7 +3,53 @@
 \begin{document}
 
 \section{Aufgabe 4}
+Zehn Wagen parken zufällig in vier großen Parkbereichen, d.h. jeder Fahrer wählt unabhängig von den anderen rein zufällig einen Parkbereich aus. Wie groß ist die Wahrscheinlichkeit dafür, dass
+\begin{enumerate}
+    \item in dem ersten Parkbereich keine Wagen abgestellt werden?
+    \item in den ersten beiden Parkbereichen jeweils 2 und in den anderen beiden jeweils 3 Wagen abgestellt werden?
+    \item mindestens 2 Wagen in jedem Parkbereich abgestellt werden?
+\end{enumerate}
 
 \subsection{Lösung 4}
+Unter der Annahme, dass jeder Parkbereich beliebig viele Wagen aufnehmen kann, wählen wir $k=10$ Parkpositionen aus $n=4$ Bereichen und erhalten
+$$
+    \text{Kom}^{n=4}_{k=10}(\text{mW})
+    = \binom{n+k-1}{k}
+    = \frac{13!}{3!\cdot 10!}
+    = 286
+$$
+Kombinationsmöglichkeiten.
+
+Davon kommen
+$$
+    \text{Kom}^{3}_{10}(\text{mW})
+    = \frac{12!}{2!\cdot 10!}
+    = 66
+$$
+Kombinationen nur mir drei der vier Parkbereiche aus. Man könnte nun annehmen, dass die Wahrscheinlichkeit dafür, dass auf einem Parkbereich keine Wagen abgestellt werden sich nun aus $\sfrac{66}{286}$ ergibt, jedoch ist das Eintreten jeder dieser Konfigurationen nicht mehr gleich wahrscheinlich!
+
+Bspw. ist die Konfiguration $(10, 0, 0, 0)$ (alle Autos stehen in Parkbereich 1) nur durch eine einzige Abfolge von Parkereignissen zu erzielen, während es die Konfiguration $(2, 2, 3, 3)$ durch 25.200 verschiedene Abfolgen erzielt werden kann.
+
+Wir müssen also mit
+$$
+    \text{Per}^{4}_{10}(\text{mW})
+    = 4^{10}
+$$
+möglichen Konfigurationen rechnen, von denen $\text{Per}^{3}_{10}(\text{mW}) = 3^{10}$ einen bestimmten Parkplatz freilassen. Die Wahrscheinlichkeit dafür, dass in dem ersten Parkbereich keine Wagen abgestellt werden ist also
+$$
+    P_a = \frac{\text{Per}^{3}_{10}(\text{mW})}{\text{Per}^{4}_{10}(\text{mW})} = \left(\frac{3}{4}\right)^{10} \approx 5,63\%.
+$$
+
+Die Wahrscheinlichkeit dafür, dass in den ersten beiden Parkbereichen jeweils 2 und in den anderen beiden jeweils 3 Wagen abgestellt werden beträgt $$
+    P_b = \frac{25.200}{1.048.576} \approx 2,4\%.
+$$
+
+Und die Wahrscheinlichkeit dafür, dass mindestens 2 Wagen in jedem Parkbereich abgestellt werden beträgt $$
+    P_c = \frac{226.800}{1.048.576} \approx 21,63\%.
+$$
+
+% Die Kombination $(2, 2, 3, 3)$ ist eine spezifische, aus den $286$ möglichen Kombinationen, somit ist $P_b=\sfrac{1}{286}\approx 0,35\%$.
+%
+% Wenn in jedem Parkbereich mindestens zwei Wagen abgestellt werden, dann müssen entweder auf einem Parkbereich vier, oder auf zwei Parkbereichen drei Wagen parken. Das sind $\text{Kom}^4_1(\text{oW}) = 4$ respektive $\text{Kom}^4_2(\text{oW}) = 6$ Möglichkeiten. Die Eintrittswahrscheinlichkeit dafür beträgt somit $P_c = \sfrac{10}{286} = \sfrac{5}{143} \approx 3,5\%$.
 
 \end{document}

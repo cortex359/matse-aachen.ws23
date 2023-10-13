@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Aufgabe 1}
-Ein Einzelhändler hat drei DVD-Player einer bestimmten Marke geliefert bekommen und überprüft deren Funktionalität, bevor er sie an seine Kunden weitergibt. Es bezeichne nun $A_i (i = 1, 2, 3)$ das Ereignis, dass beim $i$-ten DVD-Player ein Defekt festgestellt wird. Beschreiben Sie mit Hilfe von $A_1$, $A_2$, $A_3$ und den passenden Mengenoperationen die folgenden Ereignisse
+Ein Einzelhändler hat drei DVD-Player einer bestimmten Marke geliefert bekommen und überprüft deren Funktionalität, bevor er sie an seine Kunden weitergibt. Es bezeichne nun $A_i (i = 1, 2, 3)$ das Ereignis, dass beim $i$-ten DVD-Player ein Defekt festgestellt wird. Beschreiben Sie mit Hilfe von $A_1$, $A_2$, $A_3$ und den passenden Mengenoperationen die folgenden Ereignisse.
 \begin{enumerate}
     \item alle DVD-Player sind defekt,
     \item mindestens ein DVD-Player ist defekt,
@@ -13,7 +13,30 @@ Ein Einzelhändler hat drei DVD-Player einer bestimmten Marke geliefert bekommen
     \item genau zwei DVD-Player sind defekt.
 \end{enumerate}
 
-
 \subsection{Lösung 1}
+\begin{enumerate}
+    \item alle DVD-Player sind defekt $$
+        A_1 \cap A_2 \cap A_3
+    $$
+    \item mindestens ein DVD-Player ist defekt $$
+        A_1 \cup A_2 \cup A_3
+    $$
+    \item höchstens ein DVD-Player ist defekt $$
+        \complement ((A_1 \cap A_2) \cup (A_1 \cap A_3) \cup (A_2 \cap A_3))
+    $$
+    \item alle DVD-Player sind intakt $$
+        \complement (A_1 \cup A_2 \cup A_3)
+    $$
+    \item der erste DVD-Player ist defekt und von den beiden anderen Geräten hat höchstens eines einen Fehler $$
+        A_1 \setminus (A_1\cap A_2 \cap A_3)
+    $$
+    \item genau zwei DVD-Player sind defekt $$
+        \left(
+        (A_1 \cap A_2) \cup (A_2 \cap A_3) \cup (A_1 \cap A_3)
+        \right) \setminus (A_1 \cap A_2 \cap A_3)
+    $$
+\end{enumerate}
+
+
 
 \end{document}

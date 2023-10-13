@@ -7,13 +7,35 @@ Bei einer Pressekonferenz sollen auf 20 Plätze 10 Broschüren verteilt werden. 
 
 \begin{enumerate}
     \item es die gleichen Broschüren sind
-    \subitem und auf jedem Platz höchstens eine liegen soll?
-    \subitem  und auf jedem Platz beliebig viele Broschüren liegen dürfen?
+    \begin{enumerate}
+        \item und auf jedem Platz höchstens eine liegen soll?
+        \item und auf jedem Platz beliebig viele Broschüren liegen dürfen?
+    \end{enumerate}
     \item die Broschüren unterschiedlich sind
-    \subitem  und auf jedem Platz höchstens eine liegen soll?
-    \subitem  und auf jedem Platz beliebig viele Broschüren liegen dürfen?
+    \begin{enumerate}
+        \item und auf jedem Platz höchstens eine liegen soll?
+        \item und auf jedem Platz beliebig viele Broschüren liegen dürfen?
+    \end{enumerate}
 \end{enumerate}
 
 \subsection{Lösung 3}
+Die Anzahl der Möglichkeiten $k=10$ Broschüren auf $n=20$ Plätzen zu verteilen beträgt, wenn
+
+\begin{enumerate}
+    \item es die gleichen Broschüren sind \textit{(Kombination)}
+    \begin{enumerate}
+        \item und auf jedem Platz höchstens eine liegen soll \textit{(ohne Wiederholung)}
+        $$ \text{Kom}^n_k(\text{oW}) = \binom{n}{k} = \frac{20!}{10!\cdot 10!} = 184.756. $$
+        \item und auf jedem Platz beliebig viele Broschüren liegen dürfen \textit{(mit Wiederholung)}
+        $$ \text{Kom}^n_k(\text{mW}) = \binom{n+k-1}{k} = \frac{29!}{19!\cdot 10!} = 20.030.010. $$
+    \end{enumerate}
+    \item die Broschüren unterschiedlich sind \textit{(Permutationen)}
+    \begin{enumerate}
+        \item und auf jedem Platz höchstens eine liegen soll \textit{(ohne Wiederholung)}
+        $$ \text{Per}^n_k(\text{oW}) = \frac{n!}{(n-k)!} = \frac{20!}{10!} = 670.442.572.800. $$
+        \item und auf jedem Platz beliebig viele Broschüren liegen dürfen \textit{(mit Wiederholung)}
+        $$ \text{Per}^n_k(\text{mW}) = n^k = 20^{10} = 1024\cdot 10^{10}. $$
+    \end{enumerate}
+\end{enumerate}
 
 \end{document}
