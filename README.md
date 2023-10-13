@@ -18,13 +18,15 @@ Aachen, im [IT Center](https://www.itc.rwth-aachen.de/cms/IT-Center/Lehre-Ausbil
 
 ## Hausaufgaben in den Modulen
 
-| Semester  | Kürzel | Modul                     | Dozent                        |
-| --------- | ------ | ------------------------- | ----------------------------- |
-| WiSe 2023 | mgl    | Mathematische Grundlagen  | Herrn Thomas Schmidt          |
-| WiSe 2023 | sto    | Stochastik                | Prof:in Dr. Melanie Hollstein |
+| Semester  | Kürzel | Modul                     | Dozent                           |
+| --------- | ------ | ------------------------- | -------------------------------- |
+| WiSe 2023 | sto    | Stochastik                | Prof:in Dr. Melanie Hollstein    |
+| WiSe 2023 | swt    | Softwaretechnik           | Prof. Dr. Philipp Rohde          |
+| WiSe 2023 | db     | Datenbanken               | Prof. Dr. rer. nat. Alexander Voß |
 
 ## Abgaberichtlinien
 
 Die hochgeladenen Dateien müssen dieser Namenskonvention genügen:
 
     sto_thelen_christianrene_h0x.pdf
+    swt_10_h0x.pdf
