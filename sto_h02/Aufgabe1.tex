@@ -1,0 +1,48 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Für die Ereignisse $A$, $B$ und $C$ aus einem Ereignissystem gilt
+$$
+P(A) = 0,5 \qquad
+P(B) = 0,2 \qquad
+P(C) = 0,3
+$$
+$$
+P(A\cap B\cap C) = 0,02 \qquad
+P(A\cup B) = 0,6 \qquad
+P(A\cup C) = 0,6 \qquad
+P(B\cap C) = 0,1
+$$
+
+Berechnen Sie die Wahrscheinlichkeiten für:
+\begin{enumerate}
+    \item $P(B\cup C)$
+    \item $P(A\cap C)$
+    \item $P(A\cap B)$
+    \item $P(A\cup B \cup C)$
+\end{enumerate}
+
+\subsection{Lösung 1}
+Die Wahrscheinlichkeiten für die gegebenen Ereignismengen aus dem Ereignissystem sind:
+\begin{enumerate}
+    \item $$
+        P_a(B\cup C) = P(B) + P(C) - P(B\cap C) = 0,2 + 0,3 - 0,1 = 0,4
+    $$
+    \item $$
+        P_b(A\cap C) = P(A) + P(C) - P(A\cup C) = 0,5 + 0,3 - 0,6 = 0,2
+    $$
+    \item $$
+        P_c(A\cap B) = P(A) + P(B) - P(A\cup B) = 0,5 + 0,2 - 0,6 = 0,1
+    $$
+    \item $$\begin{aligned}
+        P_d(A\cup B \cup C) &= 
+        P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) \\
+        &\quad + P(A\cap B\cap C) \\
+        &= 0,5 + 0,2 + 0,3 - 0,1 - 0,2 - 0,1 + 0,02 \\
+        &= 0,62
+    \end{aligned}$$
+\end{enumerate}
+
+\end{document}
