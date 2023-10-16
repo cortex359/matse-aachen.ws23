@@ -464,7 +464,7 @@ right=25mm
 \newcommand{\hausaufgabe}[3]{
   \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
   \fancyhead[C]{\textbf{Hausaufgaben}\\\textbf{Blatt #1}}
-  \fancyhead[R]{Ausgabe: #2\\Abgabe: #3}
+  \fancyhead[R]{Gruppe: 10\\Abgabe: #3}
 
   \hypersetup{
     pdfprintscaling=,        % siehe https://komascript.de/node/1897
@@ -521,7 +521,9 @@ right=25mm
 \fancyfoot[L]{{\small \@date}}
 \makeatother
 \fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
-\fancyfoot[R]{{\small \href{mailto://christian.thelen@rwth-aachen.de}{Christian Rene Thelen}}}
+\fancyfoot[R]{{\small 
+
+\href{mailto://christian.thelen@rwth-aachen.de}{Christian Rene Thelen}}}
 
 \begin{document}
 
@@ -531,8 +533,5 @@ right=25mm
 \subfile{Aufgabe4.tex}
 \subfile{Aufgabe5.tex}
 \subfile{Aufgabe6.tex}
-% \subfile{Aufgabe7.tex}
-% \subfile{Aufgabe8.tex}
-% \subfile{Aufgabe9.tex}
 
 \end{document}

@@ -2265,7 +2265,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 </Diagram>
 <ActorItem id="2fba5ac6-6bee-11ee-82f8-3d95a08a0841">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 195.79073333740234, 239.13678741455078)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 188.49987030029297, 238.06460571289062)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -2423,7 +2423,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 </UseCase>
 <UseCaseItem id="90534fa0-6bef-11ee-894a-3d95a08a0841">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 149.59246826171875, 95.53923416137695)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 149.59246826171875, 93.39487075805664)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -2504,7 +2504,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 </UseCase>
 <UseCaseItem id="592a25ab-6bfe-11ee-a883-3d95a08a0841">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 496.20662517718915, 298.6968567385931)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 492.52791423968915, 305.9321495577571)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -2542,7 +2542,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <val>(1.0, 0.0, 0.0, 1.0, 719.8601285951579, 461.2238422656936)</val>
 </matrix>
 <points>
-<val>[(102.37947060815918, -163.15923655280295), (102.885986328125, -23.712887168946168)]</val>
+<val>[(102.37947060815918, -163.15923655280295), (99.207275390625, -16.47759434978218)]</val>
 </points>
 <head-connection>
 <ref refid="98590d29-6bef-11ee-972b-3d95a08a0841"/>
@@ -2584,10 +2584,10 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <ref refid="8a2c22ec-6bfe-11ee-8d84-3d95a08a0841"/>
 </tail_subject>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1147.4717618959392, 285.52229655036155)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 1147.4717618959392, 282.3057514453811)</val>
 </matrix>
 <points>
-<val>[(-28.67671032123212, -12.222846842550894), (-237.8853971498454, -16.385509135810764)]</val>
+<val>[(-28.67671032123212, -9.006301737570425), (-237.8853971498454, -13.168964030830296)]</val>
 </points>
 <head-connection>
 <ref refid="9c298248-6bee-11ee-b8d0-3d95a08a0841"/>
@@ -2660,7 +2660,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <val>(1.0, 0.0, 0.0, 1.0, 1137.6671964662517, 459.9748188281936)</val>
 </matrix>
 <points>
-<val>[(-18.87214489154462, 7.504400072230439), (-211.58148193359375, 6.93604095187726)]</val>
+<val>[(-18.87214489154462, 7.504400072230439), (-215.26019287109375, 14.171333771041247)]</val>
 </points>
 <head-connection>
 <ref refid="ad1ed61c-6bee-11ee-b2c4-3d95a08a0841"/>
@@ -2772,7 +2772,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <val>(1.0, 0.0, 0.0, 1.0, 213.04871196918134, 260.7689167285842)</val>
 </matrix>
 <points>
-<val>[(20.742021368221003, -13.222319324971693), (245.69152240581866, -14.294501026631877)]</val>
+<val>[(13.451158331111628, -14.294501026631849), (245.69152240581866, -16.43886442995219)]</val>
 </points>
 <head-connection>
 <ref refid="2fba5ac6-6bee-11ee-82f8-3d95a08a0841"/>
@@ -2810,17 +2810,35 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <type>
 <ref refid="34aa1e32-71b2-11ec-a409-f47b099bf663"/>
 </type>
+<upperValue>
+<val>1</val>
+</upperValue>
+<upperValue>
+<val>1</val>
+</upperValue>
 </Property>
 <Property id="de4400aa-6bfe-11ee-bce5-3d95a08a0841">
 <association>
 <ref refid="de43a163-6bfe-11ee-9d81-3d95a08a0841"/>
 </association>
+<lowerValue>
+<val>1</val>
+</lowerValue>
+<lowerValue>
+<val>1</val>
+</lowerValue>
 <owningAssociation>
 <ref refid="de43a163-6bfe-11ee-9d81-3d95a08a0841"/>
 </owningAssociation>
 <type>
 <ref refid="9052e52c-6bef-11ee-9ce6-3d95a08a0841"/>
 </type>
+<upperValue>
+<val>*</val>
+</upperValue>
+<upperValue>
+<val>*</val>
+</upperValue>
 </Property>
 <AssociationItem id="0e1db99d-6bff-11ee-a7e1-3d95a08a0841">
 <diagram>
@@ -2845,7 +2863,7 @@ bestehenden Klassen oder sogar neue Klassen mit spezifischen Verantwortlichkeite
 <val>(1.0, 0.0, 0.0, 1.0, 542.3603117006267, 264.9533649707717)</val>
 </matrix>
 <points>
-<val>[(58.27482013531085, -8.263531899168242), (245.5475862485921, -11.343645332600545)]</val>
+<val>[(58.27482013531085, -10.407895302488555), (245.5475862485921, -11.343645332600545)]</val>
 </points>
 <head-connection>
 <ref refid="90534fa0-6bef-11ee-894a-3d95a08a0841"/>
