@@ -11,41 +11,108 @@ Zehn Wagen parken zufällig in vier großen Parkbereichen, d.h. jeder Fahrer wä
 \end{enumerate}
 
 \subsection{Lösung 4}
-Unter der Annahme, dass jeder Parkbereich beliebig viele Wagen aufnehmen kann, wählen wir $k=10$ Parkpositionen aus $n=4$ Bereichen und erhalten
-$$
-    \text{Kom}^{n=4}_{k=10}(\text{mW})
-    = \binom{n+k-1}{k}
-    = \frac{13!}{3!\cdot 10!}
-    = 286
-$$
-Kombinationsmöglichkeiten.
+Unter der Annahme, dass jeder Parkbereich bis zu 10 Wagen aufnehmen kann, wählen wir $k=10$ Parkpositionen aus $n=4$ Bereichen.
 
-Davon kommen
-$$
-    \text{Kom}^{3}_{10}(\text{mW})
-    = \frac{12!}{2!\cdot 10!}
-    = 66
-$$
-Kombinationen nur mir drei der vier Parkbereiche aus. Man könnte nun annehmen, dass die Wahrscheinlichkeit dafür, dass auf einem Parkbereich keine Wagen abgestellt werden sich nun aus $\sfrac{66}{286}$ ergibt, jedoch ist das Eintreten jeder dieser Konfigurationen nicht mehr gleich wahrscheinlich!
+% $$
+%     \text{Kom}^{n=4}_{k=10}(\text{mW})
+%     = \binom{n+k-1}{k}
+%     = \frac{13!}{3!\cdot 10!}
+%     = 286
+% $$
+% Kombinationsmöglichkeiten.
+%
+% Davon kommen
+% $$
+%     \text{Kom}^{3}_{10}(\text{mW})
+%     = \frac{12!}{2!\cdot 10!}
+%     = 66
+% $$
+% Kombinationen nur mir drei der vier Parkbereiche aus. Man könnte nun annehmen, dass die Wahrscheinlichkeit dafür, dass auf einem Parkbereich keine Wagen abgestellt werden sich nun aus $\sfrac{66}{286}$ ergibt, jedoch ist das Eintreten jeder dieser Konfigurationen nicht mehr gleich wahrscheinlich!
 
-Bspw. ist die Konfiguration $(10, 0, 0, 0)$ (alle Autos stehen in Parkbereich 1) nur durch eine einzige Abfolge von Parkereignissen zu erzielen, während es die Konfiguration $(2, 2, 3, 3)$ durch 25.200 verschiedene Abfolgen erzielt werden kann.
+%Bspw. ist die Konfiguration $(10, 0, 0, 0)$ (alle Autos stehen in Parkbereich 1) nur durch eine einzige Abfolge von Parkereignissen zu erzielen, während es die Konfiguration $(2, 2, 3, 3)$ durch 25.200 verschiedene Abfolgen erzielt werden kann.
 
-Wir müssen also mit
+Wir untersuchen also 10-Tupel der Form
 $$
-    \text{Per}^{4}_{10}(\text{mW})
-    = 4^{10}
+    (x_1, \ldots, x_{10}) \in \text{Per}^{4}_{10}(\text{mW})
+    \qquad \text{mit} \quad
+    x_i \in \{ 1, \ldots, 4 \}
 $$
-möglichen Konfigurationen rechnen, von denen $\text{Per}^{3}_{10}(\text{mW}) = 3^{10}$ einen bestimmten Parkplatz freilassen. Die Wahrscheinlichkeit dafür, dass in dem ersten Parkbereich keine Wagen abgestellt werden ist also
+also 10-Tupel aus dem Ergebnisraum $\Omega = \set*{(x_1, \ldots, x_{10}) \middle| 1\leq x_i \leq 4}$, welcher die Mächtigkeit $\abs*{\Omega} = 4^{10}$ hat.
+
+\subsubsection{Lösung 4a}
+Das Ereignis $A= \complement \set*{ \text{Wagen im ersten Parkbereich}} = \text{Per}^{3}_{10}(\text{mW})$ und hat die Mächtigkeit $\abs*{A} =\abs*{\text{Per}^{3}_{10}(\text{mW})} = 3^{10}$.
+
+Nach Laplace beträgt also die Wahrscheinlichkeit dafür dass ein Parkplatz freigelassen wird
 $$
-    P_a = \frac{\text{Per}^{3}_{10}(\text{mW})}{\text{Per}^{4}_{10}(\text{mW})} = \frac{3^{10}}{4^{10}} = \left(\frac{3}{4}\right)^{10} \approx 5,63\%.
+    P(A) = \frac{\abs*{A}}{\abs*{\Omega}} = \frac{\text{Per}^{3}_{10}(\text{mW})}{\text{Per}^{4}_{10}(\text{mW})} = \frac{3^{10}}{4^{10}} = \left(\frac{3}{4}\right)^{10} \approx 5,63\%.
 $$
 
-Die Wahrscheinlichkeit dafür, dass in den ersten beiden Parkbereichen jeweils 2 und in den anderen beiden jeweils 3 Wagen abgestellt werden beträgt $$
-    P_b = \frac{25.200}{1.048.576} \approx 2,4\%.
+\subsubsection{Lösung 4b}
+Die Ereignismenge $$\begin{aligned}
+    B = & \left\{
+         \set*{\text{2 Wagen im ersten Bereich}}
+    \cap \set*{\text{2 Wagen im zweiten Bereich}} \right. \\
+    & \left. \cap \set*{\text{3 Wagen im dritten Bereich}}
+    \cap \set*{\text{3 Wagen im vierten Bereich}}
+\right\}
+\end{aligned}$$
+setzt sich zusammen aus Kombinationen ohne Wiederholung, nämlich der Menge aller Möglichkeiten 2 aus 10 Wagen für den ersten Bereich anzuordnet, 2 aus den 8 übrigen Wagen für den zweiten Bereich, 3 aus 6 für den dritten und 3 aus 3 für den vierten Bereich anzuordnen, also
+$$
+    B = \text{Kom}^{10}_{2}(\text{oW})
+    \times \text{Kom}^{8}_{2}(\text{oW})
+    \times \text{Kom}^{6}_{3}(\text{oW})
+    \times \text{Kom}^{3}_{3}(\text{oW}).
 $$
 
-Und die Wahrscheinlichkeit dafür, dass mindestens 2 Wagen in jedem Parkbereich abgestellt werden beträgt $$
-    P_c = \frac{226.800}{1.048.576} \approx 21,63\%.
+Die Mächtigkeit der Ereignismenge $\abs*{B}$ berechnet sich entsprechend wie folgt:
+$$\begin{aligned}
+    \abs*{B} &= \binom{10}{2} \cdot \binom{8}{2} \cdot \binom{6}{3} \cdot \binom{3}{3} \\[2mm]
+    &= \frac{10! \cdot 8! \cdot 6! \cdot 3!}{(10-2)! 2! \cdot (8-2)! 2! \cdot (6-3)! 3! \cdot (3-3)! 3!} \\[2mm]
+    &= \frac{10! \cdot \cancel{8!} \cdot \cancel{6!} \cdot \cancel{3!}}{\cancel{8!} 2! \cdot \cancel{6!} 2! \cdot \cancel{3!} 3! \cdot 3!} \\[1mm]
+    &= \frac{10!}{4 \cdot 6 \cdot 6} \\[1mm]
+    &= 25.200
+\end{aligned}$$
+
+Die Wahrscheinlichkeit dafür, dass in den ersten beiden Parkbereichen jeweils 2 und in den anderen beiden jeweils 3 Wagen abgestellt werden beträgt nach Laplace somit
+$$\begin{aligned}
+    P(B) = \frac{\abs*{B}}{\abs*{\Omega}} = \frac{25.200}{4^{10}} \approx 2,4\%.
+\end{aligned}$$
+
+\subsubsection{Lösung 4c}
+Die Ereignismenge $$\begin{aligned}
+    C = & \set*{\text{2 oder mehr Wagen in jedem Bereich}}
+\end{aligned}$$
+setzt sich zusammen aus der Menge der Ereignisse, bei denen zwei mal 2 Wagen und zwei mal 3 Wagen angeordnet werden ($C_1 = B$) und der Menge der Ereignisse bei denen drei mal 2 und einmal 4 Wagen angeordnet werden ($C_2$).
+Dabei gibt es $\binom{4}{2} \cdot \binom{2}{2} = 6$ Variationen von $C_1$ (also $(2,2,3,3), (3,3,2,2), (3,2,2,3), \ldots$), sowie $\binom{4}{1} \cdot \binom{3}{3} = 4$ Variationen von $C_2$ (also $(2,2,2,4), (2,2,4,2), (2,4,2,2)$ und $(4,2,2,2)$).
+
+Die Mächtigkeit der Ereignismenge $C$ setzt sich somit zusammen aus $\abs*{C} = 6\cdot \abs*{C_1} + 4\cdot \abs*{C_2}$, wobei
+
+$$
+    C_2 = \text{Kom}^{10}_{2}(\text{oW})
+    \times \text{Kom}^{8}_{2}(\text{oW})
+    \times \text{Kom}^{6}_{2}(\text{oW})
+    \times \text{Kom}^{4}_{4}(\text{oW})
+$$
+ist und die Mächtigkeit $\abs*{C_1} = \abs*{B} = 25.200$ bereits aus Teilaufgabe b) bekannt ist.
+
+Wir berechnen $$\begin{aligned}
+    \abs*{C_2} &= \binom{10}{8}\cdot \binom{8}{6}\cdot \binom{6}{4}\cdot \binom{4}{4} \\[2mm]
+    &= \frac{10!\cdot \cancel{8!}\cdot \cancel{6!}}{\cancel{8!}2!\cdot \cancel{6!}2!\cdot 2!4!} \\[2mm]
+    &= \frac{10!}{8\cdot 4!} \\
+    &= 5\cdot 6\cdot 7\cdot \cancel{8}\cdot 9\cdot 10 \\
+    &= 18.900
+\end{aligned}$$
+
+und erhalten
+$$\begin{aligned}
+    \abs*{C} &= 6\cdot\abs*{C_1} + 4\cdot\abs*{C_2} \\
+             &= 6\cdot 25.200 + 4\cdot 18.900 \\
+             &= 226.800.
+\end{aligned}$$
+
+
+Die Wahrscheinlichkeit dafür, dass mindestens 2 Wagen in jedem Parkbereich abgestellt werden, beträgt somit nach Laplace$$
+    P(C) = \frac{\abs*{C}}{\abs*{\Omega}} = \frac{226.800}{4^{10}} \approx 21,63\%.
 $$
 
 % Die Kombination $(2, 2, 3, 3)$ ist eine spezifische, aus den $286$ möglichen Kombinationen, somit ist $P_b=\sfrac{1}{286}\approx 0,35\%$.

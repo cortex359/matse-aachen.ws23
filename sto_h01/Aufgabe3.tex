@@ -25,16 +25,16 @@ Die Anzahl der Möglichkeiten $k=10$ Broschüren auf $n=20$ Plätzen zu verteile
     \item es die gleichen Broschüren sind \textit{(Kombination)}
     \begin{enumerate}
         \item und auf jedem Platz höchstens eine liegen soll \textit{(ohne Wiederholung)}
-        $$ \text{Kom}^n_k(\text{oW}) = \binom{n}{k} = \frac{20!}{10!\cdot 10!} = 184.756. $$
+        $$ \abs*{\text{Kom}^{n=20}_{k=10}(\text{oW})} = \binom{20}{10} = \frac{20!}{10!\cdot 10!} = 184.756. $$
         \item und auf jedem Platz beliebig viele Broschüren liegen dürfen \textit{(mit Wiederholung)}
-        $$ \text{Kom}^n_k(\text{mW}) = \binom{n+k-1}{k} = \frac{29!}{19!\cdot 10!} = 20.030.010. $$
+        $$ \abs*{\text{Kom}^{n=20}_{k=10}(\text{mW})} = \binom{20+10-1}{10} = \frac{29!}{19!\cdot 10!} = 20.030.010. $$
     \end{enumerate}
     \item die Broschüren unterschiedlich sind \textit{(Permutationen)}
     \begin{enumerate}
         \item und auf jedem Platz höchstens eine liegen soll \textit{(ohne Wiederholung)}
-        $$ \text{Per}^n_k(\text{oW}) = \frac{n!}{(n-k)!} = \frac{20!}{10!} = 670.442.572.800. $$
+        $$ \abs*{\text{Per}^{n=20}_{k=10}(\text{oW})} = \frac{n!}{(n-k)!} = \frac{20!}{10!} = 670.442.572.800. $$
         \item und auf jedem Platz beliebig viele Broschüren liegen dürfen \textit{(mit Wiederholung)}
-        $$ \text{Per}^n_k(\text{mW}) = n^k = 20^{10} = 1024\cdot 10^{10}. $$
+        $$ \abs*{\text{Per}^{n=20}_{k=10}(\text{mW})} = n^k = 20^{10} = 1024\cdot 10^{10}. $$
     \end{enumerate}
 \end{enumerate}
 
