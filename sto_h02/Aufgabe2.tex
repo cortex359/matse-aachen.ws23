@@ -3,12 +3,76 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Eine Spieler bzw. eine Spielerin wirft zwei verschiedenfarbige \glqq faire\grqq Würfel. Sind die Augenzahlen gleich und gerade, erhält sie/er einen Gewinn von 6~Euro. Sind die Augenzahlen aber gleich und ungerade, muss der Spieler bzw. die Spielerin 6~Euro an die Bank zahlen. Sind die Augenzahlen beider Würfel ungleich und stellt deren Summe eine ungerade Zahl dar, verliert der Spieler bzw. die Spielerin 3~Euro. Ansonsten (ungleiche Augenzahlen bei gerader Summe) beträgt der Gewinn 3~Euro. Wählen Sie eine zweckmäßige Zufallsvariable $X$ aus.
+Eine Spieler bzw. eine Spielerin wirft zwei verschiedenfarbige \glqq faire\grqq~Würfel. Sind die Augenzahlen gleich und gerade, erhält sie/er einen Gewinn von 6~Euro. Sind die Augenzahlen aber gleich und ungerade, muss der Spieler bzw. die Spielerin 6~Euro an die Bank zahlen. Sind die Augenzahlen beider Würfel ungleich und stellt deren Summe eine ungerade Zahl dar, verliert der Spieler bzw. die Spielerin 3~Euro. Ansonsten (ungleiche Augenzahlen bei gerader Summe) beträgt der Gewinn 3~Euro. Wählen Sie eine zweckmäßige Zufallsvariable $X$ aus.
 \begin{enumerate}
     \item Bestimmen Sie die Wahrscheinlichkeit für die Werte der Zufallsvariable.
     \item Berechnen Sie anschließend den Erwartungswert für $X$.
 \end{enumerate}
 
 \subsection{Lösung 2}
+Aus dem Grundraum $\Omega = \set*{1,\ldots, 6} \times \set*{1,\ldots, 6}$ sei $A=\set*{(\omega_1, \omega_2)\in \Omega^2 \middle| \omega_1 = \omega_2}$ und $B=\set*{(\omega_1, \omega_2)\in \Omega^2 \middle| (\omega_1 + \omega_2) \text{ ist gerade}}$. \textbf{Achtung:} Dabei sind die Augenzahlen jeweils einzeln o.B.d.A. gerade, wenn ihre Summe ungerade ist.
+
+Die Zufallsvariable $X(\omega)$ soll der Gewinn oder Verlust des Spiels sein. Das bedeutet für die Zufallsvariable:
+$$
+    X(\omega) : \begin{cases}
+        \Omega^2 \to \mathbb{R}\\
+        \omega \mapsto \begin{cases}
+            6 & \omega \in A \land \omega \notin B \\
+            -6 & \omega \in A \land \omega \in B \\
+            -3 & \omega \notin A \land \omega \notin B \\
+            3 & \omega \notin A \land \omega \in B \\
+        \end{cases}
+    \end{cases}
+$$
+
+% Nicht sinnvoll mit Indikatorfunktion darzustellen, da gerade Augenzahlen zu einer ungeraden Augensumme führt und wir dadurch *nicht* die folgende Vereinfachung machen können:
+% $$
+%     X(\omega) : \begin{cases}
+%         \Omega^2 \to \mathbb{R}\\
+%         \omega \mapsto
+%             \left(\mathbb{1}_A(\omega)\cdot 6 +
+%             \mathbb{1}_{\overline{A}}(\omega)\cdot 3\right) \cdot \left(
+%             \mathbb{1}_B(\omega) + \mathbb{1}_{\overline{B}}(\omega)\cdot (-1) \right)
+%     \end{cases}
+% $$
+
+\subsubsection*{Lösung 2a}
+Zur Berechnung der Wahrscheinlichkeiten betrachten wir die folgenden Zerlegungen der Grundmenge durch die Werte -6, -3, 3 und 6 für die Zufallsvariable $X$:
+$$\begin{aligned}
+    \set*{X {=} 6}  &= \set*{(2,2), (4,4), (6,6)} \\
+    \set*{X {=} -6} &= \set*{(1,1), (3,3), (5,5)} \\
+    \set*{X {=} -3} &= A\setminus B \\
+                  &= \set*{
+        (1,2), (1,4), (1,6), \dots, (6,1), (6,3), (6,5)
+    } \\
+    \set*{X {=} 3} &= B\setminus A\\
+                 &= \left\{
+                    (1,3), (1,5), (2,4), (2,6), (3,1), (3,5), \right.\\
+                 &\quad \left. (4,2), (4,6), (5,1), (5,3), (6,2), (6,4) \right\}
+\end{aligned}$$
+
+Die Mächtigkeit der Menge $\abs*{\set*{X {=} 6}} = \abs*{\set*{X {=} -6}} = 3$, die von $\abs*{\set*{X {=} -3}} = 18$ und die von $\abs*{\set*{X {=} 3}} = 12$.
+Die Mächtigkeit der Grundmenge ist $\abs*{\Omega^2} = 36$, sodass sich die Wahrscheinlichkeiten wie folgt ergeben:
+$$\begin{aligned}
+    P(X {=} 6)  &= \frac{3}{36} = \frac{1}{12} \\[2mm]
+    P(X {=} -6) &= \frac{3}{36} = \frac{1}{12} \\[2mm]
+    P(X {=} -3) &= \frac{18}{36} = \frac{1}{2} \\[2mm]
+    P(X {=} 3)  &= \frac{12}{36} = \frac{1}{3} \\
+\end{aligned}$$
+
+\subsubsection*{Lösung 2b}
+Der Erwartungswert $E(X)$ ist die gewichtete Summe der Zufallsvariablen auf $\Omega$ aller Ereignisse.
+$$
+    E(X) = \sum_{\omega\in\Omega^2} X(\omega) \cdot P(\omega)
+$$
+
+Das bedeutet hier:
+$$\begin{aligned}
+    E(X) &= 6\cdot P(X{=}6) + (-6)\cdot P(X{=}-6) + (-3)\cdot P(X{=}-3) + 3\cdot P(X{=}3) \\
+    &= \frac{6\cdot 3}{36} - \frac{6\cdot 3}{36} - \frac{3\cdot 18}{36} + \frac{3\cdot 12}{36} \\[2mm]
+    &= \frac{3\cdot 12 - 3\cdot 18}{36}\\[2mm]
+    &= - \frac{18}{36} = -0,5
+\end{aligned}$$
+
 
 \end{document}

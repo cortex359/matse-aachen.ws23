@@ -8,17 +8,48 @@ An einem Schwimmwettbewerb nehmen 20~Schwimmer:innen teil. Darunter sind 12~Ausz
     \item Wie wahrscheinlich ist es, dass die ersten drei Plätze nur von Auszubildenden eingenommen werden?
     \item Die Zufallsvariable $X$ sei nun die \glqq Anzahl der Auszubildenden unter den ersten drei Plätzen\grqq. Welches der folgenden Ereignisse ist am Wahrscheinlichsten:
     \begin{enumerate}
-        \item  1 Auszubildende:r unter den ersten drei
+        \item 1 Auszubildende:r unter den ersten drei
         \item 2 Auszubildende unter den ersten drei
         \item 3 Auszubildende unter den ersten drei
     \end{enumerate}
 \end{enumerate}
 
 \subsection{Lösung 4}
-Hierbei handelt es sich strenggenommen nicht um ein Laplace Experiment, da  keine gleichmäßige, zufällige Verteilung der Ereignisse angenommen werden kann. Gehen wir jedoch davon aus, dass die Sieger:innen des Wettbewerbs bereits im Vorfeld durch Zufall entschieden werden, so können wir die Wahrscheinlichkeiten wie folgt berechnen:
+Hierbei handelt es sich strenggenommen nicht um ein Laplace Experiment, da  keine gleichmäßige, zufällige Verteilung der Ereignisse angenommen werden kann. Gehen wir jedoch davon aus, dass die Sieger:innen des Wettbewerbs nicht durch Talent, sondern durch Zufall bestimmt werden, so können wir die Wahrscheinlichkeiten wie folgt berechnen.
 
+Der Ergebnisraum $\Omega = \set*{(\omega_1, \ldots, \omega_{20})\middle| \omega_i \in \set*{A, S} }$ hat die Mächtigkeit $\abs*{\Omega} = 2^{20} = 1.048.576$.
+
+\subsubsection{Lösung 4a}
+Die Wahrscheinlichkeit, dass unter den ersten drei Plätzen nur Auszubildende sind $A=\set*{(\omega_1, \ldots, \omega_{20}) \in \Omega \middle|\omega_{1,2,3} = A}$, beträgt
 \begin{equation*}
-    P_a = \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{10}{18} 
+    P(A) = \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{10}{18} = \frac{11}{57} \approx 19,298\%.
 \end{equation*}
+
+\subsubsection{Lösung 4b}
+Unter der Annahme, dass „\textbf{genau} $n$ Auszubildende unter den ersten drei“ für $n\in\set*{1,2,3}$ gemeint ist, also $P(X=n)$ erhalten wir:
+
+$$\begin{aligned}
+    P(X{=}1) &= \frac{12}{20} \cdot \frac{8}{19} \cdot \frac{7}{18} \\
+    &= \frac{28}{285} \approx 9,82\% \\
+    P(X{=}2) &= \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{8}{18} \\
+    &= \frac{44}{285} \approx 15,44\% \\
+    P(X{=}3) &= \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{10}{18} \\
+    &= \frac{55}{285} \approx 19,30\%
+\end{aligned}$$
+Somit ist das Ereignis $\set*{X=3}$, also dass 3 Auszubildende unter der ersten drei sind, am wahrscheinlichsten.\\
+
+Nimmt man jedoch an, dass nicht „genau“, sondern \textbf{mindestens} gemeint ist, also $P(X{\geq}n)$, so ergibt sich das folgende Bild:
+$$\begin{aligned}
+    P(X{\geq}1) &= P(X{=}1) + P(X{=}2) + P(X{=}3) \\[1mm]
+    &= \frac{28 + 44 + 55}{285} \\[1mm]
+    &= \frac{127}{285} \approx 44,56\% \\[4mm]
+    P(X{\geq}2) &= P(X{=}2) + P(X{=}3) \\[1mm]
+    &= \frac{44 + 55}{285} \\[1mm]
+    &= \frac{99}{285} \approx 34,74\% \\[4mm]
+    P(X{\geq}3) &= P(X{=}3) \\[1mm]
+    &= \frac{11}{57} \approx 19,30\%
+\end{aligned}$$
+Danach wäre das Ereignis $\set*{X{\geq}1}$ am wahrscheinlichsten.
+
 
 \end{document}
