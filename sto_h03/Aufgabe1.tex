@@ -1,0 +1,36 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Bei einer Geschwindigkeitskontrolle registrierte die Verkehrspolizei, dass 20\% der Fahrzeuge mit überhöhter Geschwindigkeit fuhren. 20\% der Fahrer und Fahrerinnen, die aufgrund der zu hohen Geschwindigkeit angehalten wurden, standen unter Alkoholeinfluss. Von den übrigen Kraftfahrern und -fahrerinnen, die nicht zu schnell fuhren, wurden mittels Stichproben ermittelt, dass 5\% von ihnen ebenfalls zu hohe Promillewerte Alkohol
+aufwiesen.
+
+\begin{enumerate}
+    \item Wie viel Prozent aller Kraftfahrer und -fahrerinnen, die die betreffende Kontrolle passiert haben, standen unter Alkoholeinfluss?
+    \item Wie viel Prozent der Kraftfahrer und -fahrerinnen, die Alkohol getrunken hatten, fuhren zu schnell?
+\end{enumerate}
+
+\subsection{Lösung 1}
+\textit{Hinweis:} Wir nehmen an, dass die Polizei alle Fahrzeuge, bei denen eine überhöhte Geschwindigkeit registriert wurde, auch angehalten hat, also „Registrieren“ und „Anhalten“ gleichbedeutend sind.\\
+
+Wir lesen $P(S) = 0,2$ ist die Wahrscheinlichkeit, dass ein Auto zu schnell war und $P(A|S) = 0,2$, dass der Fahrer dabei alkoholisiert war.
+Dann ist $P(\overline{S}) = 0,8$ die Wahrscheinlichkeit, dass ein Auto nicht zu schnell war und dem Text entnehmen wir weiter, dass $P(A|\overline{S}) = 0,05$ die Wahrscheinlichkeit ist, dass der Fahrer dabei alkoholisiert war. \\
+
+Der Anteil der Fahrenden, welche unter Alkoholeinfluss standen $P(A)$, setzt sich nun wie folgt zusammen:
+$$\begin{aligned}
+    P(A) &= P(S)\cdot P(A|S) + P(\overline{S})\cdot P(A|\overline{S}) \\
+         &= 0,2 \cdot 0,2 + 0,8 \cdot 0,05 \\
+         &= 0,08 = 8\%
+\end{aligned}$$
+
+Der Anteil der Fahrenden, welche unter Alkoholeinfluss zu schnell fuhren $P(S|A)$ ist 
+$$\begin{aligned}
+    P(S|A) &= \frac{P(S)\cdot P(A|S)}{P(S)\cdot P(A|S) + P(\overline{S})\cdot P(A|\overline{S})} \\[3mm]
+           &= \frac{0,2 \cdot 0,2}{0,2 \cdot 0,2 + 0,8 \cdot 0,05}\\[2mm]
+           &= \frac{1}{2} = 50\%.
+\end{aligned}$$
+
+
+
+\end{document}
