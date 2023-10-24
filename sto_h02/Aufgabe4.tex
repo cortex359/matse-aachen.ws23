@@ -15,7 +15,7 @@ An einem Schwimmwettbewerb nehmen 20~Schwimmer:innen teil. Darunter sind 12~Ausz
 \end{enumerate}
 
 \subsection{Lösung 4}
-Hierbei handelt es sich strenggenommen nicht um ein Laplace Experiment, da  keine gleichmäßige, zufällige Verteilung der Ereignisse angenommen werden kann. Gehen wir jedoch davon aus, dass die Sieger:innen des Wettbewerbs nicht durch Talent, sondern durch Zufall bestimmt werden, so können wir die Wahrscheinlichkeiten wie folgt berechnen.
+%Hierbei handelt es sich strenggenommen nicht um ein Laplace Experiment, da  keine gleichmäßige, zufällige Verteilung der Ereignisse angenommen werden kann. Gehen wir jedoch davon aus, dass die Sieger:innen des Wettbewerbs nicht durch Talent, sondern durch Zufall bestimmt werden, so können wir die Wahrscheinlichkeiten wie folgt berechnen.
 
 Der Ergebnisraum $\Omega = \set*{(\omega_1, \ldots, \omega_{20})\middle| \omega_i \in \set*{A, S} }$ hat die Mächtigkeit $\abs*{\Omega} = 2^{20} = 1.048.576$.
 
@@ -26,30 +26,30 @@ Die Wahrscheinlichkeit, dass unter den ersten drei Plätzen nur Auszubildende si
 \end{equation*}
 
 \subsubsection{Lösung 4b}
-Unter der Annahme, dass „\textbf{genau} $n$ Auszubildende unter den ersten drei“ für $n\in\set*{1,2,3}$ gemeint ist, also $P(X=n)$ erhalten wir:
+Wir betrachten eine hypergeometrische Verteilung mit der Grundgesamtheit des Umfangs $N=20$, von denen $M=12$ die gewünschte Eigenschaft besitzen, beim auswählen von $n=3$ Wettbewerber:innen (Stichprobe des Umfangs $n$) genau $x$ der ersten drei Plätze zu belegen.
 
+$$
+    P(X{=}x) = \frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\qquad x\in[0,n]
+$$
+Also gilt für das Ereignis ein Auszubildende:r unter den ersten drei
 $$\begin{aligned}
-    P(X{=}1) &= \frac{12}{20} \cdot \frac{8}{19} \cdot \frac{7}{18} \\
-    &= \frac{28}{285} \approx 9,82\% \\
-    P(X{=}2) &= \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{8}{18} \\
-    &= \frac{44}{285} \approx 15,44\% \\
-    P(X{=}3) &= \frac{12}{20} \cdot \frac{11}{19} \cdot \frac{10}{18} \\
-    &= \frac{55}{285} \approx 19,30\%
+    P(X{=}1) &= \frac{\binom{12}{1}\binom{20-12}{3-1}}{\binom{20}{3}} \\[3mm]
+             &= \frac{\frac{12!8!}{11!6!2!}}{\frac{20!}{17!3!}} \\[3mm]
+             &= \frac{3!8!12!17!}{2!6!11!20!} \\[3mm]
+             &= \frac{28}{95} \approx 29,47\% \\
 \end{aligned}$$
-Somit ist das Ereignis $\set*{X=3}$, also dass 3 Auszubildende unter der ersten drei sind, am wahrscheinlichsten.\\
-
-Nimmt man jedoch an, dass nicht „genau“, sondern \textbf{mindestens} gemeint ist, also $P(X{\geq}n)$, so ergibt sich das folgende Bild:
+zwei Auszubildende unter den ersten drei
 $$\begin{aligned}
-    P(X{\geq}1) &= P(X{=}1) + P(X{=}2) + P(X{=}3) \\[1mm]
-    &= \frac{28 + 44 + 55}{285} \\[1mm]
-    &= \frac{127}{285} \approx 44,56\% \\[4mm]
-    P(X{\geq}2) &= P(X{=}2) + P(X{=}3) \\[1mm]
-    &= \frac{44 + 55}{285} \\[1mm]
-    &= \frac{99}{285} \approx 34,74\% \\[4mm]
-    P(X{\geq}3) &= P(X{=}3) \\[1mm]
-    &= \frac{11}{57} \approx 19,30\%
+    P(X{=}2) &= \frac{\binom{12}{2}\binom{20-12}{3-2}}{\binom{20}{3}} \\[2mm]
+             &= \frac{\binom{12}{2}\cdot 8}{\binom{20}{3}} \\[2mm]
+             &= \frac{44}{95} \approx 46,32\% \\
 \end{aligned}$$
-Danach wäre das Ereignis $\set*{X{\geq}1}$ am wahrscheinlichsten.
+und für das Ereignis drei Auszubildende unter den ersten drei eine Wahrscheinlichkeit von
+$$\begin{aligned}
+    P(X{=}3) &= \frac{\binom{12}{3}\binom{20-12}{3-3}}{\binom{20}{3}} \\[2mm]
+             &= \frac{11}{54} \approx 19,30\%. \\
+\end{aligned}$$
 
+Damit ist das Ereignis, dass zwei Auszubildende unter den ersten drei Plätzen landen $\set*{X{=}2}$ am wahrscheinlichsten. 
 
 \end{document}
