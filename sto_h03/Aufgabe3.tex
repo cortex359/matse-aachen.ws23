@@ -8,5 +8,13 @@ Auf einem Tisch stehen $n$ äußerlich nicht unterscheidbare Urnen $U_1, U_2, \l
 Wie groß ist die Wahrscheinlichkeit, dass die Kugel weiß ist?
 
 \subsection{Lösung 3}
+Die Wahrscheinlichkeit aus Urne $U_i$ zu ziehen ist $P(U_i) = \frac{1}{n}$. Die Wahrscheinlichkeit, dass die dort gezogene Kugel weiß ist, ist $P(W|U_i) = \frac{i}{n}$. Gesucht ist $P(W)$, welche wir mit der Formel der totalen Wahrscheinlichkeit wie folgt ermitteln können:
+$$\begin{aligned}
+    P(W) &= \sum^{n}_{i=1} P(U_i)\cdot P(W|U_i) \\[2mm]
+    &= \sum^{n}_{i=1} \frac{1}{n} \cdot \frac{i}{n} \\[2mm]
+    &= \frac{1}{n^2} \cdot \sum^{n}_{i=1} i \\[2mm]
+    &= \frac{1}{n^2} \cdot \frac{(n+1)\cdot n}{2} \\[2mm]
+    &= \frac{n+1}{2n} \\
+\end{aligned}$$
 
 \end{document}

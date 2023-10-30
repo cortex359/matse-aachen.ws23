@@ -8,5 +8,14 @@ Die Wahrscheinlichkeit für den gleichzeitigen Ausfall beider Pumpen beträgt 0,
 möglich ist, ist die Wahrscheinlichkeit für das Eintreten dieses Notbetriebes gesucht.
 
 \subsection{Lösung 5}
+Wir unterscheiden den Ausfall der neueren Pumpe $A$ und den Ausfall der älteren Pumpe $B$. Es ist gegeben, dass $P(A) = 0,05$, $P(B) = 0,1$ und $P(A\cap B) = 0,005$. 
+
+Gesucht ist die Wahrscheinlichkeit, dass eine der beiden Pumpen, aber nicht beide Pumpen gleichzeitig ausfallen $P(A\cup B\setminus(A\cap B))$, welche sich, aufgrund der stochastischen Unabhängigkeit beider Ereignisse, wie folgt berechnen lässt:
+$$\begin{aligned}
+    P(A\cup B\setminus (A\cap B)) &= P(A) + P(B) - P(A\cap B) - P(A\cap B)\\
+    &= 0,05 + 0,1 - 2\cdot 0,005 \\
+    &= 14\%
+\end{aligned}
+$$
 
 \end{document}
