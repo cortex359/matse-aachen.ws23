@@ -12,6 +12,38 @@ $$ X_2 = \{ \mbox{Ziffer der beim 2. Versuch gezogenen Kugel} \} $$
 \item Prüfen Sie die Zufallsvariablen auf stochastische Unabhängigkeit.
 \end{enumerate}
 
-\subsection{Lösung 1}
+\subsection{Lösung 1a}
+Die gemeinsame Wahrscheinlichkeitsfunktion $f(x_1, x_2)$ ergibt sich über die Tabelle der Zufallsvariablen $X_1, X_2$ zu $$
+    f(x_1, x_2) = \begin{cases}
+        0,1 & \text{wenn } x_1 = x_2 = 1 \\
+        0,3 & \text{sonst}
+    \end{cases}.
+$$
+
+\subsection{Lösung 1b}
+Randverteilung von $X_1$:
+$$
+f_1(x_1) = \begin{cases}
+    0,4 & \text{für } x_1 = 1\\
+    0,6 & \text{für } x_1 = 2\\
+    0 & \text{sonst}
+\end{cases}
+$$
+
+Randverteilung von $X_2$:
+$$
+f_2(x_2) = \begin{cases}
+    0,4 & \text{für } x_2 = 1\\
+    0,6 & \text{für } x_2 = 2\\
+    0 & \text{sonst}
+\end{cases}
+$$
+
+\subsection{Lösung 1c}
+Die Zufallsvariablen sind stochastisch unabhängig, wenn für alle $x_1, x_2$ gilt: $$
+    f(x_1, x_2) = f(x_1) \cdot f(x_2)
+$$
+Gegenbeispiel: $f(1, 1) = 0,1$ jedoch ist $f_1(1) \cdot f_2(1) = 0,4\cdot 0,4 = 0,16$. Somit sind die Zufallsvariablen nicht stochastisch unabhängig.
+
 
 \end{document}
