@@ -3,7 +3,8 @@
 \begin{document}
 
 \section{Aufgabe 3}
-$20\%$ aller Kälber erkranken in den ersten sechs Lebensmonaten an einer bestimmten nicht ansteckenden Krankheit. Um drei verschiedene Impfstoffe $A$, $B$ und $C$ auf ihre Wirksamkeit gegen die betreffende Krankheit zu testen, wurden $18$ neugeborene Kälber eines Bauernhofes mit $A$, $11$ neugeborene eines anderen Bauernhofes mit $B$ und $26$ neugeborene eines dritten Bauernhofes mit $C$ geimpft. In den ersten sechs Lebensmonaten
+$20\%$ aller Kälber erkranken in den ersten sechs Lebensmonaten an einer bestimmten, nicht ansteckenden Krankheit.
+Um drei verschiedene Impfstoffe $A$, $B$ und $C$ auf ihre Wirksamkeit gegen die betreffende Krankheit zu testen, wurden $18$ neugeborene Kälber eines Bauernhofes mit $A$, $11$ neugeborene eines anderen Bauernhofes mit $B$ und $26$ neugeborene eines dritten Bauernhofes mit $C$ geimpft. In den ersten sechs Lebensmonaten
 \begin{enumerate}
 	\item erkrankte genau eines der mit $A$ geimpften Kälber,
 	\item erkrankte keines der mit $B$ geimpften Kälber,
@@ -12,5 +13,28 @@ $20\%$ aller Kälber erkranken in den ersten sechs Lebensmonaten an einer bestim
 Unter geeigneter Verteilungsannahme berechne man die Wahrscheinlichkeit dafür, dass bei völliger Wirkungslosigkeit des jeweiligen Impfstoffes keine größere als die unter a) bzw. b) bzw. c) angegebene Anzahl von Erkrankungen auftritt.
 
 \subsection{Lösung 3}
+Sei $A = \set*{\#\text{Erkrankungen bei Hof A}}$ und $n_A = 18$ die Anzahl der neugeborenen und geimpften Kälber auf dem Bauernhof A.
+Unter Annahme einer Binominalverteilung $\sim \text{Binom}(n_A = 18, p = 0,2)$ berechnet sich die Wahrscheinlichkeit für die Erkrankung von
+\textbf{nicht mehr als} genau einem der mit $A$ geimpften Kälber durch
+$$\begin{aligned}
+	P(A\leq 1) &= \binom{18}{0} \cdot 0,2^0 \cdot 0,8^{18-0} + \binom{18}{1} \cdot 0,2^1 \cdot 0,8^{18-1} \\
+	&\approx 9,91 \%.
+\end{aligned}$$
+
+Sei $B = \set*{\#\text{Erkrankungen bei Hof B}}$ und $n_B = 11$, so kann mit $\sim \text{Binom}(n_B = 11 p = 0,2)$ die Wahrscheinlichkeit für die Erkrankung von
+\textbf{nicht mehr als} keines der mit $B$ geimpften Kälber durch
+$$\begin{aligned}
+	P(B{=}0) &= \binom{11}{0} \cdot 0,2^0 \cdot 0,8^{11-0} \\
+	&\approx 8,59 \%.
+\end{aligned}$$
+
+Sei $C = \set*{\#\text{Erkrankungen bei Hof C}}$ und $n_C = 26$, so kann mit $\sim \text{Binom}(n_C = 26 p = 0,2)$ die Wahrscheinlichkeit für die Erkrankung von
+\textbf{nicht mehr als} genau zwei der mit $C$ geimpften Kälber durch
+$$\begin{aligned}
+	P(C\leq 2) &= \binom{26}{0} \cdot 0,2^0 \cdot 0,8^{26-0}
+	+ \binom{26}{1} \cdot 0,2^1 \cdot 0,8^{26-1} \\
+	&+ \binom{26}{2} \cdot 0,2^2 \cdot 0,8^{26-2} \\
+	&\approx 8,41 \%.
+\end{aligned}$$
 
 \end{document}

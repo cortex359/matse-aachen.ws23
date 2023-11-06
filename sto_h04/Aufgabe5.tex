@@ -3,16 +3,16 @@
 \begin{document}
 
 \section{Aufgabe 5}
-Im letzten Wintersemester nahmen $120$ Studierende an der Stochastik-Klausur teil. Im Folgenden ist Punkteverteilung einer Stochastik-Klausur-Aufgabe angegeben:
+Im letzten Wintersemester nahmen $120$ Studierende an der Stochastik-Klausur teil. Im Folgenden ist die Punkteverteilung einer Stochastik-Klausur-Aufgabe angegeben:
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+\begin{tabular}{c|c|c|c|c|c|c}
 	Punkte & $6$ & $5$ & $4$ & $3$ & $2$ & $1$ \\ \hline
 	Anzahl & $0$ & $10$ & $30$ & $40$ & $20$ & $20$ \\ \hline
-	Wahrscheinlichkeit & $0$ & $\frac{10}{120}$ & $\frac{30}{120}$ & $\frac{40}{120}$ & $\frac{20}{120}$ & $\frac{20}{120}$ \\ \hline
+	Wahrscheinlichkeit & $0$ & $\sfrac{10}{120}$ & $\sfrac{30}{120}$ & $\sfrac{40}{120}$ & $\sfrac{20}{120}$ & $\sfrac{20}{120}$ \\
 \end{tabular}
 \end{center}
 \begin{enumerate}
-\item Berechnen Sie 
+\item Berechnen Sie
 \begin{enumerate}
 	\item den Erwartungswert.
 	\item die Varianz und die Standardabweichung.
@@ -20,6 +20,30 @@ Im letzten Wintersemester nahmen $120$ Studierende an der Stochastik-Klausur tei
 \item Mit welcher Wahrscheinlichkeit liegt der Punkteschnitt im Bereich $[\mu-2; \mu+2]$? Nutzen Sie zur Abschätzung die Tschebyscheffsche Ungleichung.
 \end{enumerate}
 
-\subsection{Lösung 5}
+\subsection{Lösung 5a}
+
+Sei $X = \set{\text{Anzahl der Punkte}}$, so beträgt der Erwartungswert nach der gegebenen Tabelle $E(X) = \sfrac{35}{12} \approx 2,92.$
+Um die Varianz zu ermitteln, berechnen wir zunächst $E(X^2) = \sfrac{119}{12} \approx 9,92$ und sodann $$\begin{aligned}
+	\Var (X) &= E\left(X^2\right) - E(X)^2 \\
+	&= \frac{119}{12} - \left(\frac{35}{12}\right)^2 \\
+	&= \frac{203}{144} \approx 1,41.
+\end{aligned}$$
+
+Die Standardabweichung beträgt somit $\sigma = \sqrt{\frac{203}{144}} \approx 1,187.$
+
+\subsection{Lösung 5b}
+Nach Tschebyschow gilt allgemein $$\begin{aligned}
+	P\left(\abs*{X-\mu} \geq k\right) &\leq \frac{\sigma^2}{k^2} \\
+	P\left(\abs*{X-\mu} < k\right) &\geq 1 - \frac{\sigma^2}{k^2}.
+\end{aligned}$$
+
+Damit der Punkteschnitt im Bereich $[\mu-2; \mu+2]$ liegt, betrachten wir hier die zweite Gleichung und setzen $k=2$, da $P\left(X\in [\mu-2; \mu+2]\right) = P(\abs*{X-\mu \leq 2})$ ist.
+\begin{equiveqs}
+	& P\left(\abs*{X- \mu} < 2\right) &\geq 1 - \frac{\frac{203}{144}}{2^2} \\[3mm]
+	\equiv & P\left(\abs*{X- \mu} < 2\right) &\geq \frac{373}{576} \approx 64,76\% \\
+\end{equiveqs}
+
+Mit Hilfe der Varianz $\Var = \sigma^2 \approx 1,187$ und dem Erwartungswert $\mu \approx 2,92$ lässt sich also sagen, dass
+die Wahrscheinlichkeit, dass ein Studierender bei der Aufgabe zwischen 0,92 und 4,92 Punkte erzielen konnte, 64,76\% beträgt.
 
 \end{document}

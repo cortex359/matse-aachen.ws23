@@ -6,20 +6,20 @@
 $X$ repräsentiere die täglichen Verkäufe eines bestimmten Produktes und besitze die Wahrscheinlichkeitsverteilung:
 \begin{center}
 \begin{tabular}{c|c|c|c|c|c|c|c}
-	$x$        & $7.000$ & $7.500$ & $8.000$ & $8.500$ & $9.000$ & $9.500$ & $10.000$ \\ 
+	$x$        & $7.000$ & $7.500$ & $8.000$ & $8.500$ & $9.000$ & $9.500$ & $10.000$ \\
 	\hline
 	$P(X {=} x)$ &  $0,05$ &   $0,2$ &  $0,35$ &  $0,19$ &  $0,12$ &  $0,08$ &   $0,01$ \\
 \end{tabular}
 \end{center}
 \begin{enumerate}
-\item Berechnen Sie  
+\item Berechnen Sie
 \begin{enumerate}
-  	\item den Erwartungswert,  
+  	\item den Erwartungswert,
   	\item die Varianz sowie die Standardabweichung.
 \end{enumerate}
-\item Der Nettogewinn, der sich bei einem Verkauf von $X$ Einheiten ergibt, sei durch $Z = 5 \cdot X - 38.000$ gegeben. Berechnen Sie 
+\item Der Nettogewinn, der sich bei einem Verkauf von $X$ Einheiten ergibt, sei durch $Z = 5 \cdot X - 38.000$ gegeben. Berechnen Sie
 \begin{enumerate}
-  	\item den Erwartungswert  
+  	\item den Erwartungswert
   	\item und die Varianz
 \end{enumerate}
 des Nettogewinns $Z$.
@@ -28,17 +28,44 @@ des Nettogewinns $Z$.
 \subsection{Lösung 2a}
 Der Erwartungswert von $X$ auf dem Wahrscheinlichkeitsraum $(\Omega, P)$ mit $\Omega = \set*{7.000, 7.500, 8.000, 8.500, 9.000, 9.500, 10.000}$ beträgt $$\begin{aligned}
 	E(X) &= \sum\limits_{\omega\in\Omega} X(\omega)\cdot P(\omega) \\
-	&= 7.000\cdot 0,05 + 7.500\cdot 0,2 + 8.000 \cdot 0,35 + 8.500\cdot 0,19 + 9.000\cdot 0,12 \\
-	&\quad + 9.500\cdot 0,08 + 10.000\cdot 0,01 \\
+	&= 7.000\cdot 0,05 + 7.500\cdot 0,2 + 8.000 \cdot 0,35 + 8.500\cdot 0,19 \\
+	&\quad + 9.000\cdot 0,12 + 9.500\cdot 0,08 + 10.000\cdot 0,01 \\
 	&= 8.205.
 \end{aligned}$$
 
-Die Varianz von $X$ ist 
+Die Varianz von $X$ ist
 $$\begin{aligned}
-	\text{Var}(X) &= E((X - E(X))^2) \\
-	&= E((X - 8.205)^2) \\
+	\text{Var}(X) &= E\left(X^2\right) - E(X)^2 \\
+	&= \sum\limits_{\omega\in\Omega} X(\omega)^2\cdot P(\omega) - 8.205^2 \\
+	&= 7.000^2\cdot 0,05 + 7.500^2\cdot 0,2 + 8.000^2 \cdot 0,35 + 8.500^2\cdot 0,19 \\
+	&\quad + 9.000^2\cdot 0,12 + 9.500^2\cdot 0,08 + 10.000^2\cdot 0,01  - 8.205^2\\
+	&= 445.475.
 \end{aligned}$$
 
 \subsection{Lösung 2b}
+Der Erwartungswert von dem oben beschriebenen Nettogewinn lässt sich wie folgt errechnen:
+$$\begin{aligned}
+	E(Z) &= E(5X - 38.000) \\
+	&= 5\cdot E(X) - 38.000 \\
+	&= 5\cdot 8.205 - 38.000 \\
+	&= 3.025
+\end{aligned}$$
+
+Um die Varianz zu berechnen ermitteln wir zunächst $E\left(Z^2\right)$ und wenden dann die Formel $\Var(Z) = E\left(Z^2\right) - E(Z)^2$ an.
+$$\begin{aligned}
+	E\left(Z^2\right) &= \sum_{i=1}^{7}(5x_i - 38.000)^2\cdot P(X = x_i) \\
+		   &= (5\cdot  7.000 - 38.000)^2\cdot 0,05
+			+ (5\cdot  7.500 - 38.000)^2\cdot 0,2 \\
+	 &\quad	+ (5\cdot  8.000 - 38.000)^2\cdot 0,35
+	 	    + (5\cdot  8.500 - 38.000)^2\cdot 0,19 \\
+	 &\quad + (5\cdot  9.000 - 38.000)^2\cdot 0,12
+			+ (5\cdot  9.500 - 38.000)^2\cdot 0,08 \\
+	 &\quad + (5\cdot 10.000 - 38.000)^2\cdot 0,01 \\
+	 	   &= 20.287.500
+\end{aligned}$$
+Somit beträgt die Varianz des Nettogewinns $Z$
+$$
+	\Var(Z) = 20.287.500 - 3.025^2 = 11.136.875.
+$$
 
 \end{document}

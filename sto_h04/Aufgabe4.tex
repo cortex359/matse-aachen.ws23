@@ -3,12 +3,48 @@
 \begin{document}
 
 \section{Aufgabe 4}
-Aus einem Skatspiel mit $32$ Karten wird eine Karte zufällig entnommen. 
+Aus einem Skatspiel mit $32$ Karten wird eine Karte zufällig entnommen.
 \begin{enumerate}
 \item Sie spielen folgende Spielvariante: Jede Karte wird einzeln gezogen. Sie notieren, welche Karte es gewesen ist und legen die Karte zurück. Sie wiederholen dieses Vorgehen $10$ mal. Wie wahrscheinlich ist es, dass genau zwei Buben dabei gewesen sind?
 \item Wie oft muss man eine Karte ziehen, damit die Wahrscheinlichkeit dafür, mindestens ein rotes Ass zu ziehen, größer als $0,5$ wird?
 \end{enumerate}
 
-\subsection{Lösung 4}
+\subsection{Lösung 4a}
+\setlength{\twemojiDefaultHeight}{0.8em}
+Es befindet sich für jeder der vier Fraktionen
+(\twemoji{heart suit},
+\twemoji{diamond suit},
+\twemoji{club suit},
+\twemoji{spade suit})
+ein Bube in dem Kartenspiel, sodass die Wahrscheinlichkeit einen Buben zu ziehen $P(X = \# \text{Buben}) = \frac{4}{32}$ beträgt.
+Wir betrachten nun den Fall, dass genau zwei Buben gezogen wurden und die übrigen Karten keine Buben waren. Da beide Buben jedoch in einer beliebigen Reihenfolge gezogenen werden dürfen, handelt es sich um eine Binominalverteilung $\sim \text{Binom}(n=10, p=\frac{4}{32})$.
+$$\begin{aligned}
+    P(X{=}2) &= \binom{10}{2} \cdot \left(\frac{4}{32}\right)^2 \cdot \left(1- \frac{4}{32}\right)^8 \\
+    &= 45 \cdot \frac{1}{64} \cdot \left(\frac{28}{32}\right)^8 \\[2mm]
+    &= 45 \cdot \frac{5.764.801}{1.073.741.824} \\[2mm]
+    &\approx 24,16 \%
+\end{aligned}$$
+
+\subsection{Lösung 4b}
+Sei nun $A=\set*{\#\text{\twemoji{heart suit} Ass}, \#\text{\twemoji{diamond suit} Ass}}$ und $n$ wieder die Anzahl der Ziehungen.
+Wir betrachten die Binominalverteilung $\sim\text{Binom}(n, p=\frac{2}{32})$ und die folgende Wahrscheinlichkeit:
+\begin{equiveqs}
+    & P(A{=}a) &= \binom{n}{a} \cdot \left(\frac{1}{16}\right)^a \cdot \left(\frac{15}{16}\right)^{(n-a)}
+\end{equiveqs}
+Gesucht ist ein $n$ für das $P(A\geq 1) > 0,5$ gilt.
+Beim Ziehen ohne Zurücklegen würde die Betrachtung von $P(A{=}1) + P(A{=}2)$ ausreichen, da maximal zwei rote Asse gezogen werden könnten.
+Da wir hier jedoch zurücklegen und auch das dreifache oder mehrfache Ziehen von roten Assen nicht zum Abbruch der Ziehung führt,
+müssen wir hier $P(A{=}1) + P(A{=}2) + P(A{=}3) + \dots$ betrachten. Daher ist es einfacher das Komplementärereignis zu betrachten, nämlich dass nach $n$ Ziehungen noch kein rotes Ass gezogen wurde. $P(A{\geq} 1) = 1-P(A{=}0)$
+Wir können also wie folgt umformen:
+\begin{equiveqs}
+    & 0,5 & < P(A{\geq}1) \\[2mm]
+\equiv & 0,5 & < 1- P(A{=}0) \\[2mm]
+\equiv & 0,5 & > \binom{n}{0} \cdot \left(\frac{1}{16}\right)^0 \cdot \left(\frac{15}{16}\right)^{n-0} \\[5mm]
+\equiv & 0,5 & > \left(\frac{15}{16}\right)^{n} \\[6mm]
+\equiv & n & > \frac{\ln 0,5}{\ln{\frac{15}{16}}}\\[6mm]
+\equiv & n & > 10,74 \\[2mm]
+\end{equiveqs}
+
+Es muss also mindestens 11 mal gezogen werden, damit die Wahrscheinlichkeit dafür mehr als ein rotes Ass zu ziehen, größer als 50\% wird.
 
 \end{document}

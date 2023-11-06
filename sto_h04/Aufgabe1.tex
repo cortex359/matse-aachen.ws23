@@ -4,20 +4,31 @@
 
 \section{Aufgabe 1}
 Aus einer Urne, in der sich zwei Kugeln mit der Ziffer "`1"' und drei Kugeln mit der Ziffer "`2"' befinden, werden ohne Zurücklegen $2$ Kugeln entnommen. Es seien die folgenden Zufallsgrößen definiert
-$$ X_1 = \{ \mbox{Ziffer der beim 1. Versuch gezogenen Kugel} \} $$ 
-$$ X_2 = \{ \mbox{Ziffer der beim 2. Versuch gezogenen Kugel} \} $$ 
+$$ X_1 = \{ \mbox{Ziffer der beim 1. Versuch gezogenen Kugel} \} $$
+$$ X_2 = \{ \mbox{Ziffer der beim 2. Versuch gezogenen Kugel} \} $$
 \begin{enumerate}
 \item Bestimmen Sie die gemeinsame Wahrscheinlichkeitsfunktion $f(x_1, x_2)$.
-\item Bestimmen Sie die Randverteilung der Zufallsvariablen $X_1$ und $X_2$. 
+\item Bestimmen Sie die Randverteilung der Zufallsvariablen $X_1$ und $X_2$.
 \item Prüfen Sie die Zufallsvariablen auf stochastische Unabhängigkeit.
 \end{enumerate}
 
 \subsection{Lösung 1a}
-Die gemeinsame Wahrscheinlichkeitsfunktion $f(x_1, x_2)$ ergibt sich über die Tabelle der Zufallsvariablen $X_1, X_2$ zu $$
+Die gemeinsame Wahrscheinlichkeitsfunktion $P(x_1, x_2)$ ergibt sich über die Wahrscheinlichkeitstabelle der Zufallsvariablen $X_1, X_2$.
+\begin{center}
+    \begin{tabular}{*{4}{c|}}
+        \multicolumn{2}{c}{} & \multicolumn{2}{c}{$X_1$} \\ \cline{3-4}
+        \multicolumn{2}{c|}{} & 1 & 2 \\ \cline{2-4}
+        \multirow{2}{1em}{$X_2$} & 1 & \sfrac{1}{10} & \sfrac{3}{10} \\ \cline{2-4}
+                                 & 2 & \sfrac{3}{10} & \sfrac{3}{10} \\ \cline{2-4}
+    \end{tabular}
+\end{center}
+Das bedeutet, wir können die Wahrscheinlichkeitsfunktion wie folgt angeben:
+$$
     f(x_1, x_2) = \begin{cases}
-        0,1 & \text{wenn } x_1 = x_2 = 1 \\
-        0,3 & \text{sonst}
-    \end{cases}.
+        0,1 & \text{für } x_1 = x_2 = 1 \\
+        0,3 & \text{für } x_1 = 2 \lor x_2 = 2 \\
+        0 & \text{sonst}
+    \end{cases}
 $$
 
 \subsection{Lösung 1b}
@@ -43,7 +54,7 @@ $$
 Die Zufallsvariablen sind stochastisch unabhängig, wenn für alle $x_1, x_2$ gilt: $$
     f(x_1, x_2) = f(x_1) \cdot f(x_2)
 $$
-Gegenbeispiel: $f(1, 1) = 0,1$ jedoch ist $f_1(1) \cdot f_2(1) = 0,4\cdot 0,4 = 0,16$. Somit sind die Zufallsvariablen nicht stochastisch unabhängig.
+Gegenbeispiel: $f(1, 1) = 0,1$ jedoch ist $f_1(1) \cdot f_2(1) = 0,4\cdot 0,4 = 0,16$. Somit sind die Zufallsvariablen stochastisch abhängig.
 
 
 \end{document}
