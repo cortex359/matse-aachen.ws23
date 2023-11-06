@@ -1,0 +1,34 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{A4 Online-Reservierungssystem für Impfungen}
+Sie erheben nun die Anforderungen für das Online-Reservierungssystem für Impfungen, siehe
+Aufgabe A3. Sie wollen zunächst auf fachlicher Ebene den Nachrichtenfluss zwischen Patienten
+und Web-Anwendung modellieren. Sie haben bereits die folgenden Komponenten identifiziert:
+
+\begin{itemize}
+    \item Der Patient als menschlicher Akteur
+    \item Die Web-Anwendung als GUI
+    \item Ein Identitätsmanagement als Hintergrunddienst
+    \item Ein Termin-Verwaltungssystem als Hintergrunddienst
+\end{itemize}
+Der reguläre Nachrichtenfluss zwischen diesen Komponenten gestaltet sich wie folgt:
+
+
+\begin{itemize}
+    \item Der Patient besucht die Web-Anwendung und meldet sich mit seinem Benutzernamen und Passwort an (Sie können davon ausgehen, dass der Patient bereits registriert ist).
+    \item Die Webseite prüft die Gültigkeit der Anmeldung im Identitätsmanagement.
+    \item Bei ungültigen Anmeldedaten wird dem Patienten durch die Web-Anwendung angeboten, sein Passwort zurückzusetzen. Dazu wird eine entsprechende Operation im Identitätsmanagement aufgerufen. Der Nachrichtenfluss endet dann.
+    \item Ansonsten ruft die Web-Anwendung die möglichen Wochentage für eine Impfung vom Termin-Verwaltungssystem ab und zeigt diese an.
+    \item Der Patient wählt einen der möglichen Tage aus. Die Web-Anwendung ruft dann die möglichen Uhrzeiten vom Termin-Verwaltungssystem ab und zeigt diese an.
+    \item Der Patient wählt eine Uhrzeit aus und bestätigt die Buchung. Dadurch wird der Termin im Termin-Verwaltungssystem reserviert und im persönlichen Kalender im Identitätsmanagement eingetragen.
+    \item Falls bei der Buchung angegeben, erhält der Patient optional eine E-Mail mit dem gebuchten Termin. Diese wird vom Identitätsmanagement gesendet.
+\end{itemize}
+
+Modellieren Sie den Nachrichtenfluss zwischen Patienten und den beteiligten Systemen durch ein
+UML-Sequenzdiagramm.
+
+\subsection{Lösung 4}
+
+\end{document}
