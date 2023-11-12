@@ -7,5 +7,25 @@ Nennen Sie mögliche Risiken einer Continuous-Deployment-Pipeline, die ein Softw
 über mehrere Schritte hinweg bis ins Produktivsystem einspielt.
 
 \subsection{Lösung 2}
+Aus \cite{openai2023chatgpt4}:
+
+\begin{quote}
+
+Die Implementierung einer Continuous-Deployment-Pipeline für die Auslieferung von Software birgt verschiedene Risiken. Einige der möglichen Risiken sind:
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\begin{enumerate}
+\item Fehlerhafte Software-Updates: Automatisierte Deployments können fehlerhafte Updates schneller in die Produktionsumgebung bringen, insbesondere wenn die automatisierten Tests nicht ausreichend sind.
+\item Sicherheitslücken: Schnelle Deployments können dazu führen, dass Sicherheitsprüfungen vernachlässigt werden, was Sicherheitslücken in der Software zur Folge haben kann.
+\item Komplexität der Pipeline: Eine Continuous-Deployment-Pipeline kann komplex sein und erfordert ein tiefes Verständnis der Prozesse und Tools. Fehler in der Konfiguration können zu schwerwiegenden Problemen führen.
+\item Abhängigkeiten zwischen Komponenten: In einem System mit vielen interdependenten Komponenten kann ein Update in einer Komponente unbeabsichtigte Auswirkungen auf andere haben.
+\item Ressourcenüberlastung: Continuous Deployment kann zu einer ständigen Belastung der Ressourcen führen, insbesondere in Bezug auf Serverleistung und Speicherkapazität.
+\item Mangelnde Rückfallmöglichkeiten: Fehlt ein effektiver Mechanismus zum Zurücksetzen von Änderungen (Rollback), kann es schwierig sein, auf einen stabilen Zustand zurückzukehren, wenn etwas schiefgeht.
+\item Benutzererfahrung: Häufige Änderungen können für Endbenutzer verwirrend sein, insbesondere wenn neue Features oder Änderungen nicht klar kommuniziert werden.
+\item Compliance und Regularien: In regulierten Branchen können schnelle Änderungen Compliance-Probleme verursachen, wenn nicht sichergestellt wird, dass jede Veröffentlichung den regulatorischen Anforderungen entspricht.
+\end{enumerate}
+
+Um diese Risiken zu minimieren, ist es wichtig, robuste Teststrategien, effektive Überwachungs- und Logging-Tools sowie klare Kommunikationskanäle für das Team und die Endbenutzer zu implementieren.
+\end{quote}
 
 \end{document}

@@ -530,6 +530,13 @@ right=25mm
     \href{mailto://sebastian.menne@rwth-aachen.de}{S. Menne}
 }}
 
+\usepackage[
+backend=biber,
+style=ieee,
+sorting=ynt
+]{biblatex}
+\addbibresource{main.bib}
+
 \begin{document}
 
 \subfile{Aufgabe1.tex}
@@ -541,5 +548,8 @@ right=25mm
 % \subfile{Aufgabe7.tex}
 % \subfile{Aufgabe8.tex}
 % \subfile{Aufgabe9.tex}
+
+\pagebreak
+\printbibliography
 
 \end{document}
