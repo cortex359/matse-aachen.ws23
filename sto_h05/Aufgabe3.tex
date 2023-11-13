@@ -16,5 +16,31 @@ verkauft wird.
 \end{enumerate}
 
 \subsection{Lösung 3}
+Die Wahrscheinlichkeitsfunktion einer Poisson-Verteilung $X\sim \text{Poi}(\lambda)$ ist gegeben durch $$
+P(X = k) = \frac{{\lambda^k \e^{-\lambda}}}{{k!}}
+$$ und beschreibt die Wahrscheinlichkeit, dass genau $k$ Ereignisse auftreten.
+
+\subsubsection{a)}
+Die Wahrscheinlichkeit, dass in einer beliebigen Woche kein Gerät gekauft wird $P(X{=}0)=\frac{4^0 \e^{-4}}{0!}= \e^{-4}$ also ungefähr $1,83\%$.\\
+
+Die Wahrscheinlichkeit, dass mindestens ein Gerät gekauft wird $P(X\geq 1)$ ist $1-P(X{=}0) = 1 - \e^{-4}$ also ungefähr $98,168 \%$.
+
+\subsubsection{b)}
+Für $X\sim \text{Poi}(\lambda)$ gilt $E(X) = \Var(X) = \lambda$, was in diesem Fall $\Var(X) = 4$ ist.
+
+\subsubsection{c)}
+Sei $Y = \set{\text{\# Notbookverkäufe in zwei Wochen}}$. Der Erwartungswert $E(Y) = 2\cdot E(X) = 8$, was nach dem Additionsgesetz $$
+    X + Y \sim \text{Poi}(\lambda + \mu)
+$$ für zwei voneinander stochastisch unabhängige Wochen plausibel erscheint, sodass wir folgern können
+$$\begin{aligned}
+    P\left(Y{=}k\right) = \frac{{8^k \e^{-8}}}{{k!}}.
+\end{aligned}$$
+$$\begin{aligned}
+    P\left(8\geq Y >6\right) &= P(Y{=}7) + P(Y{=}8)\\[2mm]
+    &= \frac{8^7 \e^{-8}}{7!} + \frac{8^8 \e^{-8}}{8!} \\[2mm]
+    &= \frac{262.144}{315} \cdot \e^{-8} \\[2mm]
+    &\approx 27,9173 \%
+\end{aligned}$$
+
 
 \end{document}

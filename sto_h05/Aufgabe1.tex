@@ -4,16 +4,15 @@
 
 \section{Aufgabe 1}
 Gegeben sei die folgende zweidimensionale Wahrscheinlichkeitsfunktion
-%\begin{center} $f(x,y)=P(X=x,Y=y)$ \end{center}
+\begin{center} $f(x,y)=P(X{=}x,Y{=}y)$ \end{center}
 \begin{center}
-\begin{tabular}{|lcr|c|c|c|}\hline
-\quad &	& $Y$ & $0$ & $1$ & \qquad \qquad \\
-& $X$ & & & & \\\hline
-& $0$ &	& $0/32$ & $2/32$ &  \\\hline
-& $1$ &	& $1/32$ & $1/32$ & \\\hline
-& $2$ &	& $3/32$ & $7/32$ & \\\hline
-& $3$ &	& $10/32$ &	$8/32$ & \\\hline
-& & & & & \\ \hline
+\begin{tabular}{|lcr|c|c|}\hline
+\quad &	& $Y$ & $0$ & $1$  \\
+& $X$ & &         &        \\\hline
+& $0$ &	& $0/32$  & $2/32$ \\\hline
+& $1$ &	& $1/32$  & $1/32$ \\\hline
+& $2$ &	& $3/32$  & $7/32$ \\\hline
+& $3$ &	& $10/32$ &	$8/32$ \\\hline
 \end{tabular}
 \end{center}
 \begin{enumerate}
@@ -27,11 +26,87 @@ Gegeben sei die folgende zweidimensionale Wahrscheinlichkeitsfunktion
 \item die Varianzen
 \end{enumerate}
 für $X$ und $Y$.
-\item	Berechnen Sie für das gegebene Beispiel die Kovarianz $Cov(X,Y)$.
+\item	Berechnen Sie für das gegebene Beispiel die Kovarianz $\text{Kov}(X,Y)$.
 \item	Berechnen Sie den Korrelationskoeffizient $\rho_{XY}$ und treffen Sie eine Aussage über die Stärke des linearen
 Zusammenhanges zwischen $X$ und	$Y$.
 \end{enumerate}
 
 \subsection{Lösung 1}
+
+\begin{center}
+\begin{tabular}{|lcr|c|c|c|}\hline
+\quad &	     &    $Y$ & $0$     & $1$     & \qquad \qquad \\
+      &  $X$ &        &         &         & $P(Xx)$  \\\hline
+      &  $0$ &        & $0/32$  & $2/32$  & \cellcolor{blue!30} $2/32$  \\\hline
+      &  $1$ &        & $1/32$  & $1/32$  & \cellcolor{blue!30} $2/32$  \\\hline
+      &  $2$ &        & $3/32$  & $7/32$  & \cellcolor{blue!30} $10/32$ \\\hline
+      &  $3$ &        & $10/32$ & $8/32$  & \cellcolor{blue!30} $18/32$ \\\hline
+      &      & $P(Y)$ & \cellcolor{yellow!30} $14/32$ & \cellcolor{yellow!30} $18/32$ & 1 \\\hline
+\end{tabular}
+\end{center}
+
+Die \textbf{Wahrscheinlichkeitsverteilung} $P(X|Y{=}1)$ für die Zufallsvariable $X$ lässt sich über eine Tabelle 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+$X$ & $P(X|Y{=}1)$ \\\hline
+$0$ & $2/18$     \\\hline
+$1$ & $1/18$     \\\hline
+$2$ & $7/18$     \\\hline
+$3$ & $8/18$     \\\hline
+\end{tabular}
+\end{center}
+
+oder als eine Funktion angeben:
+$$
+P(X{=}x|Y{=}1) = f_{Y{=}1}(x) = \begin{cases}
+    \nicefrac{2}{18} & x = 0 \\
+    \nicefrac{1}{18} & x = 1 \\
+    \nicefrac{7}{18} & x = 2 \\
+    \nicefrac{8}{18} & x = 3 \\
+    0                & \text{sonst}
+\end{cases}
+$$
+
+\textbf{Stochastische Unabhängigkeit}
+Damit zwei Zufallsvariablen stochastisch unabhängig sind, muss für alle $A, V \in \Omega$ gelten $P(A) \cdot P(B) = P(A\cap B)$. 
+Dies ist hier nicht der Fall, da $$
+    P(X{=}0)\cdot P(Y{=}0) = \nicefrac{7}{256} \neq \nicefrac{0}{32} = P(X{=}0, Y{=}0),
+$$ somit sind die Zufallsvariablen stochastisch abhängig.
+
+\textbf{Erwartungswerte}
+$$\begin{aligned}
+    E(X) &= \frac{2}{32} \cdot 0 + \frac{2}{32} \cdot 1 + \frac{10}{32} \cdot 2 + \frac{18}{32} \cdot 3 \\[2mm]
+    &= \frac{19}{8} = 2,375 \\[4mm]
+    E(Y) &= \frac{14}{32} \cdot 0 + \frac{18}{32} \cdot 1 \\[2mm]
+    &= \frac{9}{16} = 0.5625 \\
+\end{aligned}$$
+
+Die \textbf{Varianzen} berechnen wir wieder über die Formel $\Var(X) = E\left(X^2\right) - E(X)^2$:
+$$\begin{aligned}
+    E\left(X^2\right) &= \frac{2 + 40 + 162}{32} = \frac{204}{32}\\[2mm]
+    \Var(X) &= \frac{204}{32} - \left(\frac{19}{8}\right)^2
+    = \frac{47}{64} \\[2mm]
+    E\left(Y^2\right) &= \frac{18}{32} \\[2mm]
+    \Var(Y) &= \frac{18}{32} - \left(\frac{9}{16}\right)^2
+    = \frac{63}{256}
+\end{aligned}$$
+
+\textbf{Kovarianz} 
+$$\begin{aligned}
+\Kov(X, Y) &= E\left[(X-E(X))\cdot(Y-E(Y))\right] \\[1mm]
+    &= E\left(X\cdot Y\right) - E(X)\cdot E(Y) \\[2mm]
+    &= \frac{1}{32} + \frac{2\cdot 7}{32} + \frac{3\cdot 8}{32} - \frac{19}{8} \cdot \frac{9}{16} \\[2mm]
+    &= - \frac{15}{128}
+\end{aligned}$$
+
+\textbf{Korrelationskoeffizient}
+$$\begin{aligned}
+    \rho(X, Y) &= \frac{\Kov(X, Y)}{\sqrt{\Var(X)\cdot \Var(Y)}} \\[2mm]
+    &= \frac{- \frac{15}{128}}{\sqrt{\frac{47}{64} \cdot \frac{63}{256}}} \\[2mm]
+    &\approx -0.2756589
+\end{aligned}$$
+
+Der Pearson-Korrelationskoeffizient ist ein Maß für die Stärke und Richtung einer linearen Beziehung zwischen zwei Zufallsvariablen. Ein Wert von $\rho(X, Y) \approx -0.28$ zeigt eine schwach negative lineare Beziehung hin.
 
 \end{document}

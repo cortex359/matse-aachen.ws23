@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Während einer Theaterprobe wird eine Russisch-Roulette-Szene geübt. Dazu wird ein Trommelrevolver, der $6$ Platzpatronen fasst, mit nur einer Platzpatrone geladen.
+Während einer Theaterprobe wird eine Russisch-Roulette-Szene geübt. Dazu wird ein Revolver, der $6$ Platzpatronen fasst, mit nur einer Platzpatrone geladen.
 \begin{enumerate}
 \item Mit welcher Verteilung kann die Zufallsvariable
  $$X = \{ \mbox{die Person überlebt bis einschließlich Abfeuern des x-ten Schusses} \}$$
@@ -12,5 +12,26 @@ Während einer Theaterprobe wird eine Russisch-Roulette-Szene geübt. Dazu wird 
 \end{enumerate}
 
 \subsection{Lösung 2}
+Die Zufallsvariable kann mit einer geometrischen Verteilung beschrieben werden. $$
+    X\sim G\left(p=\frac{1}{6}\right)
+$$
+Diese hat die Wahrscheinlichkeitsfunktion $$
+    P(X{=}k) = \left(1-\frac{1}{6}\right)^k\cdot \frac{1}{6}
+    \quad\text{mit}\quad k\in\mathbb{N}_0.
+$$
+
+Die Wahrscheinlichkeit mehr als 5 Runden zu überleben $P(X>5)$ lässt sich mit dem Gegenereignis $1 - P(X\leq 5)$ leicht bestimmen:
+$$\begin{aligned}    
+    P(X>5) &= 1 - P(X\leq 5) \\
+    &= 1 - P(X{=}5) - P(X{=}4) - P(X{=}3) - P(X{=}2) - P(X{=}1) - P(X{=}0) \\[2mm]
+    &= 1
+    - \left(\frac{5}{6}\right)^5 \frac{1}{6}
+    - \left(\frac{5}{6}\right)^4 \frac{1}{6}
+    - \left(\frac{5}{6}\right)^3 \frac{1}{6}
+    - \left(\frac{5}{6}\right)^2 \frac{1}{6}
+    - \left(\frac{5}{6}\right)^1 \frac{1}{6}
+    - \left(\frac{5}{6}\right)^0 \frac{1}{6} \\[2mm]
+    &= \frac{15625}{46656} \approx 33,4898 \% \\
+\end{aligned}$$
 
 \end{document}
