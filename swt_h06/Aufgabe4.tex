@@ -12,7 +12,12 @@ eine Lösung an:
 \item Sie möchten den letzten Commit ins Remote-Repository zurücknehmen, so dass aber die Rücknahme selbst Teil des Commit-Verlaufs wird und für andere Entwickler nachvollziehbar bleibt.
 \end{enumerate}
 
-
 \subsection{Lösung 4}
+\begin{enumerate}
+    \item Für diesen Fall gibt es \lstinline|git commit --amend|.
+    \item Wenn die Commits noch nicht übertragen wurden, kann dazu \lstinline|git reset --hard <commit-hash>| verwendet werden. Sollten die Commits bereits übertragen worden sein oder möchte man keinen harten Reset durchführen, so lässt sich mit \lstinline|git revert <commit-hash>| auch die Änderungen eines Commits rückgänging machen und dies als neuen Commit speichern.
+    \item \lstinline|git revert HEAD~1|
+\end{enumerate}
+
 
 \end{document}
