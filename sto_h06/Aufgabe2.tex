@@ -4,12 +4,39 @@
 
 \section{Aufgabe 2}
 Das Abwassersystem einer Gemeinde, an das $1.332$ Haushalte angeschlossen sind, ist für eine maximale Last von $13.500$ Litern pro Stunde ausgelegt. \\[1mm]
-Nehmen Sie an, dass die einzelnen Abwassermengen (pro Stunde) von $n$ angeschlossenen Haushalten beschrieben werden können durch stochastisch unabhängige Zufallsvariablen $X_1$, ..., $X_n$, wobei $X_i$ für $i \in \{ 1, \cdots, n \}$ normalverteilt ist mit Erwartungswert $\mu = 10$ (Liter/ Stunde) und Varianz $\sigma^2 = 4$ ((Liter/ Stunde)$^2$). Berechnen Sie 
+Nehmen Sie an, dass die einzelnen Abflussraten von $n$ angeschlossenen Haushalten durch stochastisch unabhängige Zufallsvariablen $X_1$, \dots, $X_n$ beschrieben werden können, wobei $X_i$ für $i \in \{ 1, \dots, n \}$ normalverteilt ist mit Erwartungswert $\mu = 10$ [Liter/ Stunde] und Varianz $\sigma^2 = 4$ [Liter$^2$ / Stunde$^2$].\\
+
+Berechnen Sie 
 \begin{enumerate}
 \item den Erwartungswert und die Varianz für die $1.332$ angeschlossenen Haushalte.
 \item die Wahrscheinlichkeit einer Überlastung des Abwassersystems (für $1.332$ angeschlossene Haushalte).
 \end{enumerate}
 
 \subsection{Lösung 2}
+$$
+    X\sim \mathcal{N}(\mu {=} 10, \sigma^2 {=} 4)
+$$
+
+Der Erwartungswert beträgt
+$$
+    E\left(\bigcap_{i\in\set{1,\dots,n}} X_i\right) = n\cdot \mu = 1.332\cdot 10 = 13.320
+$$
+also 13.320 [Liter / Stunde] und die Varianz $$
+    \Var\left(\bigcap_{i\in\set{1,\dots,n}} X_i\right) = 1.332 \cdot 4 = 5.328
+$$
+5.328 [Liter$^2$ / Stunde$^2$].\\
+% warum geht 13.320^2 - 1332\cdot 10^2 nicht?
+
+Um die Wahrscheinlichkeit einer Überlastung des Abwassersystems $P\left(\bigcap_{i\in\set{1,\dots,n}} X_i {>} 13.500\right)$ zu berechnen, sagen wir $S_n := \bigcap_{i\in\set{1,\dots,n}} X_i$ und betrachten die Normalverteilung mit den oben bestimmten Parametern $S_n \sim \mathcal{N}(\mu {=} 13.320, \sigma^2 {=} 5.328)$.
+
+$$\begin{aligned}
+    P(S_n {>} 13.500) &= 1 - P(S_n {\leq} 13.500) \\
+    &= 1 - P\left(\frac{S_n - \mu}{\sigma} {\leq} \frac{13.500-13.320}{\sqrt{5.328}}\right) \\
+    &= 1 - P\left(\frac{S_n - \mu}{\sigma} {\leq} \frac{180}{\sqrt{5.328}}\right) \\
+    &\approx 1 - \Phi (2,47)\\
+    &= 1 - 0,99324 = 0,676 \%
+\end{aligned}$$
+
+Die Wahrscheinlichkeit, dass es zu einer Überlastung des Abwassersystems für 1.332 angeschlossene Haushalte kommt, beträgt 0,676\%. 
 
 \end{document}

@@ -3,12 +3,56 @@
 \begin{document}
 
 \section{Aufgabe 1}
-Die Wahrscheinlichkeit, einen bestimmten Anti-Körper zu haben, sei gleich $4\%$.
+Die Wahrscheinlichkeit, einen bestimmten Antikörper zu haben, sei gleich $4\%$.
 \begin{enumerate}
-\item Modellieren Sie die Zufallsvariable, die die Anzahl der Anti-Körper-Träger unter $10.000$ Untersuchten zählt (Verteilung angeben).
-\item Berechnen Sie näherungsweise die Wahrscheinlichkeit, dass bei der Untersuchung von $10.000$ Personen zwischen $300$ und $500$ Personen den Anti-Körper haben.
+\item Modellieren Sie die Zufallsvariable, die die Anzahl der Antikörper-Träger unter $10.000$ Untersuchten zählt (Verteilung angeben).
+\item Berechnen Sie näherungsweise die Wahrscheinlichkeit, dass bei der Untersuchung von $10.000$ Personen zwischen $300$ und $500$ Personen den Antikörper haben.
 \end{enumerate}
 
 \subsection{Lösung 1}
+Die Zufallsvariable $X = \set{\#\text{Antikörper-Träger unter 10k}}$ wird durch die Binominalverteilung $X\sim\Bin(n{=}10.000, p{=}0,04)$ modelliert. 
+
+Entsprechend lautet die Wahrscheinlichkeitsfunktion
+$$
+    P(X{=}x) = \binom{10.000}{x} \cdot 0,04^{x} \cdot 0,96^{10.000-x}.
+$$
+
+Um nun approximativ die Wahrscheinlichkeit $P(500{>}X{>}300)$ zu berechnen, prüfen wir zunächst die Approximationsbedingungen.
+Da wir ein großes $n$ bei kleinem $p$ vorliegen haben, beginnen wir zunächst mit der Approximationsbedingung für die Approximation durch eine Poisson-Verteilung:
+$$
+    n\cdot p = 10.000 \cdot 0,04 = 400 \not\leq 10
+$$
+
+Approximationsbedingung für Normalverteilung:
+$$
+    n\cdot p\cdot (1-p) = 10.000\cdot 0,04 \cdot 0,96 = 384 > 9 \quad \checkmark
+$$
+
+Die zweite Bedingung ist erfüllt, sodass wir mit einer Normalverteilung approximieren können.
+$$
+    X\sim\Bin(n{=}10.000, p{=}0,04) \approx \mathcal{N}(\mu, \sigma^2)
+$$
+Da bei einer Normalverteilung $E(X) = \mu = n\cdot p$ gilt und für $\Var(X)=np\cdot (1-p)$ ist, erhalten wir 
+$$
+    X\sim\Bin(n{=}10.000, p{=}0,04) \approx \mathcal{N}(\mu {=} 400, \sigma^2 {=} 384).
+$$
+
+Statt $$
+    P(300 {\leq} X {\leq} 500) = \sum_{j=300}^{500} \binom{10.000}{j} \cdot 0,04^j \cdot 0,96^{10.000 - j}
+$$
+% 0.9999995843225466982491241222304726674856405917540672356731066173…
+können wir nun über die Approximation (ohne Stetigkeitskorrektur) Folgendes berechnen:
+$$\begin{aligned}
+    P(300 {\leq} X {\leq} 500) &\approx 
+        \Phi \left(\frac{500-400}{\sqrt{400\cdot 0,96}}\right) -
+        \Phi \left(\frac{300-400}{\sqrt{400\cdot 0,96}}\right) \\
+        &\approx \Phi(5,10310) - \Phi(-5,10310) \\
+        &= 2\cdot \Phi(5,10310) - 1 \\
+        &= 1
+\end{aligned}$$
+
+Bei der Untersuchung von 10.000 Personen zwischen 300 und 500 Personen mit Antikörpern anzutreffen ist somit ein \textbf{sicheres Ereignis}.
+
+
 
 \end{document}

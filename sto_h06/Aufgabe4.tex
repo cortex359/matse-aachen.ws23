@@ -5,13 +5,40 @@
 \section{Aufgabe 4}
 Bei der Verpackung von Kartoffeln in Beutel kann das Normalgewicht von $10$kg i.A. nicht exakt 
 eingehalten werden. Die Erfahrung zeigt, dass das Füllgewicht eines Beutels durch eine Zufallsvariable
-$Y=X+10$ beschrieben werden kann, wobei $X$ eine auf dem Intervall $[-0,25;0,75]$ gleichverteilte 
-Zufallsvariable ist.
+$Y=X+10$ beschrieben werden kann, wobei $X$ eine auf dem Intervall $\interval{-0,25;\, 0,75}$ gleichverteilte Zufallsvariable ist.
 \begin{enumerate}
 \item Berechnen Sie den Erwartungswert und die Varianz des Füllgewichtes eines Beutels.
 \item Die abgefüllten Beutel sollen mit einem Kleintransporter befördert werden. Berechnen Sie näherungsweise die Wahrscheinlichkeit dafür, dass die zulässige Nutzlast von $1.020$kg bei Zuladung von $100$ Beuteln überschritten wird.
 \end{enumerate}
 
 \subsection{Lösung 4}
+Für eine Gleichverteilung $X\sim\mathcal{U}(a, b)$ gilt:
+$$
+	E(X) = \frac{a+b}{2}\qquad \text{Var}(X) = \frac{(b-a)^2}{12}
+$$
 
+$$
+E(Y) = E(X+10) = 10 + E(X) = 10 + \frac{0,5}{2} = 10,25
+$$
+
+$$
+\Var(Y) = \Var(X+10) = \Var(X) = \frac{1}{12}
+$$
+
+Der Erwartungswert des Füllgewichtes eines Beutels beträgt 10,25kg und die die Varianz beträgt $\frac{1}{12}\text{kg}^2$.\\
+
+Sei $G =\set{\text{Gewicht von 100 Beuteln}} = \bigcup_{i\in\set{1,\dots,100}} Y_i$, so ist $E(G) = 100 \cdot E(Y) = 1.025$kg und $\Var(G) = 100 \cdot \Var(Y) = \frac{25}{3}\text{kg}^2$.\\
+
+Die Wahrscheinlichkeit, dass die Nutzlast überschritten wird $P(G {>} 1.020)$ errechnet sich nun wie folgt:
+$$\begin{aligned}
+    P(G {>} 1.020) &= 1 - P(G{\leq} 1.020) \\
+    &= 1 - P\left(
+        \frac{G-\mu}{\sigma} \leq \frac{1.020 - 1.025}{\sqrt{\frac{25}{3}}}
+    \right) \\
+    &\approx 1 - \Phi \left(-\sqrt{3}\right) \\
+    &\approx \Phi (1,73) \approx 0,95818 \\
+    &= 95,818 \%
+\end{aligned}$$
+
+Die Wahrscheinlichkeit die zulässige Nutzlast von 1.020kg bei Zuladung von 100 Beuteln zu überschreiten beträgt somit rund 95,818\%.
 \end{document}

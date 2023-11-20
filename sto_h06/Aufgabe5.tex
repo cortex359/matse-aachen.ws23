@@ -11,5 +11,37 @@ Bei der Reinigung eines Kühlschrankes im Haushalt lässt sich eine leichte Vers
 \end{enumerate}
 
 \subsection{Lösung 5}
+Sei $X = \set{\text{Temperatur}} \sim\mathcal{N}(\mu {=} 3, \sigma^2 {=} 9)$. 
+\subsubsection{5a)}
+Wir bestimmen $P(X{>}9)$ wie folgt:
+$$\begin{aligned}
+    P(X{>}9) &= 1 - P(X{\leq}9) \\
+    &= 1 - P\left(\frac{X-\mu}{\sigma} \leq \frac{9-3}{\sqrt{9}}\right) \\
+    &= 1 - \Phi(2) \\
+    &\approx 1 - 0,97725 = 0,02275 \\
+    &= 2,275 \%
+\end{aligned}$$
+Die Wahrscheinlichkeit, dass der Kühlschrank die kritische Temperatur von 9$^\circ$C übersteigt beträgt 2,275 \%.
+
+\subsubsection{5b)}
+$$\begin{aligned}
+    P(X{\leq}0) &= P\left(\frac{X-\mu}{\sigma} \leq \frac{0-3}{\sqrt{9}}\right) \\
+    &= \Phi(-1) \\
+    &= 1 - \Phi(1) \\
+    &\approx 0,15866 \\
+    &= 15,866 \%
+\end{aligned}$$
+Die Wahrscheinlichkeit, dass der Gefrierpunkt unterschritten wird, beträgt 15,866 \%. 
+
+\subsubsection{5c)}
+\begin{equiveqs}
+       & P(X{\leq}k) &= 0,99 \\[3mm]
+\equiv & P\left(\frac{X-\mu}{\sigma} \leq \frac{k-3}{\sqrt{9}}\right) &= 0,99\\[4mm]
+\equiv & \Phi \left(\frac{k-3}{3}\right) &= 0,99 \\[3mm]
+\equiv & \frac{k-3}{3} &= \Phi^{-1}(0,99) \\[3mm]
+\Rightarrow & \frac{k-3}{3} &\approx 2,33 \\[3mm]
+\equiv & k &\approx 9,99 \\
+\end{equiveqs}
+Eine Temperatur von rund 10$^\circ$C wird mit einer Wahrscheinlichkeit von 99\% nicht überschritten. 
 
 \end{document}

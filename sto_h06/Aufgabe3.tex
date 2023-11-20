@@ -15,5 +15,49 @@ $$ f(x) = \begin{cases}
 \end{enumerate}
 
 \subsection{Lösung 3}
+Eine Zufallsvariable $X$ heißt \textbf{stetig verteilt}, wenn es eine nichtnegative integrierbare Funktion $f:\mathbb{R} \to \mathbb{R}$ mit der Eigenschaft
+$$
+	\int_{-\infty}^{\infty} f(t) \dx{t} = 1
+$$
+gibt, sodass die Verteilungsfunktion $F$ von $X$ die Darstellung $$
+	F(x) = P(X {\leq} x) = \int_{-\infty}^{\infty} f(t) \dx{t}, \qquad x\in\mathbb{R}
+$$
+besitzt. Die Funktion $f$ heißt Dichtefunktion (oder auch \textit{Wahrscheinlichkeitsdichtefunktion, Probability Density Function, PDF}) von $X$.
+
+\subsubsection{3a)}
+Um die o.g. Eigenschaft der Normiertheit zu gewähren, muss $a$ so gewählt werden, dass
+\begin{equiveqs}[crl]
+	& \int_{-\infty}^{\infty} f(t) \dx{t} &= 1 \\
+\equiv & \int_{0}^{3} ax^2\cdot (3-x) \dx{x} &= 1 \\
+\equiv & \left[ ax^3 - \frac{a}{4} x^4 \right]_{0}^{3} &= 1 \\[5mm]
+\equiv & 3^3 a - \frac{a}{4} 3^4 &= 1 \\[2mm]
+\equiv & a &= \frac{4}{27} \\
+\end{equiveqs}
+gilt.
+
+\subsubsection{3b)}
+Die zugehörige Verteilungsfunktion $F(x)$ ist nun für $x \in \interval{0, 3}$ durch das Integral
+\begin{equiveqs}[crl]
+	& \hat{F}(x) &= \int_{0}^{x} \frac{4}{27} t^2 \cdot (3-t) \dx{t},\quad x\in\mathbb{R} \\[4mm]
+	& &= \left[ \frac{4}{27} t^3 -  \frac{1}{27} t^4 \right]_{0}^{x} \\[4mm]
+	& &= \frac{4}{27} x^3 - \frac{1}{27} x^4 \\[4mm]
+\end{equiveqs}
+beschrieben. Für $x<0$ ist $f(x) = 0 = F(x)$ und für $x > 3$ ist $F(x) = 1$, da die Dichtefunktion monoton wachsend, im unendlichen gleich eins und bei $F(3) = 1$ ist.
+$$
+	F(x) = \begin{cases}
+		0 & x < 0 \\
+		\frac{4}{27} x^3 - \frac{1}{27} x^4 & 0 \leq x \leq 3 \\
+		1 & x > 3\\
+	\end{cases}
+$$
+
+\subsubsection{3c)}
+$$\begin{aligned}
+	P(X {\leq} 2) &= F(2)\\
+	 &= \frac{4}{27} 2^3 - \frac{1}{27} 2^4 \\[2mm]
+	&= \frac{32 - 16}{27} = \frac{16}{27} \\[2mm]
+	&= 59,2\overline{592} \%\\
+\end{aligned}
+$$
 
 \end{document}
