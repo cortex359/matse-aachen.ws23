@@ -1,0 +1,42 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{A1 Natürlichsprachliche Anforderungen}
+
+\begin{enumerate}
+\item Analysieren Sie die folgende, natürlichsprachlich formulierte Anforderung an ein Campus-Management-System in Hinblick auf Präzision, Vollständigkeit und Eindeutigkeit:
+»Wenn die Klausur nicht bestanden wurde, dann kann ein Nachschreibetermin festgelegt werden.«
+\item Formulieren Sie einen relevanten Aspekt der Anforderung aus a) gemäß der SOPHIST-Satzschablone.
+\end{enumerate}
+
+\subsection{Lösung 1a}
+
+\begin{itemize}
+\item Präzision:
+\begin{itemize}
+    \item[+] Der Begriff Nachschreibtermin ist klar definiert und den Studierenden bekannt.
+    \item[+] Eine Klausur kann nur bestanden werden oder nicht, es gibt keinen Zwischenfall.
+    \item[-] Es ist nicht definiert, wann eine Klausur als nicht bestanden gilt.
+\end{itemize}
+
+\item Vollständigkeit:
+\begin{itemize}
+    \item[-] Es sollte ergänzt werden was passiert, falls die Klausur bestanden wurde (auch wenn dies allgemein bekannt ist).
+    \item[-] Es ist nicht erklärt, wie ein Nachschreibtermin festgelegt werden kann.
+    \item[-] Es ist bekannt, dass ein Durchfallen beim Drittversuch andere Konsequenzen hat. Dieser Fall wird jedoch nicht abgedeckt.
+\end{itemize}
+
+\item Eindeutigkeit:
+\begin{itemize}
+    \item[-] Die Rollen sind nicht klar definiert. Wer ist für welche Aufgabe verantwortlich?
+    \item[-] Es ist nicht definiert, wer den Nachschreibtermin festlegen kann.
+\end{itemize}
+
+\end{itemize}
+
+
+\subsection{Lösung 1b}
+Wenn ein Student die Mindestpunktzahl für das Bestehen der Klausur unterschritten hat und es nicht der Drittversuch war, muss das Klausurmanagementsystem die Möglichkeit einer erneuten Anmeldung für die gleiche Klausur zulassen.
+
+\end{document}

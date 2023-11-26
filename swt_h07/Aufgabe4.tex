@@ -1,0 +1,23 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{A4 Maven \& JUnit: Euklidischer Algorithmus}
+
+Erstellen Sie ein neues Maven-Projekt in Ihrer Java-Entwicklungsumgebung und implementieren Sie den modernen, iterativen Euklidischen Algorithmus. Beachten Sie, dass der Euklidische Algorithmus die mathematische Modulo-Operation nutzt, während in Java die symmetrische Modulo-Operation implementiert ist. Der Unterschied ist für negative Zahlen relevant.
+
+Erstellen Sie anschließend in JUnit Komponententests, um stichprobenartig die folgenden mathematischen Gesetze für den größten gemeinsamen Teiler zu prüfen. Nutzen Sie dazu möglichst parametrisierte Tests.
+
+Zu prüfende Gesetze: Seien $n, m, r$ ganze Zahlen und $\abs{n}$ der Betrag (Absolutwert) von $n$.
+\begin{enumerate}
+    \item $\text{ggT}(0, n) = \text{ggT}(n, 0) = \abs{n}$
+    \item $\text{ggT}(1, n) = \text{ggT}(n, 1) = 1$
+    \item $\text{ggT}(n, m) = \text{ggT}(m, n)$
+    \item $\text{ggT}(n, n) = \abs{n}$
+    \item $\text{ggT}(n \cdot r, m \cdot r) = \text{ggT}(n, m) \cdot \abs{r}$
+\end{enumerate}
+
+\subsection{Lösung 4}
+Siehe Anhang.
+
+\end{document}
