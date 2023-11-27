@@ -4,7 +4,7 @@
 
 \section{Aufgabe 3}
 Eine Maschine produziert Bolzen, deren Durchmesser normalverteilt sind mit Mittelwert $9,8$ mm und Standardabweichung $0,10$ mm. Eine andere Maschine bohrt Löcher in einer
-Metallplatte, deren Durchmesser normalverteil sind mit Mittelwert $10,0$ mm und Standardabweichung $0,08$ mm. Die beiden Durchmesser dürfen als unabhängig betrachtet werden.
+Metallplatte, deren Durchmesser normalverteilt sind mit Mittelwert $10,0$ mm und Standardabweichung $0,08$ mm. Die beiden Durchmesser dürfen als unabhängig betrachtet werden.
 \begin{enumerate}
 \item Welche Verteilung beschreibt den Abstand zwischen Bolzen und Loch in einer Metallplatte?
 \item Wie groß ist die Wahrscheinlichkeit, dass ein beliebig ausgewählter Bolzen in ein beliebig ausgewähltes Loch passt?
@@ -31,7 +31,7 @@ Somit gilt $D\sim\mathcal{N}(\mu_D, \sigma_D^2) = \mathcal{N}(0,2\mbox{ mm}; 0,0
 \subsection{Lösung 3b}
 \lstset{language=R}
 
-Die Wahrscheinlichkeit, dass ein beliebig ausgewählter Bolzen in ein beliebig ausgewähltes Loch passt $P(D \geq 0)$ bzw. $1-P(D \leq 0)$ lässt sich in R mit dem Befehel \lstinline|1 - pnorm(q=0, mean=0.2, sd=0.12806)| berechnen und ergibt den Wert 0,9408287. Sie beträgt also ungefähr 94,083 \%.
+Die Wahrscheinlichkeit, dass ein beliebig ausgewählter Bolzen in ein beliebig ausgewähltes Loch passt $P(D \geq 0)$ bzw. $1-P(D \leq 0)$ lässt sich in R mit dem Befehl \lstinline|1 - pnorm(q=0, mean=0.2, sd=0.12806)| berechnen und ergibt den Wert 0,9408287. Sie beträgt also ungefähr 94,083 \%.
 
 Händisch würden wir dazu so vorgehen: $$\begin{aligned}
     1 - P(D\leq 0) &= 1 - P\left(\frac{D- 0,2}{0,12806} \leq \frac{0-0,2}{0,12806}\right)\\[2mm]
