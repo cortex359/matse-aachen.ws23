@@ -3,18 +3,32 @@
 \begin{document}
 
 \section{Aufgabe 4}
-Bei einem Produktionsvorgang werden Zylinder in den ausgefrästen Kreis eines Metallsockels eingepasst. Die beiden Teile werden rein zufällig aus den bisher produzierten Zylindern bzw. ausgefrästen Metallplatten ausgewählt. Der Durchmesser des Zylinders ist (in mm) nach $N(24,9; (0,03)^2)$-verteilt, der Durchmesser des in den Metallsockel eingefrästen Kreises ist nach $N(25; (0,04)^2)$-verteilt. Der Zylinder kann noch eingepasst werden, falls die lichte Weite der Durchmessers (= Durchmesser des gefrästen Kreis - Durchmesser des Zylinders) nicht mehr als $0,2$mm beträgt. 
+Bei einem Produktionsvorgang werden Zylinder in den ausgefrästen Kreis eines Metallsockels eingepasst. Die beiden Teile werden rein zufällig aus den bisher produzierten Zylindern bzw. ausgefrästen Metallplatten ausgewählt. Der Durchmesser des Zylinders ist (in mm) nach $\mathcal{N}(\mu_1{=}24,9, \sigma_1^2{=}(0,03)^2)$-verteilt, der Durchmesser des, in den Metallsockel eingefrästen, Kreises ist nach $\mathcal{N}(\mu_2{=}25, \sigma_2^2 {=} (0,04)^2)$-verteilt. Der Zylinder kann noch eingepasst werden, falls die lichte Weite der Durchmessers (also Durchmesser des gefrästen Kreis minus Durchmesser des Zylinders) nicht mehr als $0,2$mm beträgt.
 \begin{enumerate}
-\item Berechnen Sie 
+\item Berechnen Sie
 \begin{enumerate}
 \item den Erwartungswert
 \item die Varianz
 \end{enumerate}
-der Zufallsvariablen "'lichte Weite des Durchmessers"'.
+der Zufallsvariablen „lichte Weite des Durchmessers“.
 \item In wie viel Prozent aller Fälle lässt sich der Zylinder nicht in die Metallplatte einpassen?
 \end{enumerate}
 
-
 \subsection{Lösung 4}
+Für die Zufallsvariable $X=\set{\text{lichte Weite}}$ ist der Erwartungswert $E(X) = \mu_2 - \mu_1 = 25 - 24,9 = 0,1$ mm.
+Die Varianz beträgt $\Var(X) = \sigma_1^2 + \sigma_2^2 = 0,0025$ mm$^2$.
+Somit gilt $X\sim\mathcal{N}(\mu, \sigma^2) = \mathcal{N}(0,1\mbox{ mm};\, 0,0025\mbox{ mm}^2)$.\\
+
+Da ein Zylinder noch eingepasst werden kann, wenn $x\in\set{X\leq 0,2}$, betrachten wir die relative Häufigkeit von dem Gegenereignis $1 - P(X\leq 0,2)$.
+$$\begin{aligned}
+    P(X\geq 0,2) &= 1 - P(X\leq 0,2) \\[2mm]
+    &= 1 - P\left( \frac{X - 0,1}{\sqrt{0,0025}} \leq \frac{0,2 - 0,1}{\sqrt{0,0025}}\right) \\[2mm]
+    &= 1 - P\left( \frac{X - 0,1}{0,05} \leq \frac{0,1}{0,05}\right) \\[2mm]
+    &= 1 - \Phi\left(\frac{0,1}{0,05}\right) = 1 - \Phi(2) \\[2mm]
+    &\approx 1 - 0,97725 = 2,275 \%
+\end{aligned}$$
+
+Die Wahrscheinlichkeit, dass der Zylinder nicht passt, liegt somit bei ungefähr 2,275 \%.
+
 
 \end{document}

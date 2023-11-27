@@ -3,15 +3,43 @@
 \begin{document}
 
 \section{Aufgabe 3}
-Eine Maschine produziert Bolzen, deren Durchmesser normalverteilt sind mit Mittelwert $9,8$ mm und Standardabweichung $0,10$ mm. Eine andere Maschine bohrt Löcher in einer 
+Eine Maschine produziert Bolzen, deren Durchmesser normalverteilt sind mit Mittelwert $9,8$ mm und Standardabweichung $0,10$ mm. Eine andere Maschine bohrt Löcher in einer
 Metallplatte, deren Durchmesser normalverteil sind mit Mittelwert $10,0$ mm und Standardabweichung $0,08$ mm. Die beiden Durchmesser dürfen als unabhängig betrachtet werden.
 \begin{enumerate}
 \item Welche Verteilung beschreibt den Abstand zwischen Bolzen und Loch in einer Metallplatte?
 \item Wie groß ist die Wahrscheinlichkeit, dass ein beliebig ausgewählter Bolzen in ein beliebig ausgewähltes Loch passt?
-\item Mit welcher Wahrscheinlichkeit ergibt sich bei einer zufälligen Auswahl von Bolzen und Loch eine Verbindung mit zu viel Spiel, wenn der Unterschied zwischen 
+\item Mit welcher Wahrscheinlichkeit ergibt sich bei einer zufälligen Auswahl von Bolzen und Loch eine Verbindung mit zu viel Spiel, wenn der Unterschied zwischen
 Durchmesser des Lochs in der Metallplatte und Bolzendurchmesser höchstens $0,5$ mm betragen darf?
 \end{enumerate}
 
-\subsection{Lösung 3}
+\subsection{Lösung 3a}
+
+\textbf{Bolzendurchmesser:}\\
+Normalverteilung mit Mittelwert $\mu_1 = 9,8$ mm und Standardabweichung $\sigma = 0,1$ mm.
+
+\textbf{Lochdurchmesser:}\\
+Normalverteilung mit Mittelwert $\mu_2 = 10$ mm und Standardabweichung $\sigma = 0,08$ mm.
+
+\textbf{Abstand:}\\
+Sind zwei unabhängige Zufallsvariablen normalverteilt, so ist auch ihre Differenz normalverteilt. Der Abstand zwischen dem Bolzen und dem Loch in einer Metallplatte kann als Differenz der beiden normalverteilten Größen betrachtet werden. Somit ist die Verteilung des Abstands $D$ (Lochdurchmesser minus Bolzendurchmesser) eine Normalverteilung mit folgenden Parameter:
+\begin{itemize}
+    \item Mittelwert $\mu_D = \mu_2 - \mu_1 =0,2$ mm
+    \item Standardabweichung $\sigma_D = \sqrt{\sigma_1^2 + \sigma_2^2} \approx 0,12806$ mm
+\end{itemize}
+Somit gilt $D\sim\mathcal{N}(\mu_D, \sigma_D^2) = \mathcal{N}(0,2\mbox{ mm}; 0,016399\mbox{ mm}^2)$.
+
+\subsection{Lösung 3b}
+\lstset{language=R}
+
+Die Wahrscheinlichkeit, dass ein beliebig ausgewählter Bolzen in ein beliebig ausgewähltes Loch passt $P(D \geq 0)$ bzw. $1-P(D \leq 0)$ lässt sich in R mit dem Befehel \lstinline|1 - pnorm(q=0, mean=0.2, sd=0.12806)| berechnen und ergibt den Wert 0,9408287. Sie beträgt also ungefähr 94,083 \%.
+
+Händisch würden wir dazu so vorgehen: $$\begin{aligned}
+    1 - P(D\leq 0) &= 1 - P\left(\frac{D- 0,2}{0,12806} \leq \frac{0-0,2}{0,12806}\right)\\[2mm]
+    &= 1 - \Phi \left(\frac{-0,2}{0,12806}\right)\\[2mm]
+    &\approx \Phi(1.562) = 0,94062
+\end{aligned}$$
+
+\subsection{Lösung 3c}
+Die Wahrscheinlichkeit, dass bei einer zufälligen Auswahl von Bolzen und Loch eine Verbindung mit einem Abstand von mehr als 0,5 mm zustande kommt $P(D > 0,5) = 1 - P(D\leq 0,5)$ beträgt (mit gleichem Rechenweg wie zuvor) 0,9573619\%.
 
 \end{document}

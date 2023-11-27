@@ -3,22 +3,84 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Gegeben sei folgende zweidimensionale Dichtefunktion zweier Zufallsvariablen $X$ und $Y$:
-$$ f_{X,Y}(x,y) 
+Gegeben sei folgende zweidimensionale Dichtefunktion der Zufallsvariablen $X$ und $Y$:
+$$ f_{X,Y}(x,y)
 = \begin{cases}
-	2x + \frac{2}{3}y & \mbox{für } -0,5 \leq x \leq 0,5; 1 \leq y \leq 2 \\
+	2x + \frac{2}{3}y & \mbox{für } -0,5 \leq x \leq 0,5 \mbox{ und } 1 \leq y \leq 2 \\
 	0				  & \mbox{sonst}
 \end{cases} $$
+
 \begin{enumerate}
 \item Berechnen Sie die Randverteilung ($f_X(x)$ und $f_Y(y)$) für beide Zufallsvariablen $X$ und $Y$.
 \item Sind die Zufallsvariablen $X$ und $Y$ stochastisch unabhängig?
-\item Berechnen Sie aus der Randverteilung 
-\begin{shortenumerate}
-\item den Erwartungswert $E[Y]$ sowie 
-\item die Varianz $Var[Y]$.
-\end{shortenumerate}
+\item Berechnen Sie aus der Randverteilung
+\begin{enumerate}
+\item den Erwartungswert $E(Y)$ sowie
+\item die Varianz $\Var(Y)$.
+\end{enumerate}
 \end{enumerate}
 
 \subsection{Lösung 2}
+
+\textbf{Berechnung der Randverteilungen} \(f_X(x)\) und \(f_Y(y)\):\\
+Die Randdichtefunktion \(f_X(x)\) erhält man durch Integration der gemeinsamen Dichtefunktion \(f_{X,Y}(x,y)\) über den Bereich von \(y\):
+$$\begin{aligned}
+	f_X(x) &= \int_{1}^{2} f_{X,Y}(x,y) \dx{y} \\[2mm]
+	&= \int_{1}^{2} 2x + \frac{2}{3}y \dx{y} \\[2mm]
+	&= \left[
+		2xy + \frac{1}{3}y^2
+	\right]_{1}^{2} \\[2mm]
+	&= 4x + \frac{4}{3} - 2x - \frac{1}{3} \\[2mm]
+	&= 2x + 1
+\end{aligned}
+$$
+
+Die Randdichtefunktion \(f_Y(y)\) entsprechend über den Integrationsbereich von \(x\):
+$$\begin{aligned}
+	f_Y(y) &= \int_{-0,5}^{0,5} f_{X,Y}(x,y) \dx{x} \\[2mm]
+	&= \int_{-0,5}^{0,5} 2x + \frac{2}{3}y \dx{x} \\[2mm]
+	&= \left[ x^2 + \frac{2}{3}yx \right]_{-0,5}^{0,5} \\[2mm]
+	&= \frac{2}{3}y
+\end{aligned}$$
+
+Wir erhalten somit $$
+f_X(x) = \begin{cases}
+	2x + 1 & x\in \interval{-0,5; 0,5} \\
+	0 & \text{sonst}
+\end{cases}$$
+und $$
+f_Y(y) = \begin{cases}
+	\frac{2}{3}y & y\in \interval{1, 2} \\
+	0 & \text{sonst}
+\end{cases}
+$$
+
+\textbf{Stochastische Unabhängigkeit}:\\
+
+Zwei Zufallsvariablen \(X\) und \(Y\) sind stochastisch unabhängig, wenn für alle \(x\) und \(y\) gilt, dass \(f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y)\).
+Wir überprüfen also, ob diese Bedingung erfüllt ist und wählen $x=\frac{1}{2}, y=1$ als Gegenbeispiel:
+$$
+	f_{X,Y}\left(\frac{1}{2}, 1\right) = 1 + \frac{2}{3} = \frac{5}{3} \neq \frac{4}{3} = 2\cdot \frac{2}{3} = f_X\left(\frac{1}{2}\right) \cdot f_Y(1)
+$$
+Die die Zufallsvariablen $X$ und $Y$ sind somit nicht stochastisch unabhängig.\\
+
+
+\textbf{Erwartungswert und Varianz von \(Y\)}\\
+Der Erwartungswert \(E(Y)\) ist das Integral von \(y \cdot f_Y(y)\) über den Bereich von \(y\).
+$$\begin{aligned}
+	E(Y) &= \int_{1}^{2} y\cdot f_Y(y) \dx{y} \\[2mm]
+	&=\int_{1}^{2} \frac{2}{3}\cdot y^2 \dx{y} \\[2mm]
+	&=\left[ \frac{2}{9} y^3 \right]_{1}^{2} \\[2mm]
+	&= \frac{14}{9} \\
+\end{aligned}$$
+
+Die Varianz \(\Var(Y)\) ist das Integral von \((y - E(Y))^2 \cdot f_Y(y)\) über den Bereich von \(y\).
+$$\begin{aligned}
+	\Var(Y) &= \int_{1}^{2} y^2\cdot f_Y(y) \dx{y} - \left(\frac{14}{9}\right)^2\\[2mm]
+	&= \int_{1}^{2} \frac{2}{3}\cdot y^3 \dx{y} - \frac{196}{81}\\[2mm]
+	&= \left[ \frac{1}{6}\cdot y^4 \right]_{1}^{2} - \frac{196}{81}\\[2mm]
+	&= \frac{15}{6} - \frac{196}{81}\\[2mm]
+	&= \frac{13}{162}
+\end{aligned}$$
 
 \end{document}

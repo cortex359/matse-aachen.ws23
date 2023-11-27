@@ -6,7 +6,7 @@
 Die störungsfreie Laufzeit $X$ (in Stunden) eines Computers in einem Betrieb besitze folgende Dichtefunktion:
 \begin{center}
 $f(x)=\begin{cases}
-		a \cdot e^{-a \cdot x}	& \text{für } x \geq 0 \text{ und } a = 0,02\\
+		a \cdot \e^{-a \cdot x}	& \text{für } x \geq 0 \text{ und } a = 0,02\\
 		0												& \text{für } x < 0
 \end{cases}$
 \end{center}
@@ -14,8 +14,8 @@ $f(x)=\begin{cases}
 \item Bestimmen Sie die Verteilungsfunktion.
 \item Berechnen Sie für $X$
 \begin{enumerate}
-\item den Erwartungswert 
-\item die Varianz 
+\item den Erwartungswert
+\item die Varianz
 \item den Median
 \end{enumerate}
 \item Wie groß ist die Wahrscheinlichkeit, dass eine Maschine
@@ -26,6 +26,85 @@ $f(x)=\begin{cases}
 \end{enumerate}
 \end{enumerate}
 
-\subsection{Lösung 1}
+\subsection{Lösung 1a}
+
+Die Verteilungsfunktion \(F(x)\) einer Exponentialverteilung ist das Integral der Dichtefunktion in den Grenzen von $\interval{-\infty, x}$.
+$$\begin{aligned}
+	\int_{-\infty}^{x} f(t) \dx{t} &= \overbrace{\int_{-\infty}^{0} f(t) \dx{t}}^{=0} + \int_{0}^{x} f(t) \dx{t} \\
+	&= \int_{0}^{x} a\cdot \e^{-a\cdot t} \dx{t} \\
+	&= \left[ -e^{-a\cdot t} \right]_{0}^{x} \\
+	&= -e^{-a\cdot x} -\e^0 \\
+	&= -e^{-a\cdot x} + 1 \\
+\end{aligned}$$
+
+Wir erhalten somit die Verteilungsfunktion $X\sim \text{Exp}(\lambda = a)$:
+$$
+	F(x) = \begin{cases}
+		1 - \e^{-a\cdot x} & \text{für}\quad x\geq 0 \land a=0,02 \\
+		0 & \text{für}\quad x < 0
+	\end{cases}
+$$
+
+\subsection{Lösung 1b}
+
+Der Erwartungswert der Zufallsvariablen $X$ ist
+$$\begin{aligned}
+	E(X) &= \int_{-\infty}^{\infty} x \cdot f(x) \dx{x} \\
+	&= \int_{0}^{\infty} x \cdot 0,02 \e^{-0,02x} \dx{x} \\
+	&= 50\ \text{Stunden.}
+\end{aligned}$$
+
+Um die Varianz zu bestimmen, bestimmen wir zunächst das zweite Moment von $X$, also $E(X^2)$, wobei $X^2$ als neue Zufallsvariable im Sinne von $X^2=g(X)$ verstanden werden kann.
+$$\begin{aligned}
+	E(X^2) &= \int_{-\infty}^{\infty} x^2 \cdot f(x) \dx{x} \\
+	&= \int_{0}^{\infty} x^2 \cdot 0,02 \e^{-0,02x} \dx{x} \\
+	&= 5.000
+\end{aligned}$$
+
+Die Varianz ist nun $\Var(X) = E(X^2)-E(X)^2 = 5.000 - 2.500 = 2.500$ Stunden$^2$.\\
+
+Um nun den Median zu bestimmen, suchen wir ein $\mu$ sodass gilt:
+$$
+	P(X\leq \mu - x) = P(X\geq \mu +x) \quad \forall x\in\mathbb{R}
+$$
+
+Der Median wird auch $Q_{0.5}$ oder 0,5-Quantil genannt und halbiert die Fläche unter der Dichtefunktion. Hier ist der Median $\frac{\ln(2)}{0,02}\approx 34,6574$ Stunden.\\
+
+Allgemein können wir bei einer Exponentailverteilung der Form $a\cdot \e^{-a\cdot x}$ also Erwartungswert, Varianz und Median direkt über die folgenden Formeln berechnen:
+\begin{itemize}
+\item Der Erwartungswert einer Exponentialverteilung ist $\frac{1}{a}$.
+\item Die Varianz einer Exponentialverteilung ist $\frac{1}{a^2}$.
+\item Der Median einer Exponentialverteilung ist $\frac{\ln(2)}{a}$.
+\end{itemize}
+
+\subsection{Lösung 1c}
+Somit lassen sich die obigen Fragen wie folgt beantworten:
+
+Die Wahrscheinlichkeit, dass ein Computer höchstens 30 Stunden ohne Störung läuft:
+$$\begin{aligned}
+	P(X\leq 30) &= F(30) \\
+	&= 1 - \e^{-0,02 \cdot 30} \\
+	&= 1 - \e^{-0,6} \\
+	&\approx 0,451188 = 45,1188 \%
+\end{aligned}$$
+
+Die Wahrscheinlichkeit, dass ein Computer mindestens 40, aber höchstens 80 Stunden läuft:
+$$\begin{aligned}
+	P(40\leq X\leq 80) &= F(80) - F(40)\\
+	&= 1 - \e^{-0,02 \cdot 80} - (1-\e^{-0,02 \cdot 40}) \\
+	&= \e^{-0,8} - \e^{-1,6} \\
+	&\approx 0,247432 = 24,7432 \%
+\end{aligned}$$
+
+Die Wahrscheinlichkeit, dass ein Computer mindestens 40 Stunden läuft, wenn er bereits 20 Stunden gelaufen ist:
+
+$$\begin{aligned}
+	P(X\geq 40 | X \geq 20) &= \frac{P(\set{X\geq 40}\cap \set{X\geq 20})}{P(X\geq 20)} \\[2mm]
+	&= \frac{P(X\geq 40)}{P(X\geq 20)} \\[2mm]
+	&= \frac{1-P(X<40)}{1-P(X<20)} \\[2mm]
+	&= \frac{1-F(40)}{1-F(20)} \\[2mm]
+	&\approx \frac{0,449329}{0,670320} \\[2mm]
+	&\approx 0,6703 = 67,03 \% \\[2mm]
+\end{aligned}$$
 
 \end{document}
