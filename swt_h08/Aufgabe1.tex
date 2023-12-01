@@ -1,0 +1,53 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{A1 User Stories: INVEST-Kriterien}
+
+Analysieren Sie die folgenden Anforderungen auf ihre Eignung als User Stories auf Grundlage der INVEST-Kriterien.
+\begin{enumerate}
+\item »Als Nutzer möchte ich mein Passwort zurücksetzen können.«
+\item »Als Vertriebsmitarbeiter möchte ich neue Marketingkampagnen anlegen können, damit ich gezielt die Kundenbindung intensivieren kann.«
+\item »Als Abonnent möchte ich auf der Einstellungsseite festlegen können, ob ich alle 5, 10, 15 oder 60 Minuten über die neuesten Meldungen benachrichtigt werde, damit ich die Benachrichtigungen nach meinen Bedürfnissen konfigurieren kann.«
+\item »Als Bewerber möchte ich meine persönlichen Daten löschen können, damit die Datenschutzgrundverordnung erfüllt wird.«
+\item »Als Administrator möchte ich das Authentifizierungsverfahren wechseln können, damit ich zukünftige Änderungen am Identitätsmanagement berücksichtigen kann.«
+\end{enumerate}
+
+\subsection{Lösung 1}
+
+Die INVEST-Kriterien sind Prinzipien, die sicherstellen sollen, dass User Stories im Agilen Software Development gut formuliert sind.
+INVEST steht für:
+
+\begin{itemize}
+    \item Independent (Unabhängig): Jede User Story sollte unabhängig sein. Dies bedeutet, dass sie unabhängig von anderen Stories entwickelt und implementiert werden kann, was die Planung und Priorisierung erleichtert.
+    \item Negotiable (Verhandelbar): Eine User Story ist keine starre Vertragsanforderung, sondern ein Ausgangspunkt für Diskussionen. Entwickler und Stakeholder sollten den Inhalt und die Anforderungen der Story verhandeln können.
+    \item Valuable (Wertvoll): Jede User Story sollte einen klaren Wert für den Kunden oder Benutzer liefern. Der Fokus sollte darauf liegen, dass der Endbenutzer von der Umsetzung der Story profitiert.
+    \item Estimable (Schätzbar): Eine User Story sollte so formuliert sein, dass das Entwicklungsteam in der Lage ist, den Aufwand für ihre Umsetzung zu schätzen. Eine unklare oder zu komplexe Story macht die Schätzung schwierig.
+    \item Small (Klein): User Stories sollten klein genug sein, um in einem Sprint oder in einer kurzen Zeitspanne umgesetzt werden zu können. Dies erleichtert die Planung und ermöglicht schnelle Feedbackzyklen.
+    \item Testable (Testbar): Jede User Story sollte testbare Kriterien enthalten, um festzustellen, ob die Story erfolgreich umgesetzt wurde. Ohne diese Kriterien ist es schwer zu beurteilen, ob die Anforderungen der Story erfüllt wurden.
+\end{itemize}
+
+\begin{enumerate}
+    \item \textit{»Als Nutzer möchte ich mein Passwort zurücksetzen können.«} \\
+    Diese User Story ist indipendent, valuable, estimable, small, und auch testable. Verhandelbar ist sie jedoch nur im Hinblick auf die Ausgestaltung. \\
+    $\rightarrow$ Dennoch ist es eine gut formulierte User Story.
+
+    \item \textit{»Als Vertriebsmitarbeiter möchte ich neue Marketingkampagnen anlegen können, damit ich gezielt die Kundenbindung intensivieren kann.«}\\
+    Es ist schwer zu testen, ob sich Kundenbindungen intensiviert haben und die Story gibt auch keine überprüfbaren Kriterien dafür her. Bei Marketingkampagnen ist es auch ziemlich ausgeschlossen, dass sie einen Mehrwert für die Menschheit bieten, auch wenn der Vertriebsmitarbeitende womöglich davon profitieren könnte.\\
+    $\rightarrow$ Diese Anforderung ist schlecht formuliert und ungeeignet als User Story.
+    
+    \item \textit{»Als Abonnent möchte ich auf der Einstellungsseite festlegen können, ob ich alle 5, 10, 15 oder 60 Minuten über die neuesten Meldungen benachrichtigt werde, damit ich die Benachrichtigungen nach meinen Bedürfnissen konfigurieren kann.«} \\
+    Diese User Story ist mglw. von einem Abo-System, Benachrichtigungssystem und einer Einstellungsseite abhängig. Dafür bietet sie jedoch Spielraum für Verhandlung, ist klein, testbar und der Aufwand kann in einem bestehenden System gut abgeschätzt werden. \\
+    $\rightarrow$ Als Feature für eine App, welche bereits über solche grundlegenden Systeme verfügt, ist die Anforderung als User Story geeignet.
+
+    
+    \item \textit{»Als Bewerber möchte ich meine persönlichen Daten löschen können, damit die Datenschutzgrundverordnung erfüllt wird.«}\\
+    Diese User Story ist fehlerhaft, da zur Erfüllung der DSGVO die Bewerbungen nach Beendigung des Bewerbungsverfahrens nicht vom Bewerber, sondern vom Arbeitgeber gelöscht werden müssen. Ein Mehrwert wäre unter dieser Voraussetzung also nicht gegeben; die anderen Kriterien sind erfüllt. \\
+    $\rightarrow$ Die User Story könnte die Kriterien erfüllen, sofern der Use Case real sein sollte.
+    
+    \item \textit{»Als Administrator möchte ich das Authentifizierungsverfahren wechseln können, damit ich zukünftige Änderungen am Identitätsmanagement berücksichtigen kann.«}\\
+    Diese User Story ist nicht klar genug formuliert und wohl kaum test- oder schätzbar. Ob Sie klein und unabhängig ist, lässt sich bei so ungenauer Formulierung kaum sagen, aber dafür lässt sie genug Freiraum zu verhandeln. \\
+    $\rightarrow$ Es liegt keine geeignete User Story vor.
+\end{enumerate}
+
+\end{document}

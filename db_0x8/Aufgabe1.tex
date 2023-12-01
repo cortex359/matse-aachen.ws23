@@ -1,0 +1,87 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Gegeben sind die folgenden Relationen $R=\set{A,B,C,D,E,\dots}$ mit jeweils einer Menge $\text{FD}$ von funktionalen Abhängigkeiten. 
+Bestimmen Sie jeweils die kanonische Überdeckung $\text{FD}$ und alle Schlüsselkandidaten:
+\begin{enumerate}
+\item $\text{FD}=\set{A\to BE, AE\to BD, F\to CD, CD\to BEF, CF\to B}$
+\item $\text{FD}=\set{AB\to CDE, BC\to EF, BEF\to A, D\to AC, F\to E}$
+\item $\text{FD}=\set{A\to CD, AB\to C, BC\to E, AB\to E}$
+\item $\text{FD}=\set{F\to ADF, A\to E, D\to EG, DE\to E, G\to E, BCF\to A, G\to A}$
+\item $\text{FD}=\set{C\to B, DE\to DEG, A\to G, F\to DE, A\to B, C\to G, B\to FB}$
+\item $\text{FD}=\set{AE\to BCD, A\to CD, ADE\to C}$
+\item $\text{FD}=\set{AE\to BCD, B\to E, ABD\to DE}$
+\item $\text{FD}=\set{ADE\to BE, B\to ACD, D\to AC, ACE\to BD, C\to B}$
+\end{enumerate}
+
+\subsection{Lösung 1}
+\textbf{Linksreduktion}
+
+Wir betrachten alle funktionale Abhängigkeiten mit mehr als einem Attribut auf der linken Seite: \\
+
+\begin{itemize}
+    \item $AE\to BD$
+    \begin{itemize}
+        \item $BD \not\in \text{AttrHülle}(\text{FD}, E) = \set{E}$
+        \item $BD \in \text{AttrHülle}(\text{FD}, A) = \set{A, B, D, E}$, somit ist $E$ überflüssig und wir erhalten
+        \item $\text{FD}_1=\set{A\to BE, A\to BD, F\to CD, CD\to BEF, CF\to B}$
+    \end{itemize}
+    \item $CD\to BEF$
+    \begin{itemize}
+        \item $BEF \not\in \text{AttrHülle}(\text{FD}_1, D) = \set{D}$
+        \item $BEF \not\in \text{AttrHülle}(\text{FD}_1, C) = \set{C}$
+    \end{itemize}
+    \item $CF\to B$
+    \begin{itemize}
+        \item $B \in \text{AttrHülle}(\text{FD}_1, F) = \set{C, D, B, E, F}$ somit ist $C$ überflüssig und wir erhalten
+        \item $\text{FD}_2=\set{A\to BE, A\to BD, F\to CD, CD\to BEF, F\to B}$
+    \end{itemize}
+\end{itemize}
+
+\textbf{Rechtsreduktion}
+\begin{itemize}
+    \item $A\to BE$
+    \begin{itemize}
+        \item $BE \in \text{AttrHülle}(\set{\cancel{A\to B}, A\to E, A\to BD, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, D, E}$ somit ist $B$ überflussig
+        \item $FD_3 = \set{A\to \emptyset, A\to E, A\to BD, F\to CD, CD\to BEF, F\to B}$
+        \item $BE \not\in \text{AttrHülle}(\set{A\to \emptyset, \cancel{A\to E}, A\to BD, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, D}$ 
+    \end{itemize}
+    \item $A\to BD$
+    \begin{itemize}
+        \item $BD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, \cancel{A\to B}, A\to D, F\to CD, CD\to BEF, F\to B}, A) = \set{A, D, E}$
+        \item $BD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, \cancel{A\to D}, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, E}$
+    \end{itemize}
+    \item $F\to CD$ 
+    \begin{itemize}
+        \item $CD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, \cancel{F\to C}, F\to D, CD\to BEF, F\to B}, F) = \set{B, D, F}$
+        \item $CD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, \cancel{F\to D}, CD\to BEF, F\to B}, F) = \set{B, C, F}$
+    \end{itemize}
+    \item $CD\to BEF$ 
+    \begin{itemize}
+        \item $BEF \in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, \cancel{CD\to B}, CD\to E, CD\to F, F\to B}, CD) = \set{B, C, D, E, F}$ also ist $B$ überflüssig
+        \item $\text{FD}_4 = \set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, CD\to F, F\to B}$
+        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, \cancel{CD\to E}, CD\to F, F\to B}, CD) = \set{B, C, D, F}$ 
+        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, \cancel{CD\to F}, F\to B}, CD) = \set{C, D, E}$ 
+    \end{itemize}
+    \item $F\to B$
+    \begin{itemize}
+        \item $B \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, CD\to F, \cancel{F\to B}}, F) = \set{C, D, E, F}$
+    \end{itemize}
+\end{itemize}
+
+\textbf{Entfernen von leeren Abhängigkeiten}
+\begin{itemize}
+    \item $\text{FD}_5= \set{A\to E, A\to B, A\to D, F\to C, F\to D, CD\to E, CD\to F, F\to B}$
+\end{itemize}
+
+\textbf{Vereinigen}
+\begin{itemize}
+    \item $\text{FD}_6 = \set{A\to BDE, CD\to EF, F\to BCD}$
+\end{itemize}
+
+Somit ist $\text{FD}^C = \text{FD}_6 = \set{A\to BDE, CD\to EF, F\to BCD}$.\\
+Die Schlüsselkandidaten sind $\set{AC, AF}$.
+
+\end{document}
