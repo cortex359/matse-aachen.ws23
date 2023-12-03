@@ -39,18 +39,94 @@ Sie wollen objektorientiert ein hybrides Application Framework entwickeln, mit d
 \subsection{Lösung 2}
 \begin{figure}[h]
     \makebox[\textwidth][c]{
-        \includegraphics[width=1.2\linewidth]{A2-a.pdf}
+        \includegraphics[width=1.05\linewidth]{A2-a.pdf}
     }
     \caption{Lösung der Aufgabe 2a}
     \label{fig:lgs2a}
 \end{figure}
 
-\begin{figure}[h]
+\pagebreak
+\begin{figure}[h!]
     \makebox[\textwidth][c]{
-        \includegraphics[width=0.4\linewidth]{A2-b.pdf}
+        \includegraphics[width=1.2\linewidth]{A2-b.pdf}
     }
     \caption{Lösung der Aufgabe 2b}
     \label{fig:lgs2b}
 \end{figure}
+
+\pagebreak
+\pagebreak
+\subsubsection{Lösung 2c}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{lila}{rgb}{0.14,0.15,0.3}
+\definecolor{blueish}{rgb}{0.15,0.47,0.72}
+
+\lstset{language=Java,
+    moredelim=[il][\textcolor{blueish}]{$$}
+}
+
+\begin{lstlisting}
+    // UI Package
+    package mobileapplication.ui;
+
+    public abstract class MobileForm {
+        protected List<MobileElement> elements;
+
+        protected MobileForm();
+
+        public abstract MobileElement addElement(String title);
+
+        public void render();
+    }
+
+    public abstract class MobileElement {
+        private final String title;
+
+        protected MobileElement(String title);
+
+        public String getTitle();
+
+        protected abstract void render();
+        protected abstract void register(MobileForm form);
+    }
+\end{lstlisting}
+
+\begin{lstlisting}
+    // Beispiel für eine ConcreteMobileForm
+    public class AndroidMobileForm extends MobileForm {
+        private String os = "Android";
+
+        $$@Override
+        protected MobileElement addElement(String title);
+    }
+
+    // Beispiel für ein ConcreteMobileElement
+    public class AndroidMobileElement extends MobileElement {
+        public AndroidMobileElement(String title);
+
+        $$@Override
+        protected void render();
+
+        $$@Override
+        protected void register(MobileForm form);
+    }
+\end{lstlisting}
+
+\begin{lstlisting}[language = Java]
+    // MobileApplication Package
+    package mobileapplication;
+
+    import mobileapplication.ui.MobileForm;
+
+    public class App {
+        private MobileForm form;
+
+        private String getOS();
+        private void initialize();
+        public void execute() {
+            initialize();
+        }
+    }
+\end{lstlisting}
 
 \end{document}
