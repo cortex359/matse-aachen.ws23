@@ -3,12 +3,22 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Die durchschnittliche Länge von Metallstiften soll geschätzt werden. Eine Stichprobe vom Umfang $36$ liefert eine mittlere Länge von $\overline{X} = 38,5 \ mm$. Aus früheren Untersuchungen sei bekannt, dass die Länge der Metallstifte normalverteilt ist und die produzierende Maschine mit einer Standardabweichung von $\sigma = 1,8 \ mm$ arbeitet.
+Die durchschnittliche Länge von Metallstiften soll geschätzt werden. Eine Stichprobe vom Umfang $36$ liefert eine mittlere Länge von $\overline{X} = 38,5$ mm. Aus früheren Untersuchungen sei bekannt, dass die Länge der Metallstifte normalverteilt ist und die produzierende Maschine mit einer Standardabweichung von $\sigma = 1,8$ mm arbeitet.
 \begin{enumerate}
 \item Geben Sie ein Konfidenzintervall zum Niveau $0,95$ für die erwartete Metallstiftlänge an.
 \item Welchen Umfang muss eine Stichprobe haben, damit das Konfidenzintervall zum Niveau $0,95$ für die mittlere Stiftlänge halb so breit ist, wie das unter a) berechnete?
 \end{enumerate}
 
 \subsection{Lösung 2}
+Sei $X=\set{\text{Länge der Metallstifte}} \sim \mathcal{N}(\mu;\ 1,8^2)$. Gesucht ist das Konfidenzintervall zum Niveau 0,95 bei bekannter Varianz und unbekanntem Mittelwert. Eine Stichprobe vom Umfang $n=36$ mit dem empierischen Mittelwert $\overline{X} = 38,5$ ist gegeben.
+\begin{equiveqs}[rrcl]
+&\overline{X} - u_{1-\sfrac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}} \leq &\mu &\leq \overline{X} + u_{1-\sfrac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}\\[4mm]
+\equiv &
+\overline{X} - u_{0,975}\cdot \frac{1,8}{6} \leq &\mu &\leq \overline{X} + u_{0,975}\cdot \frac{1,8}{6}\\[4mm]
+\equiv & 38,5 - 0,588 \leq &\mu &\leq 38,5 + 0,588\\[2mm]
+\equiv & 37,912 \leq &\mu &\leq 39,088\\
+\end{equiveqs}
+
+Damit das Konfidenzintervall zum Niveau 0,95 für die mittlere Stiftlänge halb so breit ist, muss $n\geq 144$ sein.
 
 \end{document}

@@ -18,4 +18,28 @@ auf, die als Ergebnisse unabhängiger normalverteilter Stichprobenvariablen ange
 
 \subsection{Lösung 3}
 
+Um eine Intervallschätzung für den Erwartungswert $\mu$ der Anzahl $X$ der Asbestfasern durchzuführen, berechnen wir zunächst den Mittelwert $\bar{x}$ und die Standardabweichung der Stichprobe.
+Der Mittelwert beträgt $\bar{x} \approx 1082,142857$ Fasern/m$^3$ und die Standardabweichung $s \approx 514,903704$ Fasern/m$^3$.
+
+Sodann bestimmen wir den kritischen $t$-Wert für das gegebene Konfidenzniveau von $1-\frac{\alpha}{2} = 0,975$ und $n-1 = 13$ Freiheitsgraden und wenden die Formel für das Konfidenzintervall an:
+$$
+   \bar{x} \pm t_{\text{kritisch}} \cdot \left( \frac{s}{\sqrt{n}} \right)
+$$
+
+Mit $t_{\text{kritisch}} \approx 2,1603687$ erhalten wir also ein Konfidenzintervall von $784,8463$ bis $1379,4394$ Fasern/m$^3$.
+
+Das bedeutet, dass mit einer Sicherheit von 95\% der wahre Mittelwert der Anzahl der Asbestfasern pro Kubikmeter Luft innerhalb dieses Intervalls liegt.
+
+Um herauszufinden, wie das Konfidenzintervall gewählt werden muss, damit die Länge des Schätzintervalls genau 500 beträgt, suchen wir den $t$-Wert, der diese Gleichung erfüllt:
+\begin{equiveqs}
+       & 2 \cdot t_{\text{benötigt}} \cdot \left( \frac{s}{\sqrt{n}} \right) &= 500 \\
+\equiv & t_{\text{benötigt}} &= 250 \cdot \frac{\sqrt{n}}{s} \\
+\equiv & t_{\text{benötigt}} &= 250 \cdot \frac{\sqrt{14}}{514,903704} \\[4mm]
+\equiv & t_{\text{benötigt}} &= 1,816678 \\
+\end{equiveqs}
+
+Dies entspricht einem benötigten Kofidenzintervall $\approx 9,23848\%$.
+
+Das bedeutet, dass, um ein Konfidenzintervall mit einer Länge von 500 zu erhalten, das Konfidenzniveau auf etwa 9,24\% gesetzt werden muss.
+
 \end{document}

@@ -3,23 +3,82 @@
 \begin{document}
 
 \section{Aufgabe 1}
-Die Zufallsvariablen $X_1, \cdots, X_n$ seien unabhängig und jeweils $\mathcal{N}(0; \theta)$-verteilt, dabei ist $\theta > 0$ unbekannt. Die Dichte von $X_1$ ist also gegeben durch 
-$$ 
-f(x, \theta) 
-= \frac{1}{\sqrt{2 \pi \theta}} \cdot \e^{-\frac{x^2}{2 \theta}}, 
-\quad x\in \mathbb{R}. 
+Die Zufallsvariablen $X_1, \cdots, X_n$ seien unabhängig und jeweils $\mathcal{N}(0; \theta)$-verteilt, dabei ist $\theta > 0$ unbekannt. Die Dichte von $X_1$ ist also gegeben durch
+$$
+f(x, \theta)
+= \frac{1}{\sqrt{2 \pi \theta}} \cdot \e^{-\frac{x^2}{2 \theta}},
+\quad x\in \mathbb{R}.
 $$
 \begin{enumerate}
 \item Bestimmen Sie den Maximum-Likelihood-Schätzer für den Parameter $\theta$.
-\item Welcher der beiden Schätzer 
+\item Welcher der beiden Schätzer
 \begin{enumerate}
-  	\item $\begin{aligned} S_n = \frac{1}{n} \cdot \sum \limits_{i=1}^{n} X_i^2 \end{aligned}$	
+  	\item $\begin{aligned} S_n = \frac{1}{n} \cdot \sum \limits_{i=1}^{n} X_i^2 \end{aligned}$
   	\item $\begin{aligned} T_n = \frac{1}{n-1} \cdot \sum \limits_{i=1}^{n} X_i^2 \end{aligned}$
 \end{enumerate}
  ist erwartungstreu, welcher ist asymptotisch erwartungstreu \\
  (d.h. Betrachtung des Grenzwert vom Erwartungswert der Schätzfunktion)?
 \end{enumerate}
 
-\subsection{Lösung 1}
+\subsection{Lösung 1a}
+Likelihoodfunktion zur Realisierung $(x_1, \ldots, x_n)$:
+$$
+	L(\mu{=}0, \sigma^2{=}\theta ; x_1, \ldots, x_n) = \frac{1}{\left(\sqrt{2\pi\theta}\right)^n} \exp\left( -\frac{1}{2\theta} \sum^n_{i=1}x_i^2 \right)
+$$
+Log-Likelihoodfunktion (logarithmierte Likelihoodfunktion):
+$$\begin{aligned}
+	l(\mu{=}0, \sigma^2{=}\theta ; x_1, \ldots, x_n) &= \ln L(\mu{=}0, \sigma^2{=}\theta ; x_1, \ldots, x_n) \\
+	&= -\frac{n}{2} \ln(2\pi) - \frac{n}{2}\ln \theta - \frac{1}{2\theta} \sum^n_{i=1}x_i^2
+\end{aligned}$$
+Berechnung der ersten partiellen Ableitung:
+$$\begin{aligned}
+	\frac{\partial}{\partial \theta} l(0, \theta ; x_1, \ldots, x_n)
+	&= - \frac{n}{2\theta} + \frac{1}{2\theta^2} \sum^n_{i=1}x_i^2
+\end{aligned}$$
+
+Berechnung der Nullstellen:
+\begin{equiveqs}
+	& - \frac{n}{2\theta} + \frac{1}{2\theta^2} \sum^n_{i=1}x_i^2 &= 0 \\[5mm]
+\equiv & \frac{1}{n} \sum^n_{i=1}x_i^2 &= \theta  \\
+\end{equiveqs}
+
+Der Punkt $(0, \theta) = (0, \frac{1}{n} \sum^n_{i=1}x_i^2)$ ist eine Maximalstelle, da die zweite partielle Ableitung der Likelihoodfunktion $l''$ nach $\theta$
+$$\begin{aligned}
+	\frac{\partial^2}{\partial \theta \partial \theta} l(0, \theta ; x_1, \ldots, x_n)
+	&= \frac{n}{2\theta^2} - \frac{2}{2\theta^3} \sum^n_{i=1}x_i^2
+\end{aligned}$$
+
+für $\theta = \frac{1}{n} \sum^n_{i=1}x_i^2$
+\begin{equiveqs}[cl]
+ & \frac{n}{2\left(\frac{1}{n} \sum^n_{i=1}x_i^2\right)^2} - \frac{2}{2\left(\frac{1}{n} \sum^n_{i=1}x_i^2\right)^3} \cdot \sum^n_{i=1}x_i^2 \\[7mm]
+=& \frac{n}{2\frac{1}{n^2} \left(\sum^n_{i=1}x_i^2\right)^2} - \frac{2}{2\frac{1}{n^3}\left(\sum^n_{i=1}x_i^2\right)^2} \\[7mm]
+=& \frac{n^3}{2 \left(\sum^n_{i=1}x_i^2\right)^2} - \frac{2 n^3}{2\left(\sum^n_{i=1}x_i^2\right)^2} \\[7mm]
+=& \frac{n^3 - 2n^3}{2 \left(\sum^n_{i=1}x_i^2\right)^2} \\[7mm]
+=& \frac{-n^3}{2 \left(\sum^n_{i=1}x_i^2\right)^2} < 0 \quad \checkmark
+\end{equiveqs}
+ist.
+
+Die Maximum-Likelihood-Schätzung für den Parameter $\theta$ einer $\mathcal{N}(0; \theta)$-Verteilung lautet also
+$$
+\hat{\theta}_{\text{ML}} = \frac{1}{n} \sum^n_{i=1}x_i^2.
+$$
+
+\subsection{Lösung 1b}
+Ein Schätzer ist erwartungstreu, wenn $E(S_n) = \theta$.
+\begin{equiveqs}[cl]
+E(S_n) &= E\left(\frac{1}{n} \cdot \sum \limits_{i=1}^{n} X_i^2\right) \\
+&= \frac{1}{n} \cdot \sum \limits_{i=1}^{n} E\left( X_i^2 \right) \\
+&= \frac{1}{n} \cdot n \cdot E\left( X^2 \right) \\
+&= \theta \quad\checkmark
+\end{equiveqs}
+
+Da $E(T_n) = \frac{n}{n-1}\theta$ prüfen wir auf asymptotische Erwartungstreue:
+\begin{equiveqs}[cl]
+	\lim_{n\to\infty} E(T_n) &= \lim_{n\to\infty} \frac{n}{n-1} \theta \\
+	&= \lim_{n\to\infty} \frac{1}{1-\frac{1}{n}} \theta \\
+	&= \theta \quad \checkmark
+\end{equiveqs}
+
+
 
 \end{document}

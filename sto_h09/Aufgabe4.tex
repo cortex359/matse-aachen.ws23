@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Aufgabe 4}
-Bei der Anlieferung von Bauteilen mit einem Drehgewinde werden einige Teile zufällig ausgewählt und deren Gewindedurchmesser vermessen. Die Abweichung (in $\mu m$) von der untersten zulässigen Durchmessergrenze, das so genannte Spiel, werden wie folgt notiert:
+Bei der Anlieferung von Bauteilen mit einem Drehgewinde werden einige Teile zufällig ausgewählt und deren Gewindedurchmesser vermessen. Die Abweichung (in µm) von der untersten zulässigen Durchmessergrenze, das so genannte Spiel, werden wie folgt notiert:
 \begin{center}
 \begin{tabular}{cccccccccc}
 $1$ & $2$ & $3$ & $4$ & $4$ & $4$ & $6$ & $7$ & $9$ & $10$
@@ -12,10 +12,32 @@ $1$ & $2$ & $3$ & $4$ & $4$ & $4$ & $6$ & $7$ & $9$ & $10$
 Das Spiel eines Drehgewindes kann durch eine normalverteilte Zufallsgröße beschrieben werden.
 \begin{enumerate}
 \item Bestimmen Sie ein zweiseitiges Konfidenzintervall für die Varianz des Spiels zum $80\%$ Niveau.
-\item Bestimmen Sie ein einseitig nach oben begrenztes Konfidenzintervall für die Varianz des Spiels zum $95$\% 
+\item Bestimmen Sie ein einseitig nach oben begrenztes Konfidenzintervall für die Varianz des Spiels zum $95$\%
 Niveau.
 \end{enumerate}
 
 \subsection{Lösung 4}
+Sei das Spiel eines Drehgewindes normalverteilt.
+Wir berechnen zunächst die Stichprobenvarianz, die als Schätzer für die wahre Varianz $\mu$ der Grundgesamtheit dient.
+
+Der Mittelwert $\bar{x}$ der Messwerte beträgt $5$ µm².
+Die Stichprobenvarianz $s^2$ berechnet sich aus der Summe der quadrierten Abweichungen der Messwerte vom Mittelwert, geteilt durch $n-1$. Sie beträgt $s^2 = \frac{26}{3} \approx 8,67$ µm².\\
+
+Für das zweiseitige Konfidenzintervall (80\% Niveau) verwenden wir die Chi-Quadrat-Verteilung. Das Intervall wird durch die Formel
+$$
+\left[
+    \frac{(n-1)s^2}{\chi^2_{\frac{\alpha}{2},n-1}};\ \frac{(n-1)s^2}{\chi^2_{1-\frac{\alpha}{2},n-1}}
+\right]
+$$
+definiert, wobei $\alpha = 1 - 0,80 = 0,20$ und $n-1$ die Freiheitsgrade sind. Es liegt demnach zwischen $5,312028$ und $18,713298$ µm².\\
+
+Für das einseitige Konfidenzintervall (95\% Niveau), das nach oben begrenzt ist, nutzen wir ebenfalls die Chi-Quadrat-Verteilung. Das Intervall wird durch $$
+    \left[0;\ \frac{(n-1)s^2}{\chi^2_{\alpha,n-1}}\right]
+$$ definiert, wobei $\alpha = 1 - 0,95 = 0,05$. Es liegt demnach zwischen $0$ und $23,457850$ µm².\\
+
+Diese Intervalle geben den Bereich an, in dem wir mit einer bestimmten Wahrscheinlichkeit erwarten können, dass die wahre Varianz des Spiels liegt.\\
+% Das zweiseitige Intervall (80%) ist enger und bietet weniger Sicherheit, während das einseitige Intervall (95%) weiter ist, aber eine höhere Sicherheit bietet, dass die wahre Varianz nicht über dem oberen Wert liegt.
+
+\textit{Hinweis: Für die Berechnung der genauen Werte wurde Python und nicht die Tabelle verwendet, sodass es zu kleineren Abweichungen kommen kann.}
 
 \end{document}

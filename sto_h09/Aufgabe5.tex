@@ -12,5 +12,27 @@ Unter der Annahme, dass der Blutdruck normalverteilt ist, bestimmen Sie jeweils 
 \end{enumerate}
 
 \subsection{Lösung 5}
+Das arithmetisches Mittel is $\bar{X} = 128,2$ mmHg, die Standardabweichung $s \approx 10,809461$ mmHg,
+der $t$-Wert beträgt $t \approx - 1,3830287$ und das sich daraus ergebende, nach oben begrenze 90\%-Konfidenzintervall
+für $\mu$ ist $\mu \leq 123,4724597$.
+Das bedeutet, wir können mit einer Sicherheit von 90\% sagen, dass der wahre Erwartungswert des
+systolischen Blutdrucks maximal $123,47$ mmHg beträgt.\\
+
+Bei dem 90\%-Konfidenzintervall für die Standardabweichung $\sigma$ bestimmen wir die zwei Chi-Quadrat-Wert für $n-1$ Freiheitsgrade.
+Zum einen $\chi^2_{n-1;\ \alpha/2}$ für das $\alpha / 2$-Quantil, und $\chi^2_{n-1;\ 1-\alpha/2}$ für das obere $(1-\alpha /2)$-Quantil.
+
+Das Konfidenzintervall für $\sigma$ wird berechnet, indem die Wurzel aus der skalierten Stichprobenvarianz genommen wird, wobei die Skalierung durch die Chi-Quadrat-Werte bestimmt wird. Das Intervall ist dann
+$$
+	\left[
+		\sqrt{(n-1) \cdot \frac{s^2}{\chi^2_{n-1;\ \alpha/2}}};\
+		\sqrt{(n-1) \cdot \frac{s^2}{\chi^2_{n-1;\ 1-\alpha/2}}}
+	\right]
+$$
+
+also ungefähr
+$$
+7,8838478 \leq \sigma \leq 17,7836988.
+$$
+
 
 \end{document}
