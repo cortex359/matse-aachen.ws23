@@ -26,13 +26,13 @@ Die Stichprobenvarianz $s^2$ berechnet sich aus der Summe der quadrierten Abweic
 Für das zweiseitige Konfidenzintervall (80\% Niveau) verwenden wir die Chi-Quadrat-Verteilung. Das Intervall wird durch die Formel
 $$
 \left[
-    \frac{(n-1)s^2}{\chi^2_{\frac{\alpha}{2},n-1}};\ \frac{(n-1)s^2}{\chi^2_{1-\frac{\alpha}{2},n-1}}
+    \frac{(n-1)s^2}{\chi^2_{n-1; \frac{\alpha}{2}}};\ \frac{(n-1)s^2}{\chi^2_{n-1; 1-\frac{\alpha}{2}}}
 \right]
 $$
 definiert, wobei $\alpha = 1 - 0,80 = 0,20$ und $n-1$ die Freiheitsgrade sind. Es liegt demnach zwischen $5,312028$ und $18,713298$ µm².\\
 
 Für das einseitige Konfidenzintervall (95\% Niveau), das nach oben begrenzt ist, nutzen wir ebenfalls die Chi-Quadrat-Verteilung. Das Intervall wird durch $$
-    \left[0;\ \frac{(n-1)s^2}{\chi^2_{\alpha,n-1}}\right]
+    \left[0;\ \frac{(n-1)s^2}{\chi^2_{n-1; \alpha}}\right]
 $$ definiert, wobei $\alpha = 1 - 0,95 = 0,05$. Es liegt demnach zwischen $0$ und $23,457850$ µm².\\
 
 Diese Intervalle geben den Bereich an, in dem wir mit einer bestimmten Wahrscheinlichkeit erwarten können, dass die wahre Varianz des Spiels liegt.\\
