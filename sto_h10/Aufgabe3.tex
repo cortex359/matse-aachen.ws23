@@ -17,4 +17,22 @@ Ein Unternehmer vertritt die Meinung, dass ein von ihm eingeführtes Geschäftsm
 
 \subsection{Lösung 3}
 
+Seien $X_1, \dots, X_N$ unabhängig und $X_i = \set{\text{Monatsumsatz}} \sim \mathcal{N}(\mu, \sigma^2)$, sowie $\mu_0 = 2,45$~M€ pro Monat. Bei einer Stichprobe vom Umfang $n=8$ soll nun überprüft werden, ob $H_0: \mu \leq \mu_0$ (also nach Einführung des Geschäftsmodells keine Steigerung stattgefunden hat) oder $H_1: \mu > \mu_0$ (der Umsatz gestiegen ist).\\
+
+Ein geeigneter Test zur Überprüfung der Annahme ist der Einstichproben-t-Test mit der Nullhypothese $H_0: \mu \leq 2,45$.\\
+
+Wir berechnen den t-Wert mit der Formel $$
+	t = \sqrt{n}\cdot \frac{\overline{x}-\mu_0}{s}
+$$
+wobei wir den Durchschnitt $\overline{x} = 2,50625$~M€ und die Standardabweichung $s = 0,083141$ aus der Stichprobe berechnen können.\\
+
+Wir erhalten somit einen t-Wert von $$\begin{aligned}
+	t &= \sqrt{n}\cdot \frac{\overline{x}-\mu_0}{s} \\
+	&= \sqrt{8} \cdot \frac{2,50625-2,45}{0,083141} \\
+	&\approx 1,91360
+\end{aligned}$$
+welchen wir mit dem kritischen t-Wert für $\alpha=0,05$ bei $n - 1 =7$  Freiheitsgraden und erhalten aus der Tabelle $t_{\text{kritisch}} = 1,895$. 
+
+Da der berechnete t-Wert $t = 1,914$ größer als der kritische t-Wert $t_{\text{kritisch}} = 1,895$ ist, können wir die Nullhypothese $H_0: \mu \leq 2,45$ zum Signifikanzniveau $\alpha = 0,05$ ablehnen. Dies bedeutet, dass die Daten darauf hindeuten, dass das neue Geschäftsmodell den Durchschnittsumsatz tatsächlich erhöht hat.
+
 \end{document}

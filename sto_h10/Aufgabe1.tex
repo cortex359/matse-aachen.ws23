@@ -13,6 +13,31 @@ Entscheiden Sie, welches der folgenden Testverfahren zur Überprüfung der Aussa
 	\item[4)] der $t$-Test mit den Hypothesen $H_0: \mu = 8,5$ gegen $H_1: \mu \neq 8,5$
 \end{enumerate}
 
+\subsection{Hypothesentests}
+
+\textbf{Gauß-Test:}
+\begin{itemize}
+\item \textbf{Einsatzgebiet:} Wenn Sie eine Hypothese über den Mittelwert einer normalverteilten Grundgesamtheit testen möchten und die Varianz der Grundgesamtheit bekannt ist.
+\item \textbf{Typische Situationen:} Dieser Test wird oft in Qualitätssicherungsprozessen oder bei der Überprüfung von Herstellungsstandards eingesetzt, wo die Varianz aus historischen Daten bekannt ist.
+\item \textbf{Annahmen:} Die Stichprobenwerte müssen unabhängig und identisch verteilt sein, und die Grundgesamtheit muss normalverteilt sein.
+\end{itemize}
+
+\textbf{Einstichproben-t-Test:}
+\begin{itemize}
+\item \textbf{Einsatzgebiet:} Dieser Test wird angewendet, wenn Sie eine Hypothese über den Mittelwert einer normalverteilten Grundgesamtheit testen möchten, aber die Varianz der Grundgesamtheit ist nicht bekannt.
+\item \textbf{Typische Situationen:} Der Test ist nützlich in der Forschung und anderen Anwendungen, wo Daten aus einer normalverteilten Grundgesamtheit stammen, aber keine ausreichenden Informationen über die Varianz vorliegen.
+\item \textbf{Annahmen:} Die Stichproben müssen unabhängig und identisch verteilt sein, und die Grundgesamtheit muss normalverteilt sein. Der Test ist robust gegenüber Verletzungen der Normalverteilungsannahme, besonders bei größeren Stichproben.
+\end{itemize}
+\vspace{1cm}
+\textbf{Zweistichproben-t-Test:}
+\begin{itemize}
+\item \textbf{Einsatzgebiet:} Wenn Sie die Mittelwerte von zwei unabhängigen Stichproben vergleichen möchten, wobei angenommen wird, dass beide Stichproben aus normalverteilten Grundgesamtheiten mit unbekannten, aber gleichen Varianzen stammen.
+\item \textbf{Typische Situationen:} Dieser Test ist hilfreich, wenn Sie beispielsweise die Wirksamkeit zweier Medikamente oder die Unterschiede zwischen zwei verschiedenen Produktionsprozessen bewerten wollen.
+\item \textbf{Annahmen:} Beide Stichproben müssen unabhängig voneinander sein, die Daten in beiden Gruppen müssen normalverteilt sein, und die Varianzen der beiden Grundgesamtheiten werden als gleich angenommen.
+\end{itemize}
+
 \subsection{Lösung 1}
+
+Für das Szenario ist das Testverfahren 1 zu wählen, also einen Einstichproben-t-Test mit der Nullhypothese $H_0: \mu \leq 8,5$, da dies die vom Hersteller aufgestellte Behauptung ist, welche wir überprüfen wollen, wobei die Varianz unbekannt ist. 
 
 \end{document}

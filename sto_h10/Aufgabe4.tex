@@ -13,4 +13,39 @@ Ist der Unterschied der Mittelwerte signifikant bei einem Signifikanzniveau von 
 
 \subsection{Lösung 4}
 
+Stichprobe 1: $$
+n_1=11,\quad \mu_1 = 6,54,\quad s_1^2=1,68
+$$
+Stichprobe 2: $$
+n_2=16,\quad \mu_2 = 7,85,\quad s_2^2=2,04
+$$
+
+Unter der Annahme, dass die Leistungen der Schlüler:innen jeweils normalverteilt sind, eignet sich der Zweistichproben-t-Test um den Vergleich der Mittelwerte durchzuführen. Mit einem Signifikanzniveau von $\alpha = 0,05$ untersuchen wir, ob die Mittelwerte sich unterscheiden, also $$
+    H_0: \mu_1 = \mu_2 \qquad \text{gegen} \qquad H_1: \mu_1 \neq \mu_2.
+$$
+
+Wir bestimmen $$\begin{aligned}
+    T &= \sqrt{\frac{n_1\cdot n_2}{n_1+n_2}} \cdot \frac{\mu_1 - \mu_2}{s} \\
+    &= \sqrt{\frac{11\cdot 16}{11+16}} \cdot \frac{6,54 - 7,85}{s} \\
+\end{aligned}$$
+
+wobei sich das unbekannt $s$ durch $$\begin{aligned}
+    % @NOTE: Wichtige Formel, nochmal überprüfen
+    s &= \sqrt{\frac{1}{n_1+n_2 -2} \cdot \left((n_1 - 1) \cdot s^2_1 + (n_2 - 1) \cdot s^2_2\right)} \\[3mm]
+    &= \sqrt{\frac{1}{11 + 16 -2} \cdot \left(10\cdot 1,68 + 15\cdot 2,04\right)} \\[3mm]
+    &\approx 1,37695
+\end{aligned}$$
+ergibt. Somit erhalten wir die Teststatistik
+$$\begin{aligned}
+    T &= \sqrt{\frac{11\cdot 16}{11+16}} \cdot \frac{6,54 - 7,85}{1,37695} \\
+    &\approx -2,42900.
+\end{aligned}$$
+
+Der kritische t-Wert für ein zweiseitiges 95\%-Konfidenzintervall mit $n_1+n_2 - 2 = 25$ Freiheitsgraden und $p=1-\frac{\alpha}{2} = 0,975$ ist etwa $t_{\text{kritisch}} = 2,060$.\\
+
+Da der Absolutwert der Teststatistik $\abs{T} = 2,429 > t_{\text{kritisch}}$ ist, lehnen wir die Nullhypothese zu Gunsten von $H_1$ ab.\\
+
+Dies bedeutet, dass der Unterschied in den Mittelwerten der beiden Mannschaften statistisch signifikant, mit einem Signifikanzniveau von 5\% ist.
+
+
 \end{document}

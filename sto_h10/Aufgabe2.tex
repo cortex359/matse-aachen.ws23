@@ -5,13 +5,41 @@
 \section{Aufgabe 2}
 Das durchschnittliche Geburtsgewicht von Kindern von Nichtraucherinnen beträgt $3.500$ g. In einer Studie soll gezeigt werden, dass das Geburtsgewicht von Kindern, deren Mütter starke Raucherinnen sind, im Durchschnitt niedriger ist als $3.500$ g. Dazu wird das Geburtsgewicht von $n$ Kindern gemessen, deren Mütter während der Schwangerschaft täglich mehr als $20$ Zigaretten rauchten. Wir nehmen dabei an, dass die Geburtsgewichte als Realisierungen unabhängiger Zufallsvariablen mit gleicher Normalverteilung $\mathcal{N}(\mu; 350^2)$ modelliert werden können.
 \begin{enumerate}
-\item Formulieren Sie eine geeignete Hypothese und Alternative um die obige Behauptung "`statistisch nachzuweisen"'.
+\item Formulieren Sie eine geeignete Hypothese und Alternative, um die obige Behauptung "`statistisch nachzuweisen"'.
 \item Zu welchem Ergebnis kommt der Test bei einem Signifikanzniveau von $\alpha = 5\%$, wenn bei den $20$ Kindern ein durchschnittliches Geburtsgewicht von $\overline{x}_{20} = 3.200$ g gemessen wurde?
 \item Mit welcher Wahrscheinlichkeit wird mit der in b) ermittelten Entscheidungsregel eine Fehlentscheidung getroffen, wenn im Fall $n = 20$ das durchschnittliche Geburtsgewicht in Wirklichkeit $3.400$ g beträgt?
 \end{enumerate}
 
 \subsection{Lösung 2}
+Seien die Zufallsvariablen $X_1, \dots, X_n$ unabhängig und $X_i = \set{\text{Geburtsgewicht}}\sim \mathcal{N}(\mu, 350^2)$.\\
+
+\subsubsection{Lösung 2a}
+Die Studie untersucht die Hypothese, dass das durchschnittliche Geburtsgewicht von Kindern, deren Mütter während der Schwangerschaft mehr als 20 Zigaretten am Tag rauchen, kleiner als 3.500 g ist $H_0: \mu < 3.500$. Die Gegenhypothese dazu ist $H_1: \mu \geq 3.500$.
+
+\subsubsection{Lösung 2b}
+Da die Standardabweichung $\sigma = 350$ bekannt und $X\sim\mathcal{N}$ ist, können wir den Gauß-Test mit einem Signifikanzniveau von $\alpha = 0,05$ anwenden. 
+Bei $n=20$ Kindern und einem durchschnittlichen Geburtsgewicht von $\overline{X}_{20} = 3.200$~g. 
 
 
+Wir berechnen die Teststatistik $Z$ mit
+$$\begin{aligned}
+	Z &= \sqrt{n} \cdot \frac{\overline{X}_n - \mu_0}{\sigma} \\[2mm]
+    &= \sqrt{20} \cdot \frac{3.200 - 3.500}{350} \\[2mm]
+    & -\frac{12\sqrt{5}}{7} \\[2mm]
+    &\approx -3,833259
+\end{aligned}$$
+
+Wäre $Z > q_{1-\alpha}$ würden wir $H_0$ ablehnen, da jedoch 
+$$\begin{aligned}
+q_{1-\alpha} = q_{0,95} &= u_{0,95} \\
+&= 1,64  > Z \approx - 3,83
+\end{aligned}$$
+ist, können wir sagen, dass mit einer Sicherheit von 95\% die Hypothese $H_0$, also dass das Geburtsgewicht von Kindern geringer ist, deren Mütter starke Raucherinnen sind, richtig ist.
+
+\subsubsection{Lösung 2c}
+Gefragt ist nach der Warhscheinlichkeit für einen Fehler erster Art, nämlich wenn eine tatsächlich richtige Nullhypothese $H_0$ fälschlicherweise verworfen wird. Diese Wahrscheinlichkeit ist das Signifikanzniveau $\alpha$.
+
+Gesucht ist also das $\alpha$, bei dem $u_{1-\alpha} \leq Z = \sqrt{20}\cdot \frac{3.400 - 3.500}{350} \approx -1,27775$ ist. 
+Mit $u_{1-0,89973} = u_{0,10027} \approx -1,28$ würde die Hypothese $H_0$ also verworfen werden, somit beträgt die Wahrscheinlichkeit für eine Fehlentscheidung ungefähr 10,027\%. 
 
 \end{document}
