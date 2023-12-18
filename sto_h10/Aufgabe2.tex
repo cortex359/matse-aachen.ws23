@@ -14,32 +14,38 @@ Das durchschnittliche Geburtsgewicht von Kindern von Nichtraucherinnen beträgt 
 Seien die Zufallsvariablen $X_1, \dots, X_n$ unabhängig und $X_i = \set{\text{Geburtsgewicht}}\sim \mathcal{N}(\mu, 350^2)$.\\
 
 \subsubsection{Lösung 2a}
-Die Studie untersucht die Hypothese, dass das durchschnittliche Geburtsgewicht von Kindern, deren Mütter während der Schwangerschaft mehr als 20 Zigaretten am Tag rauchen, kleiner als 3.500 g ist $H_0: \mu < 3.500$. Die Gegenhypothese dazu ist $H_1: \mu \geq 3.500$.
+Die Studie untersucht, ob das durchschnittliche Geburtsgewicht von Kindern, deren Mütter während der Schwangerschaft mehr als 20 Zigaretten am Tag geraucht haben, kleiner als $3.500$~g ist. Als Nullhypothese können wir also $H_0: \mu \geq 3.500$~g wählen. Die Gegenhypothese dazu ist $H_1: \mu < 3.500$~g.
 
 \subsubsection{Lösung 2b}
-Da die Standardabweichung $\sigma = 350$ bekannt und $X\sim\mathcal{N}$ ist, können wir den Gauß-Test mit einem Signifikanzniveau von $\alpha = 0,05$ anwenden. 
+Da die Standardabweichung $\sigma = 350$~g bekannt und $X\sim\mathcal{N}$ ist, können wir den Gauß-Test mit einem Signifikanzniveau von $\alpha = 0,05$ anwenden. 
 Bei $n=20$ Kindern und einem durchschnittlichen Geburtsgewicht von $\overline{X}_{20} = 3.200$~g. 
-
 
 Wir berechnen die Teststatistik $Z$ mit
 $$\begin{aligned}
-	Z &= \sqrt{n} \cdot \frac{\overline{X}_n - \mu_0}{\sigma} \\[2mm]
+	Z &= \sqrt{n} \cdot \frac{\overline{X}_{20} - \mu_0}{\sigma} \\[2mm]
     &= \sqrt{20} \cdot \frac{3.200 - 3.500}{350} \\[2mm]
     & -\frac{12\sqrt{5}}{7} \\[2mm]
-    &\approx -3,833259
+    &\approx -3,833259.
 \end{aligned}$$
 
-Wäre $Z > q_{1-\alpha}$ würden wir $H_0$ ablehnen, da jedoch 
-$$\begin{aligned}
-q_{1-\alpha} = q_{0,95} &= u_{0,95} \\
-&= 1,64  > Z \approx - 3,83
-\end{aligned}$$
-ist, können wir sagen, dass mit einer Sicherheit von 95\% die Hypothese $H_0$, also dass das Geburtsgewicht von Kindern geringer ist, deren Mütter starke Raucherinnen sind, richtig ist.
+Die Entscheidungsregel lautet: Lehne $H_0$ ab, wenn $Z$ kleiner als das (kritische) $(1-\alpha)$-Quantil der Standardnormalverteilung ist.\\
+
+Das kritische Quantil für ein Signifikanzniveu von 5\% bei einem einseitigen Test beträgt nach Tabelle etwa $u_{0,05} = - u_{0,95} = - 1,64$.\\
+
+Da $Z = -3,8 < -1,64 = u_{0,05}$ ist, lehnen wir die die Nullhypothese ab. Das heißt, dass hinreichend sicher ist, dass das durchschnittliche Geburtsgewicht von Kindern, deren Mütter starke Raucherinnen sind, statistisch signifikant niedriger als 3.500 g ist.
 
 \subsubsection{Lösung 2c}
-Gefragt ist nach der Warhscheinlichkeit für einen Fehler erster Art, nämlich wenn eine tatsächlich richtige Nullhypothese $H_0$ fälschlicherweise verworfen wird. Diese Wahrscheinlichkeit ist das Signifikanzniveau $\alpha$.
+Gefragt ist nach der Wahrscheinlichkeit für einen Fehler zweiter Art (einem Typ-II-Fehler), nämlich der Wahrscheinlichkeit, eine tatsächlich falsche Nullhypothese $H_0$ nicht abzulehnen, wenn bei einer Stichprobe vom Umfang $n=20$ das durchschnittliche Geburtsgewicht $3.400$ g beträgt. 
 
-Gesucht ist also das $\alpha$, bei dem $u_{1-\alpha} \leq Z = \sqrt{20}\cdot \frac{3.400 - 3.500}{350} \approx -1,27775$ ist. 
-Mit $u_{1-0,89973} = u_{0,10027} \approx -1,28$ würde die Hypothese $H_0$ also verworfen werden, somit beträgt die Wahrscheinlichkeit für eine Fehlentscheidung ungefähr 10,027\%. 
+$$\begin{aligned}
+    \beta(\mu=3.400) &= 1 - g(3.400) \\
+    &= 1 - P_\mu \left( \sqrt{n} \cdot \frac{\overline{X}_n - \mu_0}{s_n} < t_{n-1; \alpha} \right) \\
+    &= 1 - \Phi \left(\sqrt{n}\cdot \frac{\mu_0 - \mu}{s_n} + u_{\alpha} \right) \\
+    &= 1 - \Phi \left(\sqrt{20}\cdot \frac{3.500-3.400}{350} -1,64 \right) \\
+    &= 1 - \Phi \left( -0,362247 \right) \\
+    &= \Phi \left( 0,362247 \right)\\
+    &\approx 0,64058 = 64,058\%
+\end{aligned}$$
+Das bedeutet, dass die Wahrscheinlichkeit, dass wir die Nullhypothese $H_0$ fälschlicherweise beibehalten, wenn das durchschnittliche Geburtsgewicht $3.400$~g beträgt, etwa 64\% ist.
 
 \end{document}
