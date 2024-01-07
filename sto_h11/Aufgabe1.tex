@@ -7,7 +7,7 @@ In einem landwirtschaftlichen Betrieb erhielten von $20$ Versuchsrindern $10$ Ri
 \begin{center}
 	\begin{tabular}{ccccccccccc}
 		Gruppe 1: & $7,2$ & $4,1$ & $5,5$ & $4,5$ & $5,7$ & $3,8$ & $4,6$ & $6,0$ & $5,2$ & $5,4$ \\
-		Gruppe 2: & $5,3$ & $4,4$ & $5,0$ & $3,5$ & $3,9$ & $4,9$ & $5,6$ & $2,5$ & $4,0$ & $3,6$ 
+		Gruppe 2: & $5,3$ & $4,4$ & $5,0$ & $3,5$ & $3,9$ & $4,9$ & $5,6$ & $2,5$ & $4,0$ & $3,6$
 	\end{tabular}
 \end{center}
 \begin{enumerate}
@@ -18,5 +18,52 @@ In einem landwirtschaftlichen Betrieb erhielten von $20$ Versuchsrindern $10$ Ri
 \end{enumerate}
 
 \subsection{Lösung 1}
+
+Sei $X =\set{\text{Gewichtszunahme in kg}} \sim \mathcal{N}$ und $\mu, \sigma^2$ unbekannt.
+Es soll zum Signifikanzniveau $\alpha = 0,1$ geprüft werden, ob
+$$
+H_0: \sigma_1^2 = \sigma_2^2 \qquad \text{gegen} \qquad H_1: \sigma_1^2 \neq \sigma_2^2
+$$
+Bestand hat.
+
+Wir bestimmen den empirischen Mittelwert $\overline{x}_A = \frac{52}{10} = 5,2$ kg von Gruppe 1 und $\overline{x}_B = \frac{42,7}{10} = 4,27$ kg von Gruppe 2, sowie die korrigierte empirische Varianz:
+$$\begin{aligned}
+	s^2 &= \frac{1}{n-1} \sum_{i=1}^n (x_i - \overline{x})^2 \\
+	&= \frac{1}{n-1} \left( \sum_{i=1}^n \left( x_i^2 \right) - n \cdot \overline{x}^2 \right) \\
+\end{aligned}$$
+
+Also für Gruppe 1:
+$$\begin{aligned}
+	s_A^2 &= \frac{1}{9} \left( 279,44 - 10 \cdot 27,04 \right) \\
+	&= 1,00\overline{4} \\
+\end{aligned}$$
+und für Gruppe 2:
+$$\begin{aligned}
+	s_B^2 &= \frac{1}{9} \left( 190,49 - 10 \cdot 18,2329 \right) \\
+	&= 0,906\overline{7} \\
+\end{aligned}$$
+
+Unter der Hypothese $H_0$ liegt eine F-Verteilung
+$$
+	\frac{s_A^2}{s_B^2} \underset{H_0}{\sim} F_{n-1,\ m-1}
+$$
+mit 9 Freiheitsgraden vor.
+
+Test:
+$$\begin{aligned}
+	\frac{s_A^2}{s_B^2} < F_{9;\ 9;\ \frac{\alpha}{2}}
+	\quad &\lor \quad
+	\frac{s_A^2}{s_B^2} > F_{9;\ 9;\ \left( 1 - \frac{\alpha}{2}\right)}\\
+%
+	1,107707 < F_{9;\ 9;\ 0,05}
+	\quad &\lor \quad
+	1,107707 > F_{9;\ 9;\ 0,95}\\
+\end{aligned}$$
+
+Da $F_{9;\ 9;\ 0,05} = 0,314575$ und $F_{9;\ 9;\ 0,95} = 3,17889$ (unteres/oberes 5\%-Quantil der $F_{9;9}$-Verteilung) also
+$$
+	0,314575 \leq 1,107707 \leq 3,17889
+$$
+ist, wird $H_0$ nicht abgelehnt.
 
 \end{document}

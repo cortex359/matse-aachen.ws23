@@ -49,7 +49,7 @@ plt.bar([10, 11.5, 13, 14], dichte, width=klassengroessen, edgecolor='black', al
 
 plt.title('Histogramm der Gewichte der Versuchstiere')
 plt.xlabel('Gewichtsklassen (kg)')
-plt.ylabel('Dichte')
+plt.ylabel('Dichte $h(x) = \\frac{n_i}{|A_i|}$')
 plt.xticks(klassen_grenzen)
 plt.grid(axis='y', alpha=0.75)
 
