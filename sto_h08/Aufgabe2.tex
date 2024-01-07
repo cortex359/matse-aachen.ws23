@@ -33,12 +33,13 @@ $13,24$ & $13,42$ & $12,23$ & $15,04$ & $11,34$ & $12,28$ & $13,42$ & $13,93$ & 
 \subsection{Lösung 2}
 
 \begin{center}
-\begin{tabular}{l|c|c|c}
-Klasse $A_j$  & Absolute Häufigkeit & relative H. $r_j$     & emp. Verteilungsf. $H_j$ \\\hline
-$[10,0;\  11,5)$  & 6                   & 0,200               & 0,200                    \\
-$[11,5;\  13,0)$  & 11                  & 0,367               & 0,567                    \\
-$[13,0;\  14,0)$  & 7                   & 0,233               & 0,800                    \\
-$[14,0;\  16,0)$  & 6                   & 0,200               & 1,000                    \\
+\begin{tabular}{l|c|c|c|c}
+Klasse & Absolute Häufigkeit & relative H.   & emp. Verteilungsf.       & Dichte\\
+$A_j$  & $n_j$               & $h_j$         & $H_j$                    & $\frac{n_j}{\abs{A_j}}$ \\\hline
+$[10,0;\  11,5)$  & 6                   & 0,200               & 0,200   &  $4$              \\
+$[11,5;\  13,0)$  & 11                  & 0,367               & 0,567   &  $7,\overline{3}$ \\
+$[13,0;\  14,0)$  & 7                   & 0,233               & 0,800   &  $7$              \\
+$[14,0;\  16,0)$  & 6                   & 0,200               & 1,000   &  $3$              \\
 \end{tabular}
 \end{center}
 
@@ -51,7 +52,7 @@ $[14,0;\  16,0)$  & 6                   & 0,200               & 1,000           
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=1\textwidth, page=2]{Gewichtsverteilung_Versuchstiere.pdf}
+        \includegraphics[width=1\textwidth]{A2-b2.pdf}
         \caption{Lösung der Aufgabe 2b) ii.}
     \end{center}
 \end{figure}
@@ -61,9 +62,9 @@ $[14,0;\  16,0)$  & 6                   & 0,200               & 1,000           
 \begin{enumerate}
     \item Das arithmetische Mittel der Gewichte beträgt $\overline{x}=\frac{77}{25} = 12,79$ kg.
     \item Der empirische Median der Gewichte ist $\tilde{x}\approx 12,72$ kg.
-    \item Die Modalklasse ist $A_4 = [14,0;\  16,0)$.
-    \item Das $90\%$-Quantil der Noten liegt bei $x_{0,9} = 15$ kg. Das bedeutet, dass 90\% der Noten unter diesem Wert liegen.
-    \item Das untere Quartil liegt bei $x_{0,25} \approx 11,7$ kg. Das bedeutet, dass 25\% der Noten unter oder gleich diesem Wert sind.
+    \item Die Modalklasse ist die Klasse mit der größten Häufigkeitsdichte, also die Klasse mit der höchsten Anzahl an Datenpunkten im Verhältnis zur Klassengröße. Hier ist das $A_2 = [11,5;\  13,0)$.
+    \item Das $90\%$-Quantil der Gewichte liegt bei $x_{0,9} = 15$ kg. Das bedeutet, dass 90\% der Gewichte unter diesem Wert liegen.
+    \item Das untere Quartil liegt bei $x_{0,25} \approx 11,7$ kg. Das bedeutet, dass 25\% der Gewichte unter oder gleich diesem Wert sind.
     \item Die empirische Varianz beträgt $s^2 = 2,1$ kg$^2$ und die empirische Standardabweichung $s \approx 1,45$.
 \end{enumerate}
 
@@ -71,6 +72,5 @@ Der Variationskoeffizienten $V$, drückt das Verhältnis der Standardabweichung 
 $$
     V = \frac{s}{\overline{x}} = 0,1134
 $$
-
 
 \end{document}
