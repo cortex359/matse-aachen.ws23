@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import numpy as np
+import math
 import scipy.stats as stats
 
 # Gegebene Daten
@@ -17,7 +18,8 @@ alpha = 0.10  # 1 - 90%
 # 1. Einseitiges Konfidenzintervall für μ
 # t-Wert für das 90%-Konfidenzniveau und n-1 Freiheitsgrade
 t_value = stats.t.ppf(1 - alpha, df=n-1)
-print(t_value)
+print(f"t-Wert: {t_value}")
+print(f"Einseitiges Konfidenzintervall für mu: {mean + t_value * std / math.sqrt(n)}")
 
 # Konfidenzintervall für μ
 ci_mu_lower = mean - t_value * std / np.sqrt(n)

@@ -12,11 +12,19 @@ Unter der Annahme, dass der Blutdruck normalverteilt ist, bestimmen Sie jeweils 
 \end{enumerate}
 
 \subsection{Lösung 5}
-Das arithmetisches Mittel is $\bar{X} = 128,2$ mmHg, die Standardabweichung $s \approx 10,809461$ mmHg,
-der $t$-Wert beträgt $t \approx - 1,3830287$ und das sich daraus ergebende, nach oben begrenze 90\%-Konfidenzintervall
-für $\mu$ ist $\mu \leq 123,4724597$.
-Das bedeutet, wir können mit einer Sicherheit von 90\% sagen, dass der wahre Erwartungswert des
-systolischen Blutdrucks maximal $123,47$ mmHg beträgt.\\
+
+Da die Standardabweichung der Grundgesamtheit nicht bekannt ist und die Stichprobengröße $n = 10$ relativ klein ist, verwenden wir das t-Verteilungsbasierte Konfidenzintervall. Die Formel für ein einseitiges Konfidenzintervall ist:
+
+$$
+	\mu \leq \overline{x} + t_{n-1,\ \alpha} \cdot \frac{s}{\sqrt{n}}
+$$
+
+
+Das arithmetisches Mittel der Stichprobe ist $\overline{x} = 128,2$ mmHg und die Standardabweichung der Stichprobe ist $s \approx 10,809$ mmHg.
+Der t-Wert aus der t-Verteilung für das Konfidenzniveau 90 \% und $n-1 = 9$ Freiheitsgraden ist $t_{9,\ 0,9} \approx 1,3830287$.
+
+Wir erhalten somit das einseitige Konfidenzintervall $\mu \leq 132,92754$.
+Das bedeutet, wir können mit einer Sicherheit von 90\% sagen, dass der wahre Erwartungswert des systolischen Blutdrucks maximal $132,93$ mmHg beträgt.\\
 
 Bei dem 90\%-Konfidenzintervall für die Standardabweichung $\sigma$ bestimmen wir die zwei Chi-Quadrat-Wert für $n-1$ Freiheitsgrade.
 Zum einen $\chi^2_{n-1;\ \alpha/2}$ für das $\alpha / 2$-Quantil, und $\chi^2_{n-1;\ 1-\alpha/2}$ für das obere $(1-\alpha /2)$-Quantil.
