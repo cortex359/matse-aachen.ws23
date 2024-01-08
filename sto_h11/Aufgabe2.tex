@@ -17,8 +17,8 @@ $$ H_0: \sigma^2 \leq 0,3 \quad \mbox{gegen} \quad H_1: \sigma^2 > 0,3 $$
 $$ H_0: \mu = 20 \quad \mbox{gegen} \quad H_1: \mu \neq 20 $$
 \end{enumerate}
 
-\subsection{Lösung 2a) Chi-Quadrat-Test}
-$\chi^2$-Test für $\sigma_0^2 = 0,3$ zum Signifikanzniveau $\alpha = 1\%$ bei einer Stichprobengröße von $n=9$.
+\subsection{Lösung 2a) Chi-Quadrat-Test für die Varianz}
+$\chi^2$-Test für $\sigma_0^2 = 0,3$ zum Signifikanzniveau $\alpha = 1\%$ bei einer Stichprobengröße von $n=9$.\\
 
 Bestimmung von $c$:
 $$\begin{aligned}
@@ -42,7 +42,7 @@ $$\begin{aligned}
 \end{aligned}
 $$
 
-Da es sich um einen einseitigen Test handelt, lehnen wir $H_0$ ab, wenn $\chi^2$ größer als das $(1-\frac{\alpha}{2})$-Quantil der Chi-Quadrat-Verteilung mit $n-1=8$ Freiheitsgraden ist.\\
+Da es sich um einen zweiseitigen Test handelt, lehnen wir $H_0$ ab, wenn $T$ größer als das $(1-\frac{\alpha}{2})$-Quantil der t-Verteilung mit $n-1=8$ Freiheitsgraden ist.\\
 
 Der kritische t-Wert für $1-\frac{\alpha}{2} = 0,995$ und 8 Freiheitsgraden ist $t_{\text{krit}} = 3,355$.\\
 
