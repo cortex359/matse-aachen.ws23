@@ -6,15 +6,51 @@
 Ein Taschenrechner liefert Zufallszahlen zwischen $0$ und $1$. Es wurden nacheinander $1.000$ dieser Zahlen erzeugt. Nach Einteilung des Intervalls $[0,1]$ in $10$ gleichgroße Teilintervalle wurde gezählt, wie viele der $1.000$ Zufallszahlen auf die einzelnen Klassen entfielen. Man erhielt folgende Tabelle:
 \begin{center}
 \begin{tabular}{|l|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|p{0.75cm}|} \hline
-Klasse & $[0,\newline0.1]$ & $(0,1; \newline 0,2]$ & $(0,2; \newline 0,3]$ 
-	& $(0,3; \newline 0,4]$ & $(0,4; \newline 0,5]$ & $(0,5; \newline 0,6]$ 
-	& $(0,6; \newline 0,7]$ & $(0,7; \newline 0,8]$ & $(0,8; \newline 0,9]$ 
+Klasse & $[0,\newline0.1]$ & $(0,1; \newline 0,2]$ & $(0,2; \newline 0,3]$
+	& $(0,3; \newline 0,4]$ & $(0,4; \newline 0,5]$ & $(0,5; \newline 0,6]$
+	& $(0,6; \newline 0,7]$ & $(0,7; \newline 0,8]$ & $(0,8; \newline 0,9]$
 	& $(0,9; \newline 1,0]$ \\ \hline
 Anzahl & $68$ & $116$ & $101$ & $107$ & $92$ & $100$ & $136$ & $101$ & $79$ & $100$ \\ \hline
 \end{tabular}
 \end{center}
 Mithilfe eines geeigneten Chi-Quadrat-Anpassungstests zum Niveau $\alpha=0,05$ überprüfe man, ob die Zufallszahlen $x_1,\dots,x_{1.000}$ als eine Folge von im Intervall $[0;1]$-gleichverteilten Zufallszahlen angesehen werden können.
 
-\subsection{Lösung 3}
+\subsection{Lösung 3 Chi-Quadrat-Anpassungstest}
+Der Chi-Quadrat-Anpassungstest vergleicht die beobachteten Häufigkeiten $O_i$ in den Klassen mit den erwarteten Häufigkeiten $E_i$ unter der Annahme, dass die Zahlen gleichverteilt sind.\\
+
+Bei einer Gleichverteilung im Intervall $[0;1]$ und 10 gleich großen Klassen, erwarten wir, dass jede Klasse etwa $\frac{1000}{10} = 100$ Zahlen enthält.\\
+
+Die Chi-Quadrat-Teststatistik $D$ wird wie folgt berechnet:
+$$
+   D = \sum_i \frac{(O_i - E_i)^2}{E_i}
+$$
+
+$$\begin{aligned}
+	D &= \frac{1}{100} \cdot \left(
+		(68 - 100)^2 +
+		(116 - 100)^2 +
+		(101 - 100)^2 +
+		(107 - 100)^2 +
+		(92 - 100)^2 \right. \\
+		&\quad + \left.
+		(100 - 100)^2 +
+		(136 - 100)^2 +
+		(101 - 100)^2 +
+		(79 - 100)^2 +
+		(100 - 100)^2 \right) \\
+	&= \frac{1}{100} \cdot \left(
+		2 +
+		7^2 +
+		8^2 +
+		16^2 +
+		21^2 +
+		32^2 +
+		36^2 \right)\\[2mm]
+	&= 31,32
+\end{aligned}$$
+
+Diesen Wert vergleichen wir mit dem 0,95-Quantil der Chi-Quadrat-Verteilung für $d-1=9$ Freiheitsgrade, wobei $d$ die Anzahl der Klassen ist.\\
+
+Da $D = 31,32 > 16,92 = \chi_{9;\ 0,95}$ lehnen wir die Nullhypothese ab.Dies deutet darauf hin, dass die Zufallszahlen nicht als gleichverteilt im Intervall $[0;1]$ angesehen werden können. Der p-Wert des Tests beträgt etwa 0,00026, was deutlich unter dem gewählten Signifikanzniveau von 0,05 liegt und somit das Ergebnis bestätigt.
 
 \end{document}

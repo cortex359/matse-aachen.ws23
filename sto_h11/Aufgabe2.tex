@@ -3,11 +3,11 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Ein Schraubenhersteller behauptet, dass seine Maschine Schrauben der Länge $20 mm$ und Varianz $0,3 mm^2$ produziert. Eine stochastisch unabhängig, identisch verteilte Stichprobe der Länge des Umfangs $n=9$ ergab:
-$$ 
-\overline{x} = 19,85mm
-\qquad \text{und} \qquad 
-s^2 = 0,42 mm^2 
+Ein Schraubenhersteller behauptet, dass seine Maschine Schrauben der Länge 20 mm und Varianz $0,3$ mm$^2$ produziert. Eine stochastisch unabhängig, identisch verteilte Stichprobe der Länge des Umfangs $n=9$ ergab:
+$$
+\overline{x} = 19,85 \text{mm}
+\qquad \text{und} \qquad
+s^2 = 0,42 \text{mm}^2
 $$
 Gehen Sie im Folgenden davon aus, dass die Schraubenlänge normalverteilt ist.
 \begin{enumerate}
@@ -17,6 +17,38 @@ $$ H_0: \sigma^2 \leq 0,3 \quad \mbox{gegen} \quad H_1: \sigma^2 > 0,3 $$
 $$ H_0: \mu = 20 \quad \mbox{gegen} \quad H_1: \mu \neq 20 $$
 \end{enumerate}
 
-\subsection{Lösung 2}
+\subsection{Lösung 2a) Chi-Quadrat-Test}
+$\chi^2$-Test für $\sigma_0^2 = 0,3$ zum Signifikanzniveau $\alpha = 1\%$ bei einer Stichprobengröße von $n=9$.
+
+Bestimmung von $c$:
+$$\begin{aligned}
+    c &= \frac{\sigma_0^2}{n-1} \cdot \chi^2_{n-1;\ 1-\alpha} \\
+    &= \frac{0,3}{8} \cdot \chi^2_{8;\ 0,99} \\
+    &= 0,0375 \cdot 20,09 \\
+    &= 0,753375
+\end{aligned}$$
+
+Da $s^2 = 0,42 < 0,75 = c$ wird $H_0$ zum 1\%-Niveau nicht abgelehnt. Es gibt also keine ausreichenden Beweise, um zu behaupten, dass die Varianz der Schraubenlängen größer als $0,3$ mm$^2$ ist.
+
+
+\subsection{Lösung 2b) t-Test}
+Da die Stichprobengröße mit $n = 9$ klein und die Varianz der Population nicht bekannt ist, aber angenommen wird, dass die Population normalverteilt ist, verwenden wir den Einstichproben-t-Test.\\
+
+Die Teststatistik ist:
+$$\begin{aligned}
+    T &= \sqrt{n} \cdot \frac{\overline{x}_n - \mu_0}{s_n} \\
+    &= \sqrt{9} \cdot \frac{19,85 - 20}{\sqrt{0,42}} \\
+    &\approx - 0,694365 \\
+\end{aligned}
+$$
+
+Da es sich um einen einseitigen Test handelt, lehnen wir $H_0$ ab, wenn $\chi^2$ größer als das $(1-\frac{\alpha}{2})$-Quantil der Chi-Quadrat-Verteilung mit $n-1=8$ Freiheitsgraden ist.\\
+
+Der kritische t-Wert für $1-\frac{\alpha}{2} = 0,995$ und 8 Freiheitsgraden ist $t_{\text{krit}} = 3,355$.\\
+
+Da $\abs{t} < t_{\text{krit}}$ ist, kann auch hier die Nullhypothese nicht abgelehnt werden.
+
+Es deutet also nichts darauf hin, dass der Mittelwert der Schraubenlängen signifikant von 20 mm abweicht.
+
 
 \end{document}
