@@ -12,6 +12,22 @@ $384$ zufällig ausgewählte Personen wurden nach ihrem Unfall in einer bestimmt
 \end{center}
 Testen Sie mit einem geeigneten Testverfahren zum Niveau $\alpha = 0,05$, ob in der Grundgesamtheit alle sechs Kategorien gleich wahrscheinlich sind.
 
-\subsection{Lösung 1}
+\subsection{Lösung 1 Chi-Quadrat-Anpassungstest}
+Der Chi-Quadrat-Anpassungstest vergleicht die beobachteten Häufigkeiten $O_i$ in den Klassen mit den erwarteten Häufigkeiten $E_i$ unter der Annahme, dass die Zahlen gleichverteilt sind.\\
+
+Bei einer Gleichverteilung der Urteile über die $d=6$ Kategorien, erwarten wir, dass jede Klasse etwa $E_i = \frac{n}{d} = \frac{384}{6} = 64$ Urteile enthält.\\
+
+Die Chi-Quadrat-Teststatistik $D$ wird wie folgt berechnet:
+$$\begin{aligned}
+	D &= \sum_{i=1}^{d} \frac{(O_i - E_i)^2}{E_i} \\
+	&= \sum_{i=1}^6 \frac{(O_i - 64)^2}{64} \\
+	&= \frac{1}{64} \left( 6^2 +3^2 + 8^2 + 3^2 + 7^2 + 5^2 \right)\\
+	&= 3
+\end{aligned}$$
+
+Diesen Wert vergleichen wir mit dem 0,95-Quantil der Chi-Quadrat-Verteilung für $d-1=5$ Freiheitsgrade.\\
+
+Da $D = 3 < 11,07 = \chi_{5;\ 0,95}$ können wir die Nullhypothese nicht ablehnen.
+
 
 \end{document}
