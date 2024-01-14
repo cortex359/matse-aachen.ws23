@@ -20,10 +20,12 @@ Von einer Zufallsvariablen $X$ wird vermutet, dass sie die nebenstehende Dichte 
 \end{center}
 \end{enumerate}
 
-\subsection{Lösung 2}
-Damit die Funktion $f$ eine Dichtefunktion sein kann, muss $\int_{-\infty}^{\infty} f(x) \dx{x} = 1$ sein. Dies ist der Fall für $a = 0,5$.
+\subsection{Lösung 2 Chi-Quadrat-Anpassungstest}
+Damit die Funktion $f$ eine Dichtefunktion sein kann, muss $\int_{-\infty}^{\infty} f(x) \dx{x} = 1$ sein, da die Gesamtwahrscheinlichkeit für alle möglichen Ergebnisse einer Zufallsvariablen immer 1 ist. Dies ist der Fall für $a = 0,5$.\\
 
-Bei einer Stichprobe vom Umfang $n = 50$ würde man unter Annahme der Dichte erwarten, dass Klasse $A_1$ im Intervall $[0; 1]$ und Klasse $A_3$ im Intervall $(2; 3]$ jeweils $E_{1,3} = 12,5$ Elemente, sowie Klasse $A_2$ im Intervall $(1; 2]$ $E_{2}=25$ Elemente enthält.  
+Bei einer Stichprobe vom Umfang $n = 50$ würde man unter Annahme der Dichte erwarten, dass Klasse $A_1$ im Intervall $[0; 1]$ und Klasse $A_3$ im Intervall $(2; 3]$ jeweils $E_{1,3} = 12,5$ Elemente, sowie Klasse $A_2$ im Intervall $(1; 2]$ $E_{2}=25$ Elemente enthält.\\
+
+Da $E_i \geq 5\ \forall\ i \in \set{1,2,3}$ sind die Bedingungen für die Anwendung des Chi-Quadrat-Tests erfüllt.\\
 
 Wir berechnen die Chi-Quadrat-Teststatistik $D$:
 $$\begin{aligned}
@@ -32,8 +34,8 @@ $$\begin{aligned}
 	&= 4,52
 \end{aligned}$$
 
-Diesen Wert vergleichen wir mit dem 0,95-Quantil der Chi-Quadrat-Verteilung für $d-1 = 2$ Freiheitsgrade $\chi_{2;\ 0,95} = 5,991$.\\
+Diesen Wert vergleichen wir mit dem 0,95-Quantil der Chi-Quadrat-Verteilung für $d-1 = 2$ Freiheitsgrade $\chi^2_{2;\ 0,95} = 5,991$.\\
 
-Da $D=4,52 < 5,991 = \chi_{2;\ 0,95}$ können wir die Nullhypothese nicht ablehnen.
+Da $D=4,52 < 5,991 = \chi^2_{2;\ 0,95}$ können wir die Nullhypothese nicht ablehnen. Die Vermutung, dass die Zufallsvariable $X$ die Dichte $f$ besitzt, lässt sich also anhand der Daten nicht auf dem 5\%-Signifikanzniveau widerlegen.
 
 \end{document}

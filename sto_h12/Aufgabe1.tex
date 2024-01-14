@@ -17,6 +17,8 @@ Der Chi-Quadrat-Anpassungstest vergleicht die beobachteten Häufigkeiten $O_i$ i
 
 Bei einer Gleichverteilung der Urteile über die $d=6$ Kategorien, erwarten wir, dass jede Klasse etwa $E_i = \frac{n}{d} = \frac{384}{6} = 64$ Urteile enthält.\\
 
+Damit die Ergebnisse dieses Tests zuverlässig sind, muss für mindestens 80\% der $i \in \set{1, \dots, d}$ gelten, dass $E_i \geq 5$ ist und für alle $i$, dass $E_i \geq 1$ ist. Da $E_i = 64$ sind beide Bedingungen für alle $i$ erfüllt.\\
+
 Die Chi-Quadrat-Teststatistik $D$ wird wie folgt berechnet:
 $$\begin{aligned}
 	D &= \sum_{i=1}^{d} \frac{(O_i - E_i)^2}{E_i} \\
@@ -27,7 +29,7 @@ $$\begin{aligned}
 
 Diesen Wert vergleichen wir mit dem 0,95-Quantil der Chi-Quadrat-Verteilung für $d-1=5$ Freiheitsgrade.\\
 
-Da $D = 3 < 11,07 = \chi_{5;\ 0,95}$ können wir die Nullhypothese nicht ablehnen.
+Da $D = 3 < 11,07 = \chi^2_{5;\ 0,95}$ gibt es keine ausreichenden Beweise, um die Nullhypothese abzulehnen.
 
 
 \end{document}
