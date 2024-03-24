@@ -1,6 +1,6 @@
 # Fragen und Aufgaben zu den SWT Lernzielen
 
-140 Karteikarten zur Prüfungsvorbereitung für die 69 klausurrelevanten Lernzielen aus den SWT Folien.
+139 Karteikarten zur Prüfungsvorbereitung für die 69 klausurrelevanten Lernzielen aus den SWT Folien.
 
 :warning: Fragen und Antworten wurden automatisiert mit GPT-4 generiert und können Fehlinformationen enthalten! :warning:
 
