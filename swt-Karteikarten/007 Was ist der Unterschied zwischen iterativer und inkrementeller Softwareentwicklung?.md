@@ -1,5 +1,8 @@
 # Was ist der Unterschied zwischen iterativer und inkrementeller Softwareentwicklung?
 
+![](imgs/Inkrementell-Iterativ.png)
+[Bildquelle](https://itsadeliverything.com/revisiting-the-iterative-incremental-mona-lisa)
+
 **Unterschiede zwischen iterativer und inkrementeller Softwareentwicklung**
 
 **Iterative Entwicklung** ist ein Prozess, bei dem die Software schrittweise verfeinert wird. In jedem Iterationsschritt wird das Produkt evaluiert und weiterentwickelt, um Fehler zu korrigieren, neue Anforderungen zu integrieren und die Benutzerfreundlichkeit zu verbessern. Der Schwerpunkt liegt auf der Wiederholung und Verfeinerung.

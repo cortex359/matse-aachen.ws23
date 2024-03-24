@@ -1,5 +1,8 @@
 # Was ist der Zusammenhang zwischen den Phasen der Verursachung und Entdeckung von Softwarefehlern?
 
+![](imgs/Verursachung-Entdeckung.png)
+Bildquelle: Prof. Dr. Philipp Rohde, Foliensatz 23WiSe-SWT-AC
+
 Der **Zusammenhang zwischen Verursachung und Entdeckung von Softwarefehlern** bezieht sich darauf, in welchen Phasen des Softwareentwicklungsprozesses Fehler eingeführt und identifiziert werden. Hierbei gilt generell:
 
 - **Verursachung**: Fehler können in jeder Phase der Softwareentwicklung verursacht werden, beginnend bei der Anforderungsanalyse über das Design und die Implementierung bis hin zu Wartung und Updates. Häufige Ursachen sind Missverständnisse, Spezifikationsfehler, Designfehler, Programmierfehler, sowie Integrations- und Deployment-Fehler.
