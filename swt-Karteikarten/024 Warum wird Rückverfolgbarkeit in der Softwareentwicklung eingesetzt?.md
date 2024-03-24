@@ -1,8 +1,9 @@
 # Warum wird Rückverfolgbarkeit in der Softwareentwicklung eingesetzt?
 
 Der Einsatz von Rückverfolgbarkeit in der Softwareentwicklung erfolgt aus mehreren Gründen:
-- **Qualitätssicherung**: Sie hilft sicherzustellen, dass alle Anforderungen umgesetzt und getestet wurden.
-- **Wartung und Änderungen**: Vereinfacht das Verständnis der Auswirkungen von Änderungen, wodurch Risiken bei der Wartung und Weiterentwicklung reduziert werden.
+- **Anforderungsüberdeckung (Requirements Coverage Analysis)** hilft sicherzustellen, dass alle Anforderungen umgesetzt wurden.
+- **Testüberdeckung (Test Coverage Analysis)** hilft sicherzustellen, dass alle Anforderungen getestet wurden.
+- **Auswirkungsanalyse (Impact Analysis)**: Vereinfacht das Verständnis der Auswirkungen von Änderungen, wodurch Risiken bei der Wartung und Weiterentwicklung reduziert werden.
 - **Projektmanagement**: Bietet Einblick in den Fortschritt und den Status von Anforderungen.
 - **Komplexitätsbewältigung**: Unterstützt das Management komplexer Systeme, indem Zusammenhänge und Abhängigkeiten klar dargestellt werden.
 - **Audit und Compliance**: Dokumentiert die Erfüllung von internen und externen Richtlinien und Normen.
