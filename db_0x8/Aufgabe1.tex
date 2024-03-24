@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Aufgabe 1}
-Gegeben sind die folgenden Relationen $R=\set{A,B,C,D,E,\dots}$ mit jeweils einer Menge $\text{FD}$ von funktionalen Abhängigkeiten. 
+Gegeben sind die folgenden Relationen $R=\set{A,B,C,D,E,\dots}$ mit jeweils einer Menge $\text{FD}$ von funktionalen Abhängigkeiten.
 Bestimmen Sie jeweils die kanonische Überdeckung $\text{FD}$ und alle Schlüsselkandidaten:
 \begin{enumerate}
 \item $\text{FD}=\set{A\to BE, AE\to BD, F\to CD, CD\to BEF, CF\to B}$
@@ -17,6 +17,15 @@ Bestimmen Sie jeweils die kanonische Überdeckung $\text{FD}$ und alle Schlüsse
 \end{enumerate}
 
 \subsection{Lösung 1}
+
+% https://normalizer.db.in.tum.de/index.py
+% ABCDEF
+% A -> BE
+% AE -> BD
+% F -> CD
+% CD -> BEF
+% CF -> B
+
 \textbf{Linksreduktion}
 
 Wir betrachten alle funktionale Abhängigkeiten mit mehr als einem Attribut auf der linken Seite: \\
@@ -46,24 +55,24 @@ Wir betrachten alle funktionale Abhängigkeiten mit mehr als einem Attribut auf 
     \begin{itemize}
         \item $BE \in \text{AttrHülle}(\set{\cancel{A\to B}, A\to E, A\to BD, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, D, E}$ somit ist $B$ überflussig
         \item $FD_3 = \set{A\to \emptyset, A\to E, A\to BD, F\to CD, CD\to BEF, F\to B}$
-        \item $BE \not\in \text{AttrHülle}(\set{A\to \emptyset, \cancel{A\to E}, A\to BD, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, D}$ 
+        \item $BE \not\in \text{AttrHülle}(\set{A\to \emptyset, \cancel{A\to E}, A\to BD, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, D}$
     \end{itemize}
     \item $A\to BD$
     \begin{itemize}
         \item $BD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, \cancel{A\to B}, A\to D, F\to CD, CD\to BEF, F\to B}, A) = \set{A, D, E}$
         \item $BD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, \cancel{A\to D}, F\to CD, CD\to BEF, F\to B}, A) = \set{A, B, E}$
     \end{itemize}
-    \item $F\to CD$ 
+    \item $F\to CD$
     \begin{itemize}
         \item $CD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, \cancel{F\to C}, F\to D, CD\to BEF, F\to B}, F) = \set{B, D, F}$
         \item $CD \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, \cancel{F\to D}, CD\to BEF, F\to B}, F) = \set{B, C, F}$
     \end{itemize}
-    \item $CD\to BEF$ 
+    \item $CD\to BEF$
     \begin{itemize}
         \item $BEF \in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, \cancel{CD\to B}, CD\to E, CD\to F, F\to B}, CD) = \set{B, C, D, E, F}$ also ist $B$ überflüssig
         \item $\text{FD}_4 = \set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, CD\to F, F\to B}$
-        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, \cancel{CD\to E}, CD\to F, F\to B}, CD) = \set{B, C, D, F}$ 
-        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, \cancel{CD\to F}, F\to B}, CD) = \set{C, D, E}$ 
+        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, \cancel{CD\to E}, CD\to F, F\to B}, CD) = \set{B, C, D, F}$
+        \item $BEF \not\in \text{AttrHülle}(\set{A\to \emptyset, A\to E, A\to B, A\to D, F\to C, F\to D, CD\to\emptyset, CD\to E, \cancel{CD\to F}, F\to B}, CD) = \set{C, D, E}$
     \end{itemize}
     \item $F\to B$
     \begin{itemize}
