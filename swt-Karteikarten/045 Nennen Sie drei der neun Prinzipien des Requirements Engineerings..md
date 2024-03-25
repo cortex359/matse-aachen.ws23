@@ -8,6 +8,8 @@
 
 3. **Einheitlichkeit und Widerspruchsfreiheit**: Anforderungen dürfen sich nicht widersprechen und sollten konsistent sein. Widersprüche innerhalb der Anforderungen können zu Fehlern in der Entwicklung führen und müssen frühzeitig identifiziert und gelöst werden.
 
+Siehe auch: [Prinzipien des agilen Requirements Engineerings](041%20Welche%20Prinzipien%20sind%20für%20das%20agile%20Requirements%20Engineering%20charakteristisch?.md)
+
 ---
 
 Lernziel 23 \[1/2\]: Drei der neun Prinzipien des Requirements Engineerings nennen und erläutern können

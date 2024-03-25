@@ -5,7 +5,7 @@
 - **Kunden/Auftraggeber**: Die Individuen oder Organisationen, die die Entwicklung der Software finanzieren oder in Auftrag geben. Sie setzen die Anforderungen und Prioritäten des Projekts.
 - **Projektmanager**: Verantwortlich für die Planung, Überwachung und Steuerung des Projektes. Sie stellen sicher, dass das Projekt im Zeitplan bleibt und das Budget eingehalten wird.
 - **Entwickler/Programmierer**: Die Personen, die den Code schreiben und die Software entwickeln. Sie sind für die technische Umsetzung der Anforderungen verantwortlich.
-- **Designers (UI/UX)**: Sie kümmern sich um das Design und die Benutzererfahrung, also wie die Software aussieht und wie Benutzer mit ihr interagieren.
+- **Designer (UI/UX)**: Sie kümmern sich um das Design und die Benutzererfahrung, also wie die Software aussieht und wie Benutzer mit ihr interagieren.
 - **Qualitätssicherung (QA)**: Zuständig für das Testen der Software, um Fehler zu identifizieren und sicherzustellen, dass die Anforderungen erfüllt werden.
 - **Produktmanager**: Verantwortlich für die Definition des Produktes und dessen Roadmap. Sie stellen sicher, dass das Produkt den Marktbedürfnissen entspricht.
 - **Marketing und Vertrieb**: Diese Gruppe ist verantwortlich für die Vermarktung der Software und deren Verkauf. Sie müssen die Funktionen und Vorteile der Software verstehen, um sie erfolgreich zu verkaufen.
